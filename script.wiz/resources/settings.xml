@@ -1,0 +1,2679 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings version="1">
+    <section id="script.wiz">
+        <category id="c_wizs" label="32001" help="">
+            <group id="g_scan" label="32002">
+                <setting id="scan" type="action" label="32002" help="32003">
+                    <level>0</level>
+                    <data>RunScript($ID,scan)</data>
+                    <control type="button" format="action">
+                        <close>true</close>
+                    </control>
+                </setting>
+            </group>
+            <group id="g_wiz_0" label="32101">
+                <setting id="wiz_0_ipaddress" type="string" label="32011" help="32012">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32011</heading>
+                    </control>
+                    <enable>false</enable>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="wiz_0_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_0_mac" type="string" label="32013" help="32014">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32013</heading>
+                    </control>
+                    <visible>false</visible>
+                </setting>
+                <setting id="wiz_0_name" type="string" label="32025" help="32026">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32012</heading>
+                    </control>
+                    <enable>true</enable>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="wiz_0_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_0_enable" type="boolean" label="32015" help="32016">
+                    <level>0</level>
+                    <default>false</default>
+                    <control type="toggle" />
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_0_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_0_type" type="string" label="32023" help="32024">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32011</heading>
+                    </control>
+                    <enable>false</enable>
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_0_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_0_icon" type="string" label="32017" help="32018">
+                    <level>0</level>
+                    <default>bulb</default>
+                    <constraints>
+                        <options>
+                            <option label="32201">bulb</option>
+                            <option label="32202">lamp</option>
+                            <option label="32203">spot</option>
+                            <option label="32204">livingroom</option>
+                            <option label="32205">bedroom</option>
+                            <option label="32206">kitchen</option>
+                            <option label="32207">hall</option>
+                            <option label="32208">bathroom</option>
+                            <option label="32209">globe</option>
+                            <option label="32210">candle</option>
+                            <option label="32211">socket</option>
+                            <option label="32212">tv</option>
+                            <option label="32213">radio</option>
+                            <option label="32214">coffee</option>
+                            <option label="32215">cooker</option>
+                            <option label="32216">computer</option>
+                            <option label="32217">printer</option>
+                            <option label="32218">server</option>
+                        </options>
+                    </constraints>
+                    <control type="spinner" format="string" />
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_0_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_0_preselect" type="boolean" label="32019" help="32020">
+                    <default>false</default>
+                    <control type="toggle" />
+                    <visible>false</visible>
+                </setting>
+                <setting id="wiz_0_order" type="integer" label="32021" help="32022">
+                    <level>0</level>
+                    <default>1</default>
+                    <constraints>
+                        <minimum>1</minimum>
+                        <step>1</step>
+                        <maximum>20</maximum>
+                    </constraints>
+                    <control type="slider" format="integer">
+                        <popup>false</popup>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_0_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+            </group>
+            <group id="g_wiz_1" label="32102">
+                <setting id="wiz_1_ipaddress" type="string" label="32011" help="32012">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32011</heading>
+                    </control>
+                    <enable>false</enable>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="wiz_1_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_1_mac" type="string" label="32013" help="32014">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32013</heading>
+                    </control>
+                    <visible>false</visible>
+                </setting>
+                <setting id="wiz_1_name" type="string" label="32025" help="32026">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32012</heading>
+                    </control>
+                    <enable>true</enable>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="wiz_1_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_1_enable" type="boolean" label="32015" help="32016">
+                    <level>0</level>
+                    <default>false</default>
+                    <control type="toggle" />
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_1_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_1_type" type="string" label="32023" help="32024">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32011</heading>
+                    </control>
+                    <enable>false</enable>
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_1_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_1_icon" type="string" label="32017" help="32018">
+                    <level>0</level>
+                    <default>bulb</default>
+                    <constraints>
+                        <options>
+                            <option label="32201">bulb</option>
+                            <option label="32202">lamp</option>
+                            <option label="32203">spot</option>
+                            <option label="32204">livingroom</option>
+                            <option label="32205">bedroom</option>
+                            <option label="32206">kitchen</option>
+                            <option label="32207">hall</option>
+                            <option label="32208">bathroom</option>
+                            <option label="32209">globe</option>
+                            <option label="32210">candle</option>
+                            <option label="32211">socket</option>
+                            <option label="32212">tv</option>
+                            <option label="32213">radio</option>
+                            <option label="32214">coffee</option>
+                            <option label="32215">cooker</option>
+                            <option label="32216">computer</option>
+                            <option label="32217">printer</option>
+                            <option label="32218">server</option>
+                        </options>
+                    </constraints>
+                    <control type="spinner" format="string" />
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_1_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_1_preselect" type="boolean" label="32019" help="32020">
+                    <default>false</default>
+                    <control type="toggle" />
+                    <visible>false</visible>
+                </setting>
+                <setting id="wiz_1_order" type="integer" label="32021" help="32022">
+                    <level>0</level>
+                    <default>1</default>
+                    <constraints>
+                        <minimum>1</minimum>
+                        <step>1</step>
+                        <maximum>20</maximum>
+                    </constraints>
+                    <control type="slider" format="integer">
+                        <popup>false</popup>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_1_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+            </group>
+            <group id="g_wiz_2" label="32103">
+                <setting id="wiz_2_ipaddress" type="string" label="32011" help="32012">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32011</heading>
+                    </control>
+                    <enable>false</enable>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="wiz_2_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_2_mac" type="string" label="32013" help="32014">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32013</heading>
+                    </control>
+                    <visible>false</visible>
+                </setting>
+                <setting id="wiz_2_name" type="string" label="32025" help="32026">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32012</heading>
+                    </control>
+                    <enable>true</enable>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="wiz_2_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_2_enable" type="boolean" label="32015" help="32016">
+                    <level>0</level>
+                    <default>false</default>
+                    <control type="toggle" />
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_2_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_2_type" type="string" label="32023" help="32024">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32011</heading>
+                    </control>
+                    <enable>false</enable>
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_2_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_2_icon" type="string" label="32017" help="32018">
+                    <level>0</level>
+                    <default>bulb</default>
+                    <constraints>
+                        <options>
+                            <option label="32201">bulb</option>
+                            <option label="32202">lamp</option>
+                            <option label="32203">spot</option>
+                            <option label="32204">livingroom</option>
+                            <option label="32205">bedroom</option>
+                            <option label="32206">kitchen</option>
+                            <option label="32207">hall</option>
+                            <option label="32208">bathroom</option>
+                            <option label="32209">globe</option>
+                            <option label="32210">candle</option>
+                            <option label="32211">socket</option>
+                            <option label="32212">tv</option>
+                            <option label="32213">radio</option>
+                            <option label="32214">coffee</option>
+                            <option label="32215">cooker</option>
+                            <option label="32216">computer</option>
+                            <option label="32217">printer</option>
+                            <option label="32218">server</option>
+                        </options>
+                    </constraints>
+                    <control type="spinner" format="string" />
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_2_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_2_preselect" type="boolean" label="32019" help="32020">
+                    <default>false</default>
+                    <control type="toggle" />
+                    <visible>false</visible>
+                </setting>
+                <setting id="wiz_2_order" type="integer" label="32021" help="32022">
+                    <level>0</level>
+                    <default>1</default>
+                    <constraints>
+                        <minimum>1</minimum>
+                        <step>1</step>
+                        <maximum>20</maximum>
+                    </constraints>
+                    <control type="slider" format="integer">
+                        <popup>false</popup>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_2_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+            </group>
+            <group id="g_wiz_3" label="32104">
+                <setting id="wiz_3_ipaddress" type="string" label="32011" help="32012">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32011</heading>
+                    </control>
+                    <enable>false</enable>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="wiz_3_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_3_mac" type="string" label="32013" help="32014">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32013</heading>
+                    </control>
+                    <visible>false</visible>
+                </setting>
+                <setting id="wiz_3_name" type="string" label="32025" help="32026">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32012</heading>
+                    </control>
+                    <enable>true</enable>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="wiz_3_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_3_enable" type="boolean" label="32015" help="32016">
+                    <level>0</level>
+                    <default>false</default>
+                    <control type="toggle" />
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_3_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_3_type" type="string" label="32023" help="32024">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32011</heading>
+                    </control>
+                    <enable>false</enable>
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_3_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_3_icon" type="string" label="32017" help="32018">
+                    <level>0</level>
+                    <default>bulb</default>
+                    <constraints>
+                        <options>
+                            <option label="32201">bulb</option>
+                            <option label="32202">lamp</option>
+                            <option label="32203">spot</option>
+                            <option label="32204">livingroom</option>
+                            <option label="32205">bedroom</option>
+                            <option label="32206">kitchen</option>
+                            <option label="32207">hall</option>
+                            <option label="32208">bathroom</option>
+                            <option label="32209">globe</option>
+                            <option label="32210">candle</option>
+                            <option label="32211">socket</option>
+                            <option label="32212">tv</option>
+                            <option label="32213">radio</option>
+                            <option label="32214">coffee</option>
+                            <option label="32215">cooker</option>
+                            <option label="32216">computer</option>
+                            <option label="32217">printer</option>
+                            <option label="32218">server</option>
+                        </options>
+                    </constraints>
+                    <control type="spinner" format="string" />
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_3_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_3_preselect" type="boolean" label="32019" help="32020">
+                    <default>false</default>
+                    <control type="toggle" />
+                    <visible>false</visible>
+                </setting>
+                <setting id="wiz_3_order" type="integer" label="32021" help="32022">
+                    <level>0</level>
+                    <default>1</default>
+                    <constraints>
+                        <minimum>1</minimum>
+                        <step>1</step>
+                        <maximum>20</maximum>
+                    </constraints>
+                    <control type="slider" format="integer">
+                        <popup>false</popup>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_3_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+            </group>
+            <group id="g_wiz_4" label="32105">
+                <setting id="wiz_4_ipaddress" type="string" label="32011" help="32012">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32011</heading>
+                    </control>
+                    <enable>false</enable>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="wiz_4_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_4_mac" type="string" label="32013" help="32014">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32013</heading>
+                    </control>
+                    <visible>false</visible>
+                </setting>
+                <setting id="wiz_4_name" type="string" label="32025" help="32026">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32012</heading>
+                    </control>
+                    <enable>true</enable>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="wiz_4_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_4_enable" type="boolean" label="32015" help="32016">
+                    <level>0</level>
+                    <default>false</default>
+                    <control type="toggle" />
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_4_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_4_type" type="string" label="32023" help="32024">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32011</heading>
+                    </control>
+                    <enable>false</enable>
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_4_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_4_icon" type="string" label="32017" help="32018">
+                    <level>0</level>
+                    <default>bulb</default>
+                    <constraints>
+                        <options>
+                            <option label="32201">bulb</option>
+                            <option label="32202">lamp</option>
+                            <option label="32203">spot</option>
+                            <option label="32204">livingroom</option>
+                            <option label="32205">bedroom</option>
+                            <option label="32206">kitchen</option>
+                            <option label="32207">hall</option>
+                            <option label="32208">bathroom</option>
+                            <option label="32209">globe</option>
+                            <option label="32210">candle</option>
+                            <option label="32211">socket</option>
+                            <option label="32212">tv</option>
+                            <option label="32213">radio</option>
+                            <option label="32214">coffee</option>
+                            <option label="32215">cooker</option>
+                            <option label="32216">computer</option>
+                            <option label="32217">printer</option>
+                            <option label="32218">server</option>
+                        </options>
+                    </constraints>
+                    <control type="spinner" format="string" />
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_4_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_4_preselect" type="boolean" label="32019" help="32020">
+                    <default>false</default>
+                    <control type="toggle" />
+                    <visible>false</visible>
+                </setting>
+                <setting id="wiz_4_order" type="integer" label="32021" help="32022">
+                    <level>0</level>
+                    <default>1</default>
+                    <constraints>
+                        <minimum>1</minimum>
+                        <step>1</step>
+                        <maximum>20</maximum>
+                    </constraints>
+                    <control type="slider" format="integer">
+                        <popup>false</popup>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_4_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+            </group>
+            <group id="g_wiz_5" label="32106">
+                <setting id="wiz_5_ipaddress" type="string" label="32011" help="32012">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32011</heading>
+                    </control>
+                    <enable>false</enable>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="wiz_5_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_5_mac" type="string" label="32013" help="32014">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32013</heading>
+                    </control>
+                    <visible>false</visible>
+                </setting>
+                <setting id="wiz_5_name" type="string" label="32025" help="32026">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32012</heading>
+                    </control>
+                    <enable>true</enable>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="wiz_5_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_5_enable" type="boolean" label="32015" help="32016">
+                    <level>0</level>
+                    <default>false</default>
+                    <control type="toggle" />
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_5_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_5_type" type="string" label="32023" help="32024">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32011</heading>
+                    </control>
+                    <enable>false</enable>
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_5_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_5_icon" type="string" label="32017" help="32018">
+                    <level>0</level>
+                    <default>bulb</default>
+                    <constraints>
+                        <options>
+                            <option label="32201">bulb</option>
+                            <option label="32202">lamp</option>
+                            <option label="32203">spot</option>
+                            <option label="32204">livingroom</option>
+                            <option label="32205">bedroom</option>
+                            <option label="32206">kitchen</option>
+                            <option label="32207">hall</option>
+                            <option label="32208">bathroom</option>
+                            <option label="32209">globe</option>
+                            <option label="32210">candle</option>
+                            <option label="32211">socket</option>
+                            <option label="32212">tv</option>
+                            <option label="32213">radio</option>
+                            <option label="32214">coffee</option>
+                            <option label="32215">cooker</option>
+                            <option label="32216">computer</option>
+                            <option label="32217">printer</option>
+                            <option label="32218">server</option>
+                        </options>
+                    </constraints>
+                    <control type="spinner" format="string" />
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_5_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_5_preselect" type="boolean" label="32019" help="32020">
+                    <default>false</default>
+                    <control type="toggle" />
+                    <visible>false</visible>
+                </setting>
+                <setting id="wiz_5_order" type="integer" label="32021" help="32022">
+                    <level>0</level>
+                    <default>1</default>
+                    <constraints>
+                        <minimum>1</minimum>
+                        <step>1</step>
+                        <maximum>20</maximum>
+                    </constraints>
+                    <control type="slider" format="integer">
+                        <popup>false</popup>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_5_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+            </group>
+            <group id="g_wiz_6" label="32107">
+                <setting id="wiz_6_ipaddress" type="string" label="32011" help="32012">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32011</heading>
+                    </control>
+                    <enable>false</enable>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="wiz_6_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_6_mac" type="string" label="32013" help="32014">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32013</heading>
+                    </control>
+                    <visible>false</visible>
+                </setting>
+                <setting id="wiz_6_name" type="string" label="32025" help="32026">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32012</heading>
+                    </control>
+                    <enable>true</enable>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="wiz_6_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_6_enable" type="boolean" label="32015" help="32016">
+                    <level>0</level>
+                    <default>false</default>
+                    <control type="toggle" />
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_6_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_6_type" type="string" label="32023" help="32024">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32011</heading>
+                    </control>
+                    <enable>false</enable>
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_6_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_6_icon" type="string" label="32017" help="32018">
+                    <level>0</level>
+                    <default>bulb</default>
+                    <constraints>
+                        <options>
+                            <option label="32201">bulb</option>
+                            <option label="32202">lamp</option>
+                            <option label="32203">spot</option>
+                            <option label="32204">livingroom</option>
+                            <option label="32205">bedroom</option>
+                            <option label="32206">kitchen</option>
+                            <option label="32207">hall</option>
+                            <option label="32208">bathroom</option>
+                            <option label="32209">globe</option>
+                            <option label="32210">candle</option>
+                            <option label="32211">socket</option>
+                            <option label="32212">tv</option>
+                            <option label="32213">radio</option>
+                            <option label="32214">coffee</option>
+                            <option label="32215">cooker</option>
+                            <option label="32216">computer</option>
+                            <option label="32217">printer</option>
+                            <option label="32218">server</option>
+                        </options>
+                    </constraints>
+                    <control type="spinner" format="string" />
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_6_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_6_preselect" type="boolean" label="32019" help="32020">
+                    <default>false</default>
+                    <control type="toggle" />
+                    <visible>false</visible>
+                </setting>
+                <setting id="wiz_6_order" type="integer" label="32021" help="32022">
+                    <level>0</level>
+                    <default>1</default>
+                    <constraints>
+                        <minimum>1</minimum>
+                        <step>1</step>
+                        <maximum>20</maximum>
+                    </constraints>
+                    <control type="slider" format="integer">
+                        <popup>false</popup>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_6_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+            </group>
+            <group id="g_wiz_7" label="32108">
+                <setting id="wiz_7_ipaddress" type="string" label="32011" help="32012">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32011</heading>
+                    </control>
+                    <enable>false</enable>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="wiz_7_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_7_mac" type="string" label="32013" help="32014">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32013</heading>
+                    </control>
+                    <visible>false</visible>
+                </setting>
+                <setting id="wiz_7_name" type="string" label="32025" help="32026">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32012</heading>
+                    </control>
+                    <enable>true</enable>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="wiz_7_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_7_enable" type="boolean" label="32015" help="32016">
+                    <level>0</level>
+                    <default>false</default>
+                    <control type="toggle" />
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_7_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_7_type" type="string" label="32023" help="32024">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32011</heading>
+                    </control>
+                    <enable>false</enable>
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_7_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_7_icon" type="string" label="32017" help="32018">
+                    <level>0</level>
+                    <default>bulb</default>
+                    <constraints>
+                        <options>
+                            <option label="32201">bulb</option>
+                            <option label="32202">lamp</option>
+                            <option label="32203">spot</option>
+                            <option label="32204">livingroom</option>
+                            <option label="32205">bedroom</option>
+                            <option label="32206">kitchen</option>
+                            <option label="32207">hall</option>
+                            <option label="32208">bathroom</option>
+                            <option label="32209">globe</option>
+                            <option label="32210">candle</option>
+                            <option label="32211">socket</option>
+                            <option label="32212">tv</option>
+                            <option label="32213">radio</option>
+                            <option label="32214">coffee</option>
+                            <option label="32215">cooker</option>
+                            <option label="32216">computer</option>
+                            <option label="32217">printer</option>
+                            <option label="32218">server</option>
+                        </options>
+                    </constraints>
+                    <control type="spinner" format="string" />
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_7_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_7_preselect" type="boolean" label="32019" help="32020">
+                    <default>false</default>
+                    <control type="toggle" />
+                    <visible>false</visible>
+                </setting>
+                <setting id="wiz_7_order" type="integer" label="32021" help="32022">
+                    <level>0</level>
+                    <default>1</default>
+                    <constraints>
+                        <minimum>1</minimum>
+                        <step>1</step>
+                        <maximum>20</maximum>
+                    </constraints>
+                    <control type="slider" format="integer">
+                        <popup>false</popup>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_7_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+            </group>
+            <group id="g_wiz_8" label="32109">
+                <setting id="wiz_8_ipaddress" type="string" label="32011" help="32012">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32011</heading>
+                    </control>
+                    <enable>false</enable>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="wiz_8_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_8_mac" type="string" label="32013" help="32014">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32013</heading>
+                    </control>
+                    <visible>false</visible>
+                </setting>
+                <setting id="wiz_8_name" type="string" label="32025" help="32026">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32012</heading>
+                    </control>
+                    <enable>true</enable>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="wiz_8_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_8_enable" type="boolean" label="32015" help="32016">
+                    <level>0</level>
+                    <default>false</default>
+                    <control type="toggle" />
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_8_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_8_type" type="string" label="32023" help="32024">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32011</heading>
+                    </control>
+                    <enable>false</enable>
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_8_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_8_icon" type="string" label="32017" help="32018">
+                    <level>0</level>
+                    <default>bulb</default>
+                    <constraints>
+                        <options>
+                            <option label="32201">bulb</option>
+                            <option label="32202">lamp</option>
+                            <option label="32203">spot</option>
+                            <option label="32204">livingroom</option>
+                            <option label="32205">bedroom</option>
+                            <option label="32206">kitchen</option>
+                            <option label="32207">hall</option>
+                            <option label="32208">bathroom</option>
+                            <option label="32209">globe</option>
+                            <option label="32210">candle</option>
+                            <option label="32211">socket</option>
+                            <option label="32212">tv</option>
+                            <option label="32213">radio</option>
+                            <option label="32214">coffee</option>
+                            <option label="32215">cooker</option>
+                            <option label="32216">computer</option>
+                            <option label="32217">printer</option>
+                            <option label="32218">server</option>
+                        </options>
+                    </constraints>
+                    <control type="spinner" format="string" />
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_8_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_8_preselect" type="boolean" label="32019" help="32020">
+                    <default>false</default>
+                    <control type="toggle" />
+                    <visible>false</visible>
+                </setting>
+                <setting id="wiz_8_order" type="integer" label="32021" help="32022">
+                    <level>0</level>
+                    <default>1</default>
+                    <constraints>
+                        <minimum>1</minimum>
+                        <step>1</step>
+                        <maximum>20</maximum>
+                    </constraints>
+                    <control type="slider" format="integer">
+                        <popup>false</popup>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_8_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+            </group>
+            <group id="g_wiz_9" label="32110">
+                <setting id="wiz_9_ipaddress" type="string" label="32011" help="32012">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32011</heading>
+                    </control>
+                    <enable>false</enable>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="wiz_9_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_9_mac" type="string" label="32013" help="32014">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32013</heading>
+                    </control>
+                    <visible>false</visible>
+                </setting>
+                <setting id="wiz_9_name" type="string" label="32025" help="32026">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32012</heading>
+                    </control>
+                    <enable>true</enable>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="wiz_9_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_9_enable" type="boolean" label="32015" help="32016">
+                    <level>0</level>
+                    <default>false</default>
+                    <control type="toggle" />
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_9_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_9_type" type="string" label="32023" help="32024">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32011</heading>
+                    </control>
+                    <enable>false</enable>
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_9_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_9_icon" type="string" label="32017" help="32018">
+                    <level>0</level>
+                    <default>bulb</default>
+                    <constraints>
+                        <options>
+                            <option label="32201">bulb</option>
+                            <option label="32202">lamp</option>
+                            <option label="32203">spot</option>
+                            <option label="32204">livingroom</option>
+                            <option label="32205">bedroom</option>
+                            <option label="32206">kitchen</option>
+                            <option label="32207">hall</option>
+                            <option label="32208">bathroom</option>
+                            <option label="32209">globe</option>
+                            <option label="32210">candle</option>
+                            <option label="32211">socket</option>
+                            <option label="32212">tv</option>
+                            <option label="32213">radio</option>
+                            <option label="32214">coffee</option>
+                            <option label="32215">cooker</option>
+                            <option label="32216">computer</option>
+                            <option label="32217">printer</option>
+                            <option label="32218">server</option>
+                        </options>
+                    </constraints>
+                    <control type="spinner" format="string" />
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_9_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_9_preselect" type="boolean" label="32019" help="32020">
+                    <default>false</default>
+                    <control type="toggle" />
+                    <visible>false</visible>
+                </setting>
+                <setting id="wiz_9_order" type="integer" label="32021" help="32022">
+                    <level>0</level>
+                    <default>1</default>
+                    <constraints>
+                        <minimum>1</minimum>
+                        <step>1</step>
+                        <maximum>20</maximum>
+                    </constraints>
+                    <control type="slider" format="integer">
+                        <popup>false</popup>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_9_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+            </group>
+            <group id="g_wiz_10" label="32111">
+                <setting id="wiz_10_ipaddress" type="string" label="32011" help="32012">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32011</heading>
+                    </control>
+                    <enable>false</enable>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="wiz_10_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_10_mac" type="string" label="32013" help="32014">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32013</heading>
+                    </control>
+                    <visible>false</visible>
+                </setting>
+                <setting id="wiz_10_name" type="string" label="32025" help="32026">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32012</heading>
+                    </control>
+                    <enable>true</enable>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="wiz_10_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_10_enable" type="boolean" label="32015" help="32016">
+                    <level>0</level>
+                    <default>false</default>
+                    <control type="toggle" />
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_10_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_10_type" type="string" label="32023" help="32024">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32011</heading>
+                    </control>
+                    <enable>false</enable>
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_10_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_10_icon" type="string" label="32017" help="32018">
+                    <level>0</level>
+                    <default>bulb</default>
+                    <constraints>
+                        <options>
+                            <option label="32201">bulb</option>
+                            <option label="32202">lamp</option>
+                            <option label="32203">spot</option>
+                            <option label="32204">livingroom</option>
+                            <option label="32205">bedroom</option>
+                            <option label="32206">kitchen</option>
+                            <option label="32207">hall</option>
+                            <option label="32208">bathroom</option>
+                            <option label="32209">globe</option>
+                            <option label="32210">candle</option>
+                            <option label="32211">socket</option>
+                            <option label="32212">tv</option>
+                            <option label="32213">radio</option>
+                            <option label="32214">coffee</option>
+                            <option label="32215">cooker</option>
+                            <option label="32216">computer</option>
+                            <option label="32217">printer</option>
+                            <option label="32218">server</option>
+                        </options>
+                    </constraints>
+                    <control type="spinner" format="string" />
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_10_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_10_preselect" type="boolean" label="32019" help="32020">
+                    <default>false</default>
+                    <control type="toggle" />
+                    <visible>false</visible>
+                </setting>
+                <setting id="wiz_10_order" type="integer" label="32021" help="32022">
+                    <level>0</level>
+                    <default>1</default>
+                    <constraints>
+                        <minimum>1</minimum>
+                        <step>1</step>
+                        <maximum>20</maximum>
+                    </constraints>
+                    <control type="slider" format="integer">
+                        <popup>false</popup>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_10_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+            </group>
+            <group id="g_wiz_11" label="32112">
+                <setting id="wiz_11_ipaddress" type="string" label="32011" help="32012">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32011</heading>
+                    </control>
+                    <enable>false</enable>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="wiz_11_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_11_mac" type="string" label="32013" help="32014">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32013</heading>
+                    </control>
+                    <visible>false</visible>
+                </setting>
+                <setting id="wiz_11_name" type="string" label="32025" help="32026">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32012</heading>
+                    </control>
+                    <enable>true</enable>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="wiz_11_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_11_enable" type="boolean" label="32015" help="32016">
+                    <level>0</level>
+                    <default>false</default>
+                    <control type="toggle" />
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_11_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_11_type" type="string" label="32023" help="32024">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32011</heading>
+                    </control>
+                    <enable>false</enable>
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_11_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_11_icon" type="string" label="32017" help="32018">
+                    <level>0</level>
+                    <default>bulb</default>
+                    <constraints>
+                        <options>
+                            <option label="32201">bulb</option>
+                            <option label="32202">lamp</option>
+                            <option label="32203">spot</option>
+                            <option label="32204">livingroom</option>
+                            <option label="32205">bedroom</option>
+                            <option label="32206">kitchen</option>
+                            <option label="32207">hall</option>
+                            <option label="32208">bathroom</option>
+                            <option label="32209">globe</option>
+                            <option label="32210">candle</option>
+                            <option label="32211">socket</option>
+                            <option label="32212">tv</option>
+                            <option label="32213">radio</option>
+                            <option label="32214">coffee</option>
+                            <option label="32215">cooker</option>
+                            <option label="32216">computer</option>
+                            <option label="32217">printer</option>
+                            <option label="32218">server</option>
+                        </options>
+                    </constraints>
+                    <control type="spinner" format="string" />
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_11_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_11_preselect" type="boolean" label="32019" help="32020">
+                    <default>false</default>
+                    <control type="toggle" />
+                    <visible>false</visible>
+                </setting>
+                <setting id="wiz_11_order" type="integer" label="32021" help="32022">
+                    <level>0</level>
+                    <default>1</default>
+                    <constraints>
+                        <minimum>1</minimum>
+                        <step>1</step>
+                        <maximum>20</maximum>
+                    </constraints>
+                    <control type="slider" format="integer">
+                        <popup>false</popup>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_11_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+            </group>
+            <group id="g_wiz_12" label="32113">
+                <setting id="wiz_12_ipaddress" type="string" label="32011" help="32012">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32011</heading>
+                    </control>
+                    <enable>false</enable>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="wiz_12_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_12_mac" type="string" label="32013" help="32014">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32013</heading>
+                    </control>
+                    <visible>false</visible>
+                </setting>
+                <setting id="wiz_12_name" type="string" label="32025" help="32026">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32012</heading>
+                    </control>
+                    <enable>true</enable>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="wiz_12_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_12_enable" type="boolean" label="32015" help="32016">
+                    <level>0</level>
+                    <default>false</default>
+                    <control type="toggle" />
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_12_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_12_type" type="string" label="32023" help="32024">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32011</heading>
+                    </control>
+                    <enable>false</enable>
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_12_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_12_icon" type="string" label="32017" help="32018">
+                    <level>0</level>
+                    <default>bulb</default>
+                    <constraints>
+                        <options>
+                            <option label="32201">bulb</option>
+                            <option label="32202">lamp</option>
+                            <option label="32203">spot</option>
+                            <option label="32204">livingroom</option>
+                            <option label="32205">bedroom</option>
+                            <option label="32206">kitchen</option>
+                            <option label="32207">hall</option>
+                            <option label="32208">bathroom</option>
+                            <option label="32209">globe</option>
+                            <option label="32210">candle</option>
+                            <option label="32211">socket</option>
+                            <option label="32212">tv</option>
+                            <option label="32213">radio</option>
+                            <option label="32214">coffee</option>
+                            <option label="32215">cooker</option>
+                            <option label="32216">computer</option>
+                            <option label="32217">printer</option>
+                            <option label="32218">server</option>
+                        </options>
+                    </constraints>
+                    <control type="spinner" format="string" />
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_12_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_12_preselect" type="boolean" label="32019" help="32020">
+                    <default>false</default>
+                    <control type="toggle" />
+                    <visible>false</visible>
+                </setting>
+                <setting id="wiz_12_order" type="integer" label="32021" help="32022">
+                    <level>0</level>
+                    <default>1</default>
+                    <constraints>
+                        <minimum>1</minimum>
+                        <step>1</step>
+                        <maximum>20</maximum>
+                    </constraints>
+                    <control type="slider" format="integer">
+                        <popup>false</popup>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_12_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+            </group>
+            <group id="g_wiz_13" label="32114">
+                <setting id="wiz_13_ipaddress" type="string" label="32011" help="32012">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32011</heading>
+                    </control>
+                    <enable>false</enable>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="wiz_13_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_13_mac" type="string" label="32013" help="32014">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32013</heading>
+                    </control>
+                    <visible>false</visible>
+                </setting>
+                <setting id="wiz_13_name" type="string" label="32025" help="32026">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32012</heading>
+                    </control>
+                    <enable>true</enable>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="wiz_13_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_13_enable" type="boolean" label="32015" help="32016">
+                    <level>0</level>
+                    <default>false</default>
+                    <control type="toggle" />
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_13_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_13_type" type="string" label="32023" help="32024">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32011</heading>
+                    </control>
+                    <enable>false</enable>
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_13_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_13_icon" type="string" label="32017" help="32018">
+                    <level>0</level>
+                    <default>bulb</default>
+                    <constraints>
+                        <options>
+                            <option label="32201">bulb</option>
+                            <option label="32202">lamp</option>
+                            <option label="32203">spot</option>
+                            <option label="32204">livingroom</option>
+                            <option label="32205">bedroom</option>
+                            <option label="32206">kitchen</option>
+                            <option label="32207">hall</option>
+                            <option label="32208">bathroom</option>
+                            <option label="32209">globe</option>
+                            <option label="32210">candle</option>
+                            <option label="32211">socket</option>
+                            <option label="32212">tv</option>
+                            <option label="32213">radio</option>
+                            <option label="32214">coffee</option>
+                            <option label="32215">cooker</option>
+                            <option label="32216">computer</option>
+                            <option label="32217">printer</option>
+                            <option label="32218">server</option>
+                        </options>
+                    </constraints>
+                    <control type="spinner" format="string" />
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_13_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_13_preselect" type="boolean" label="32019" help="32020">
+                    <default>false</default>
+                    <control type="toggle" />
+                    <visible>false</visible>
+                </setting>
+                <setting id="wiz_13_order" type="integer" label="32021" help="32022">
+                    <level>0</level>
+                    <default>1</default>
+                    <constraints>
+                        <minimum>1</minimum>
+                        <step>1</step>
+                        <maximum>20</maximum>
+                    </constraints>
+                    <control type="slider" format="integer">
+                        <popup>false</popup>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_13_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+            </group>
+            <group id="g_wiz_14" label="32115">
+                <setting id="wiz_14_ipaddress" type="string" label="32011" help="32012">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32011</heading>
+                    </control>
+                    <enable>false</enable>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="wiz_14_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_14_mac" type="string" label="32013" help="32014">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32013</heading>
+                    </control>
+                    <visible>false</visible>
+                </setting>
+                <setting id="wiz_14_name" type="string" label="32025" help="32026">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32012</heading>
+                    </control>
+                    <enable>true</enable>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="wiz_14_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_14_enable" type="boolean" label="32015" help="32016">
+                    <level>0</level>
+                    <default>false</default>
+                    <control type="toggle" />
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_14_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_14_type" type="string" label="32023" help="32024">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32011</heading>
+                    </control>
+                    <enable>false</enable>
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_14_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_14_icon" type="string" label="32017" help="32018">
+                    <level>0</level>
+                    <default>bulb</default>
+                    <constraints>
+                        <options>
+                            <option label="32201">bulb</option>
+                            <option label="32202">lamp</option>
+                            <option label="32203">spot</option>
+                            <option label="32204">livingroom</option>
+                            <option label="32205">bedroom</option>
+                            <option label="32206">kitchen</option>
+                            <option label="32207">hall</option>
+                            <option label="32208">bathroom</option>
+                            <option label="32209">globe</option>
+                            <option label="32210">candle</option>
+                            <option label="32211">socket</option>
+                            <option label="32212">tv</option>
+                            <option label="32213">radio</option>
+                            <option label="32214">coffee</option>
+                            <option label="32215">cooker</option>
+                            <option label="32216">computer</option>
+                            <option label="32217">printer</option>
+                            <option label="32218">server</option>
+                        </options>
+                    </constraints>
+                    <control type="spinner" format="string" />
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_14_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_14_preselect" type="boolean" label="32019" help="32020">
+                    <default>false</default>
+                    <control type="toggle" />
+                    <visible>false</visible>
+                </setting>
+                <setting id="wiz_14_order" type="integer" label="32021" help="32022">
+                    <level>0</level>
+                    <default>1</default>
+                    <constraints>
+                        <minimum>1</minimum>
+                        <step>1</step>
+                        <maximum>20</maximum>
+                    </constraints>
+                    <control type="slider" format="integer">
+                        <popup>false</popup>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_14_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+            </group>
+            <group id="g_wiz_15" label="32116">
+                <setting id="wiz_15_ipaddress" type="string" label="32011" help="32012">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32011</heading>
+                    </control>
+                    <enable>false</enable>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="wiz_15_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_15_mac" type="string" label="32013" help="32014">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32013</heading>
+                    </control>
+                    <visible>false</visible>
+                </setting>
+                <setting id="wiz_15_name" type="string" label="32025" help="32026">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32012</heading>
+                    </control>
+                    <enable>true</enable>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="wiz_15_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_15_enable" type="boolean" label="32015" help="32016">
+                    <level>0</level>
+                    <default>false</default>
+                    <control type="toggle" />
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_15_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_15_type" type="string" label="32023" help="32024">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32011</heading>
+                    </control>
+                    <enable>false</enable>
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_15_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_15_icon" type="string" label="32017" help="32018">
+                    <level>0</level>
+                    <default>bulb</default>
+                    <constraints>
+                        <options>
+                            <option label="32201">bulb</option>
+                            <option label="32202">lamp</option>
+                            <option label="32203">spot</option>
+                            <option label="32204">livingroom</option>
+                            <option label="32205">bedroom</option>
+                            <option label="32206">kitchen</option>
+                            <option label="32207">hall</option>
+                            <option label="32208">bathroom</option>
+                            <option label="32209">globe</option>
+                            <option label="32210">candle</option>
+                            <option label="32211">socket</option>
+                            <option label="32212">tv</option>
+                            <option label="32213">radio</option>
+                            <option label="32214">coffee</option>
+                            <option label="32215">cooker</option>
+                            <option label="32216">computer</option>
+                            <option label="32217">printer</option>
+                            <option label="32218">server</option>
+                        </options>
+                    </constraints>
+                    <control type="spinner" format="string" />
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_15_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_15_preselect" type="boolean" label="32019" help="32020">
+                    <default>false</default>
+                    <control type="toggle" />
+                    <visible>false</visible>
+                </setting>
+                <setting id="wiz_15_order" type="integer" label="32021" help="32022">
+                    <level>0</level>
+                    <default>1</default>
+                    <constraints>
+                        <minimum>1</minimum>
+                        <step>1</step>
+                        <maximum>20</maximum>
+                    </constraints>
+                    <control type="slider" format="integer">
+                        <popup>false</popup>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_15_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+            </group>
+            <group id="g_wiz_16" label="32117">
+                <setting id="wiz_16_ipaddress" type="string" label="32011" help="32012">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32011</heading>
+                    </control>
+                    <enable>false</enable>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="wiz_16_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_16_mac" type="string" label="32013" help="32014">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32013</heading>
+                    </control>
+                    <visible>false</visible>
+                </setting>
+                <setting id="wiz_16_name" type="string" label="32025" help="32026">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32012</heading>
+                    </control>
+                    <enable>true</enable>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="wiz_16_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_16_enable" type="boolean" label="32015" help="32016">
+                    <level>0</level>
+                    <default>false</default>
+                    <control type="toggle" />
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_16_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_16_type" type="string" label="32023" help="32024">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32011</heading>
+                    </control>
+                    <enable>false</enable>
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_16_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_16_icon" type="string" label="32017" help="32018">
+                    <level>0</level>
+                    <default>bulb</default>
+                    <constraints>
+                        <options>
+                            <option label="32201">bulb</option>
+                            <option label="32202">lamp</option>
+                            <option label="32203">spot</option>
+                            <option label="32204">livingroom</option>
+                            <option label="32205">bedroom</option>
+                            <option label="32206">kitchen</option>
+                            <option label="32207">hall</option>
+                            <option label="32208">bathroom</option>
+                            <option label="32209">globe</option>
+                            <option label="32210">candle</option>
+                            <option label="32211">socket</option>
+                            <option label="32212">tv</option>
+                            <option label="32213">radio</option>
+                            <option label="32214">coffee</option>
+                            <option label="32215">cooker</option>
+                            <option label="32216">computer</option>
+                            <option label="32217">printer</option>
+                            <option label="32218">server</option>
+                        </options>
+                    </constraints>
+                    <control type="spinner" format="string" />
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_16_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_16_preselect" type="boolean" label="32019" help="32020">
+                    <default>false</default>
+                    <control type="toggle" />
+                    <visible>false</visible>
+                </setting>
+                <setting id="wiz_16_order" type="integer" label="32021" help="32022">
+                    <level>0</level>
+                    <default>1</default>
+                    <constraints>
+                        <minimum>1</minimum>
+                        <step>1</step>
+                        <maximum>20</maximum>
+                    </constraints>
+                    <control type="slider" format="integer">
+                        <popup>false</popup>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_16_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+            </group>
+            <group id="g_wiz_17" label="32118">
+                <setting id="wiz_17_ipaddress" type="string" label="32011" help="32012">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32011</heading>
+                    </control>
+                    <enable>false</enable>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="wiz_17_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_17_mac" type="string" label="32013" help="32014">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32013</heading>
+                    </control>
+                    <visible>false</visible>
+                </setting>
+                <setting id="wiz_17_name" type="string" label="32025" help="32026">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32012</heading>
+                    </control>
+                    <enable>true</enable>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="wiz_17_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_17_enable" type="boolean" label="32015" help="32016">
+                    <level>0</level>
+                    <default>false</default>
+                    <control type="toggle" />
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_17_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_17_type" type="string" label="32023" help="32024">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32011</heading>
+                    </control>
+                    <enable>false</enable>
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_17_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_17_icon" type="string" label="32017" help="32018">
+                    <level>0</level>
+                    <default>bulb</default>
+                    <constraints>
+                        <options>
+                            <option label="32201">bulb</option>
+                            <option label="32202">lamp</option>
+                            <option label="32203">spot</option>
+                            <option label="32204">livingroom</option>
+                            <option label="32205">bedroom</option>
+                            <option label="32206">kitchen</option>
+                            <option label="32207">hall</option>
+                            <option label="32208">bathroom</option>
+                            <option label="32209">globe</option>
+                            <option label="32210">candle</option>
+                            <option label="32211">socket</option>
+                            <option label="32212">tv</option>
+                            <option label="32213">radio</option>
+                            <option label="32214">coffee</option>
+                            <option label="32215">cooker</option>
+                            <option label="32216">computer</option>
+                            <option label="32217">printer</option>
+                            <option label="32218">server</option>
+                        </options>
+                    </constraints>
+                    <control type="spinner" format="string" />
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_17_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_17_preselect" type="boolean" label="32019" help="32020">
+                    <default>false</default>
+                    <control type="toggle" />
+                    <visible>false</visible>
+                </setting>
+                <setting id="wiz_17_order" type="integer" label="32021" help="32022">
+                    <level>0</level>
+                    <default>1</default>
+                    <constraints>
+                        <minimum>1</minimum>
+                        <step>1</step>
+                        <maximum>20</maximum>
+                    </constraints>
+                    <control type="slider" format="integer">
+                        <popup>false</popup>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_17_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+            </group>
+            <group id="g_wiz_18" label="32119">
+                <setting id="wiz_18_ipaddress" type="string" label="32011" help="32012">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32011</heading>
+                    </control>
+                    <enable>false</enable>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="wiz_18_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_18_mac" type="string" label="32013" help="32014">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32013</heading>
+                    </control>
+                    <visible>false</visible>
+                </setting>
+                <setting id="wiz_18_name" type="string" label="32025" help="32026">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32012</heading>
+                    </control>
+                    <enable>true</enable>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="wiz_18_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_18_enable" type="boolean" label="32015" help="32016">
+                    <level>0</level>
+                    <default>false</default>
+                    <control type="toggle" />
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_18_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_18_type" type="string" label="32023" help="32024">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32011</heading>
+                    </control>
+                    <enable>false</enable>
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_18_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_18_icon" type="string" label="32017" help="32018">
+                    <level>0</level>
+                    <default>bulb</default>
+                    <constraints>
+                        <options>
+                            <option label="32201">bulb</option>
+                            <option label="32202">lamp</option>
+                            <option label="32203">spot</option>
+                            <option label="32204">livingroom</option>
+                            <option label="32205">bedroom</option>
+                            <option label="32206">kitchen</option>
+                            <option label="32207">hall</option>
+                            <option label="32208">bathroom</option>
+                            <option label="32209">globe</option>
+                            <option label="32210">candle</option>
+                            <option label="32211">socket</option>
+                            <option label="32212">tv</option>
+                            <option label="32213">radio</option>
+                            <option label="32214">coffee</option>
+                            <option label="32215">cooker</option>
+                            <option label="32216">computer</option>
+                            <option label="32217">printer</option>
+                            <option label="32218">server</option>
+                        </options>
+                    </constraints>
+                    <control type="spinner" format="string" />
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_18_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_18_preselect" type="boolean" label="32019" help="32020">
+                    <default>false</default>
+                    <control type="toggle" />
+                    <visible>false</visible>
+                </setting>
+                <setting id="wiz_18_order" type="integer" label="32021" help="32022">
+                    <level>0</level>
+                    <default>1</default>
+                    <constraints>
+                        <minimum>1</minimum>
+                        <step>1</step>
+                        <maximum>20</maximum>
+                    </constraints>
+                    <control type="slider" format="integer">
+                        <popup>false</popup>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_18_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+            </group>
+            <group id="g_wiz_19" label="32120">
+                <setting id="wiz_19_ipaddress" type="string" label="32011" help="32012">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32011</heading>
+                    </control>
+                    <enable>false</enable>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="wiz_19_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_19_mac" type="string" label="32013" help="32014">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32013</heading>
+                    </control>
+                    <visible>false</visible>
+                </setting>
+                <setting id="wiz_19_name" type="string" label="32025" help="32026">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32012</heading>
+                    </control>
+                    <enable>true</enable>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="wiz_19_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_19_enable" type="boolean" label="32015" help="32016">
+                    <level>0</level>
+                    <default>false</default>
+                    <control type="toggle" />
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_19_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_19_type" type="string" label="32023" help="32024">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32011</heading>
+                    </control>
+                    <enable>false</enable>
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_19_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_19_icon" type="string" label="32017" help="32018">
+                    <level>0</level>
+                    <default>bulb</default>
+                    <constraints>
+                        <options>
+                            <option label="32201">bulb</option>
+                            <option label="32202">lamp</option>
+                            <option label="32203">spot</option>
+                            <option label="32204">livingroom</option>
+                            <option label="32205">bedroom</option>
+                            <option label="32206">kitchen</option>
+                            <option label="32207">hall</option>
+                            <option label="32208">bathroom</option>
+                            <option label="32209">globe</option>
+                            <option label="32210">candle</option>
+                            <option label="32211">socket</option>
+                            <option label="32212">tv</option>
+                            <option label="32213">radio</option>
+                            <option label="32214">coffee</option>
+                            <option label="32215">cooker</option>
+                            <option label="32216">computer</option>
+                            <option label="32217">printer</option>
+                            <option label="32218">server</option>
+                        </options>
+                    </constraints>
+                    <control type="spinner" format="string" />
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_19_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+                <setting id="wiz_19_preselect" type="boolean" label="32019" help="32020">
+                    <default>false</default>
+                    <control type="toggle" />
+                    <visible>false</visible>
+                </setting>
+                <setting id="wiz_19_order" type="integer" label="32021" help="32022">
+                    <level>0</level>
+                    <default>1</default>
+                    <constraints>
+                        <minimum>1</minimum>
+                        <step>1</step>
+                        <maximum>20</maximum>
+                    </constraints>
+                    <control type="slider" format="integer">
+                        <popup>false</popup>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible" setting="wiz_19_ipaddress" operator="!is"></dependency>
+                    </dependencies>
+                </setting>
+            </group>
+        </category>
+        <category id="c_rooms" label="32140" help="">
+            <group id="g_room_0" label="32151">
+                <setting id="room_0_id" type="string" label="32141" help="32142">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32141</heading>
+                    </control>
+                    <enable>true</enable>
+                </setting>
+                <setting id="room_0_name" type="string" label="32143" help="32144">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32143</heading>
+                    </control>
+                    <enable>true</enable>
+                </setting>
+            </group>
+            <group id="g_room_1" label="32152">
+                <setting id="room_1_id" type="string" label="32141" help="32142">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32141</heading>
+                    </control>
+                    <enable>true</enable>
+                </setting>
+                <setting id="room_1_name" type="string" label="32143" help="32144">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32143</heading>
+                    </control>
+                    <enable>true</enable>
+                </setting>
+            </group>
+            <group id="g_room_2" label="32153">
+                <setting id="room_2_id" type="string" label="32141" help="32142">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32141</heading>
+                    </control>
+                    <enable>true</enable>
+                </setting>
+                <setting id="room_2_name" type="string" label="32143" help="32144">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32143</heading>
+                    </control>
+                    <enable>true</enable>
+                </setting>
+            </group>
+            <group id="g_room_3" label="32154">
+                <setting id="room_3_id" type="string" label="32141" help="32142">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32141</heading>
+                    </control>
+                    <enable>true</enable>
+                </setting>
+                <setting id="room_3_name" type="string" label="32143" help="32144">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32143</heading>
+                    </control>
+                    <enable>true</enable>
+                </setting>
+            </group>
+            <group id="g_room_4" label="32155">
+                <setting id="room_4_id" type="string" label="32141" help="32142">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32141</heading>
+                    </control>
+                    <enable>true</enable>
+                </setting>
+                <setting id="room_4_name" type="string" label="32143" help="32144">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32143</heading>
+                    </control>
+                    <enable>true</enable>
+                </setting>
+            </group>
+            <group id="g_room_5" label="32156">
+                <setting id="room_5_id" type="string" label="32141" help="32142">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32141</heading>
+                    </control>
+                    <enable>true</enable>
+                </setting>
+                <setting id="room_5_name" type="string" label="32143" help="32144">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32143</heading>
+                    </control>
+                    <enable>true</enable>
+                </setting>
+            </group>
+            <group id="g_room_6" label="32157">
+                <setting id="room_6_id" type="string" label="32141" help="32142">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32141</heading>
+                    </control>
+                    <enable>true</enable>
+                </setting>
+                <setting id="room_6_name" type="string" label="32143" help="32144">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32143</heading>
+                    </control>
+                    <enable>true</enable>
+                </setting>
+            </group>
+            <group id="g_room_7" label="32158">
+                <setting id="room_7_id" type="string" label="32141" help="32142">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32141</heading>
+                    </control>
+                    <enable>true</enable>
+                </setting>
+                <setting id="room_7_name" type="string" label="32143" help="32144">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32143</heading>
+                    </control>
+                    <enable>true</enable>
+                </setting>
+            </group>
+            <group id="g_room_8" label="32159">
+                <setting id="room_8_id" type="string" label="32141" help="32142">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32141</heading>
+                    </control>
+                    <enable>true</enable>
+                </setting>
+                <setting id="room_8_name" type="string" label="32143" help="32144">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32143</heading>
+                    </control>
+                    <enable>true</enable>
+                </setting>
+            </group>
+            <group id="g_room_9" label="32160">
+                <setting id="room_9_id" type="string" label="32141" help="32142">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32141</heading>
+                    </control>
+                    <enable>true</enable>
+                </setting>
+                <setting id="room_9_name" type="string" label="32143" help="32144">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32143</heading>
+                    </control>
+                    <enable>true</enable>
+                </setting>
+            </group>
+        </category>
+    </section>
+</settings>
+  

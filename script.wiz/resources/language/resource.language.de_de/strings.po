@@ -1,0 +1,738 @@
+# Kodi Media Center language file
+msgid ""
+msgstr ""
+"Project-Id-Version: Kodi Addons\n"
+"Report-Msgid-Bugs-To: alanwww1@kodi.org\n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Kodi Translation Team\n"
+"Language-Team: English (http://www.transifex.com/projects/p/xbmc-addons/language/en/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgctxt "#32001"
+msgid "WiZ devices"
+msgstr "WiZ Geräte"
+
+msgctxt "#32002"
+msgid "scan for WiZ devices"
+msgstr "Suche WiZ Geräte"
+
+msgctxt "#32003"
+msgid "Start scanning for WiZ devices in your network. Make sure that all WiZ devices are turned on!"
+msgstr "Suche WiZ Geräte in deinem Netzwerk. Stelle sicher, dass alle Geräte eingeschaltet sind!"
+
+msgctxt "#32004"
+msgid "sync WiZ devices"
+msgstr "synchronisiere WiZ Geräte"
+
+msgctxt "#32005"
+msgid "(not synchronized)"
+msgstr "(nicht synchronisiert)"
+
+msgctxt "#32011"
+msgid "IP address"
+msgstr "IP Adresse"
+
+msgctxt "#32012"
+msgid "IP address of this device"
+msgstr "IP Adresse dieses Geräts"
+
+msgctxt "#32013"
+msgid "MAC address"
+msgstr "MAC Adresse"
+
+msgctxt "#32014"
+msgid "MAC address of this device"
+msgstr "MAC Adresse dieses Geräts"
+
+msgctxt "#32015"
+msgid "Enable"
+msgstr "Aktivieren"
+
+msgctxt "#32016"
+msgid "Enable to display device in selection"
+msgstr "Aktivieren, um Gerät in der Auswahl anzuzeigen"
+
+msgctxt "#32017"
+msgid "Icon"
+msgstr "Piktogramm"
+
+msgctxt "#32018"
+msgid "Icon to display in selection"
+msgstr "Piktogramm welches in Auswahl angezeigt wird"
+
+msgctxt "#32019"
+msgid "Preselect"
+msgstr "Vorauswahl"
+
+msgctxt "#32020"
+msgid "Sets if device is preselected"
+msgstr "Setzt ob Gerät in der Auswahl vorausgewählt ist"
+
+msgctxt "#32021"
+msgid "Order"
+msgstr "Reihenfolge"
+
+msgctxt "#32022"
+msgid "Sets the order in selection"
+msgstr "Setzt die Reihenfolge in der Auswahl"
+
+msgctxt "#32023"
+msgid "Type"
+msgstr "Art"
+
+msgctxt "#32024"
+msgid "Type if the device"
+msgstr "Art des Gerätes"
+
+msgctxt "#32025"
+msgid "Bulb"
+msgstr "Lampe"
+
+msgctxt "#32026"
+msgid "RGB-Bulb"
+msgstr "RGB-Lampe"
+
+msgctxt "#32027"
+msgid "Socket"
+msgstr "Schaltsteckdose"
+
+msgctxt "#32028"
+msgid "start alarm"
+msgstr "starte Alarm"
+
+msgctxt "#32029"
+msgid "start alarm to identify device"
+msgstr "starte Alarm, um das Gerät leichter zu identifizieren"
+
+msgctxt "#32030"
+msgid "Color Light (RGB + Dedicated White LED, fixed color temperature)"
+msgstr "Farblicht (RGB + dedizierte Weiß-LED, feste Farbtemperatur)"
+
+msgctxt "#32031"
+msgid "Full Color Light (RGB + Cold & Warm White)"
+msgstr "Vollfarbiges Licht (RGB + kaltes & warmes Weiß)"
+
+msgctxt "#32032"
+msgid "Color Light (RGB)"
+msgstr "Farblicht (RGB)"
+
+msgctxt "#32033"
+msgid "Tunable White (Cold & Warm White)"
+msgstr "Abstimmbares Weiß (kaltes & warmes Weiß)"
+
+msgctxt "#32034"
+msgid "Dimmable (Fixed Color Temperature)"
+msgstr "Dimmbare (feste Farbtemperatur)"
+
+msgctxt "#32035"
+msgid "Smart Outlet (Switching only, no power monitoring)"
+msgstr "Intelligente Steckdose (nur Schalten, keine Leistungsüberwachung)"
+
+msgctxt "#32036"
+msgid "Smart Plug (Switching)"
+msgstr "Intelligenter Stecker (Schalten)"
+
+msgctxt "#32037"
+msgid "Power Monitoring Outlet (Energy tracking enabled)"
+msgstr "Leistungsüberwachungssteckdose (Energiemessung aktiviert)"
+
+msgctxt "#32038"
+msgid "LED Strip Controller"
+msgstr "LED-Streifen Controller"
+
+msgctxt "#32039"
+msgid "Motion Sensor (Passive Infrared)"
+msgstr "Bewegungssensor (passives Infrarot)"
+
+msgctxt "#32051"
+msgid "scan for WiZ devices in your network"
+msgstr "suche WiZ Geräte in Deinem Netzwerk"
+
+msgctxt "#32052"
+msgid "unknown room"
+msgstr "unbekannter Raum"
+
+msgctxt "#32053"
+msgid "Devices found"
+msgstr "Geräte gefunden"
+
+msgctxt "#32054"
+msgid "No devices found. Are devices connected to network? Are your devices powered?"
+msgstr "Keine Geräte gefunden. Sind die Geräte mit dem Netzwerk verbunden? Sind die Gerät angeschlossen?"
+
+msgctxt "#32055"
+msgid "Select devices to add"
+msgstr "Füge Geräte hinzu"
+
+msgctxt "#32101"
+msgid "WiZ device 1"
+msgstr "WiZ Gerät 1"
+
+msgctxt "#32102"
+msgid "WiZ device 2"
+msgstr "WiZ Gerät 2"
+
+msgctxt "#32103"
+msgid "WiZ device 3"
+msgstr "WiZ Gerät 3"
+
+msgctxt "#32104"
+msgid "WiZ device 4"
+msgstr "WiZ Gerät 4"
+
+msgctxt "#32105"
+msgid "WiZ device 5"
+msgstr "WiZ Gerät 5"
+
+msgctxt "#32106"
+msgid "WiZ device 6"
+msgstr "WiZ Gerät 6"
+
+msgctxt "#32107"
+msgid "WiZ device 7"
+msgstr "WiZ Gerät 7"
+
+msgctxt "#32108"
+msgid "WiZ device 8"
+msgstr "WiZ Gerät 8"
+
+msgctxt "#32109"
+msgid "WiZ device 9"
+msgstr "WiZ Gerät 9"
+
+msgctxt "#32110"
+msgid "WiZ device 10"
+msgstr "WiZ Gerät 10"
+
+msgctxt "#32111"
+msgid "WiZ device 11"
+msgstr "WiZ Gerät 11"
+
+msgctxt "#32112"
+msgid "WiZ device 12"
+msgstr "WiZ Gerät 12"
+
+msgctxt "#32113"
+msgid "WiZ device 13"
+msgstr "WiZ Gerät 13"
+
+msgctxt "#32114"
+msgid "WiZ device 14"
+msgstr "WiZ Gerät 14"
+
+msgctxt "#32115"
+msgid "WiZ device 15"
+msgstr "WiZ Gerät 15"
+
+msgctxt "#32116"
+msgid "WiZ device 16"
+msgstr "WiZ Gerät 16"
+
+msgctxt "#32117"
+msgid "WiZ device 17"
+msgstr "WiZ Gerät 17"
+
+msgctxt "#32118"
+msgid "WiZ device 18"
+msgstr "WiZ Gerät 18"
+
+msgctxt "#32119"
+msgid "WiZ device 19"
+msgstr "WiZ Gerät 19"
+
+msgctxt "#32120"
+msgid "WiZ device 20"
+msgstr "WiZ Gerät 20"
+
+msgctxt "#32121"
+msgid "off"
+msgstr "aus"
+
+msgctxt "#32122"
+msgid "blue"
+msgstr "blau"
+
+msgctxt "#32123"
+msgid "green"
+msgstr "grün"
+
+msgctxt "#32124"
+msgid "cyan"
+msgstr "zyan"
+
+msgctxt "#32125"
+msgid "red"
+msgstr "rot"
+
+msgctxt "#32126"
+msgid "magenta"
+msgstr "magenta"
+
+msgctxt "#32127"
+msgid "yellow"
+msgstr "gelb"
+
+msgctxt "#32128"
+msgid "white"
+msgstr "weiß"
+
+msgctxt "#32129"
+msgid "on"
+msgstr "an"
+
+msgctxt "#32130"
+msgid "ambient"
+msgstr "gemütlich"
+
+msgctxt "#32131"
+msgid "greenly"
+msgstr "grünlich"
+
+msgctxt "#32132"
+msgid "mint"
+msgstr "mint"
+
+msgctxt "#32133"
+msgid "violet"
+msgstr "lila"
+
+msgctxt "#32140"
+msgid "Rooms"
+msgstr "Räume"
+
+msgctxt "#32141"
+msgid "Room ID"
+msgstr "Raum ID"
+
+msgctxt "#32142"
+msgid "technical ID of room given by WiZ"
+msgstr "technische ID des Raumes von WiZ vergeben"
+
+msgctxt "#32143"
+msgid "Room name"
+msgstr "Raumname"
+
+msgctxt "#32144"
+msgid "Room name given by you"
+msgstr "Raumname, der von Dir vergeben wird"
+
+msgctxt "#32151"
+msgid "Room 1"
+msgstr "Raum 1"
+
+msgctxt "#32152"
+msgid "Room 2"
+msgstr "Raum 2"
+
+msgctxt "#32153"
+msgid "Room 3"
+msgstr "Raum 3"
+
+msgctxt "#32154"
+msgid "Room 4"
+msgstr "Raum 4"
+
+msgctxt "#32155"
+msgid "Room 5"
+msgstr "Raum 5"
+
+msgctxt "#32156"
+msgid "Room 6"
+msgstr "Raum 6"
+
+msgctxt "#32157"
+msgid "Room 7"
+msgstr "Raum 7"
+
+msgctxt "#32158"
+msgid "Room 8"
+msgstr "Raum 8"
+
+msgctxt "#32159"
+msgid "Room 9"
+msgstr "Raum 9"
+
+msgctxt "#32160"
+msgid "Room 10"
+msgstr "Raum 10"
+
+msgctxt "#32201"
+msgid "Bulb"
+msgstr "Birne"
+
+msgctxt "#32202"
+msgid "Lamp"
+msgstr "Lampe"
+
+msgctxt "#32203"
+msgid "Spotlight"
+msgstr "Spot"
+
+msgctxt "#32204"
+msgid "Livingroom"
+msgstr "Wohnzimmer"
+
+msgctxt "#32205"
+msgid "Bedroom"
+msgstr "Schlafzimmer"
+
+msgctxt "#32206"
+msgid "Kitchen"
+msgstr "Küche"
+
+msgctxt "#32207"
+msgid "Hall"
+msgstr "Flur"
+
+msgctxt "#32208"
+msgid "Bathroom"
+msgstr "Badezimmer"
+
+msgctxt "#32209"
+msgid "Globe"
+msgstr "Kugel"
+
+msgctxt "#32210"
+msgid "Candle"
+msgstr "Kerze"
+
+msgctxt "#32211"
+msgid "Switch"
+msgstr "Schalter"
+
+msgctxt "#32212"
+msgid "TV"
+msgstr "Fernseher"
+
+msgctxt "#32213"
+msgid "Radio"
+msgstr "Radio"
+
+msgctxt "#32214"
+msgid "Coffee machine"
+msgstr "Kaffeemaschine"
+
+msgctxt "#32215"
+msgid "Cooker"
+msgstr "Wasserkocher"
+
+msgctxt "#32216"
+msgid "Computer"
+msgstr "Computer"
+
+msgctxt "#32217"
+msgid "Printer"
+msgstr "Drucker"
+
+msgctxt "#32218"
+msgid "Server"
+msgstr "Server"
+
+msgctxt "#32300"
+msgid "off"
+msgstr "aus"
+
+msgctxt "#32301"
+msgid "on"
+msgstr "an"
+
+msgctxt "#32302"
+msgid "white"
+msgstr "weiß"
+
+msgctxt "#32303"
+msgid "warm white"
+msgstr "warmweiß"
+
+msgctxt "#32304"
+msgid "cold white"
+msgstr "kaltweiß"
+
+msgctxt "#32305"
+msgid "daylight white"
+msgstr "Tageslicht weiß"
+
+msgctxt "#32306"
+msgid "blue"
+msgstr "blau"
+
+msgctxt "#32307"
+msgid "green"
+msgstr "grün"
+
+msgctxt "#32308"
+msgid "cyan"
+msgstr "zyan"
+
+msgctxt "#32309"
+msgid "red"
+msgstr "rot"
+
+msgctxt "#32310"
+msgid "magenta"
+msgstr "magenta"
+
+msgctxt "#32311"
+msgid "yellow"
+msgstr "gelb"
+
+msgctxt "#32330"
+msgid "Colors"
+msgstr "Farben"
+
+msgctxt "#32331"
+msgid "Ocean"
+msgstr "Ozean"
+
+msgctxt "#32332"
+msgid "Romance"
+msgstr "Romantik"
+
+msgctxt "#32333"
+msgid "Sunset"
+msgstr "Sonnenuntergang"
+
+msgctxt "#32334"
+msgid "Party"
+msgstr "Party"
+
+msgctxt "#32335"
+msgid "Fireplace"
+msgstr "Kamin"
+
+msgctxt "#32336"
+msgid "Cozy"
+msgstr "Gemütlich"
+
+msgctxt "#32337"
+msgid "Forest"
+msgstr "Wald"
+
+msgctxt "#32338"
+msgid "Pastel Colors"
+msgstr "Pastellfarben"
+
+msgctxt "#32339"
+msgid "Wakeup"
+msgstr "Aufwachen"
+
+msgctxt "#32340"
+msgid "Bedtime"
+msgstr "Schlafenszeit"
+
+msgctxt "#32341"
+msgid "Warm White"
+msgstr "Warmweiß"
+
+msgctxt "#32342"
+msgid "Daylight"
+msgstr "Tageslicht"
+
+msgctxt "#32343"
+msgid "Cool White"
+msgstr "Kaltweiß"
+
+msgctxt "#32344"
+msgid "Night light"
+msgstr "Nachtlicht"
+
+msgctxt "#32345"
+msgid "Focus"
+msgstr "Fokus"
+
+msgctxt "#32346"
+msgid "Relax"
+msgstr "Entspannen"
+
+msgctxt "#32347"
+msgid "True colors"
+msgstr "Echte Farben"
+
+msgctxt "#32348"
+msgid "TV time"
+msgstr "Fernsehabend"
+
+msgctxt "#32349"
+msgid "Plant growth"
+msgstr "Pflanzenwachstum"
+
+msgctxt "#32350"
+msgid "Spring"
+msgstr "Frühling"
+
+msgctxt "#32351"
+msgid "Summer"
+msgstr "Sommer"
+
+msgctxt "#32352"
+msgid "Fall"
+msgstr "Herbst"
+
+msgctxt "#32353"
+msgid "Deep dive"
+msgstr "Tiefsee"
+
+msgctxt "#32354"
+msgid "Jungle"
+msgstr "Dschungel"
+
+msgctxt "#32355"
+msgid "Mojito"
+msgstr "Mojito"
+
+msgctxt "#32356"
+msgid "Club"
+msgstr "Club"
+
+msgctxt "#32357"
+msgid "Christmas"
+msgstr "Weihnachten"
+
+msgctxt "#32358"
+msgid "Halloween"
+msgstr "Halloween"
+
+msgctxt "#32359"
+msgid "Candlelight"
+msgstr "Kerzenschein"
+
+msgctxt "#32360"
+msgid "Golden white"
+msgstr "Goldweiß"
+
+msgctxt "#32361"
+msgid "Pulse"
+msgstr "Pulsieren"
+
+msgctxt "#32362"
+msgid "Steampunk"
+msgstr "Steampunk"
+
+msgctxt "#32363"
+msgid "Diwali"
+msgstr "Diwali"
+
+msgctxt "#32364"
+msgid "(unknown)"
+msgstr "(unbekannt)"
+
+msgctxt "#32365"
+msgid "Light alarm"
+msgstr "Lichtwecker"
+
+msgctxt "#32366"
+msgid "Snowy sky"
+msgstr "Verschneiter Himmel"
+
+msgctxt "#32367"
+msgid "Dim to warm"
+msgstr "Gedimmtes Warmlicht"
+
+msgctxt "#32368"
+msgid "Pulse"
+msgstr "Pulsieren"
+
+msgctxt "#32369"
+msgid "Rhythm"
+msgstr "Rhythmus"
+
+msgctxt "#32401"
+msgid "Select devices"
+msgstr "Wähle Geräte aus"
+
+msgctxt "#32402"
+msgid "(unknown state)"
+msgstr "(unbekannter Status)"
+
+msgctxt "#32403"
+msgid "Turn on"
+msgstr "Schalte ein"
+
+msgctxt "#32404"
+msgid "Turn %s on"
+msgstr "Schalte %s ein"
+
+msgctxt "#32405"
+msgid "Turn %i devices on"
+msgstr "Schalte %i Geräte ein"
+
+msgctxt "#32406"
+msgid "Turn off"
+msgstr "Schalte aus"
+
+msgctxt "#32407"
+msgid "Turn %s off"
+msgstr "Schalte %s aus"
+
+msgctxt "#32408"
+msgid "Turn %i devices off"
+msgstr "Schalte %i Geräte aus"
+
+msgctxt "#32409"
+msgid "Set brightness"
+msgstr "Setze Helligkeit"
+
+msgctxt "#32410"
+msgid "Set brightness from 10% to 100%"
+msgstr "Setze Helligkeit von 10% bis 100%"
+
+msgctxt "#32411"
+msgid "Set white light"
+msgstr "Setze Weißlicht"
+
+msgctxt "#32412"
+msgid "Set light from warm-white to cold"
+msgstr "Setze warmweißes bis kaltweißes Licht"
+
+msgctxt "#32413"
+msgid "Set colorful light"
+msgstr "Setze farbiges Licht"
+
+msgctxt "#32414"
+msgid "Set colorful light by choosing from palette"
+msgstr "Setze farbiges Licht aus einer Palette"
+
+msgctxt "#32415"
+msgid "Enter color code"
+msgstr "Gebe Farbcode ein"
+
+msgctxt "#32416"
+msgid "Select color"
+msgstr "Wähle Farbe"
+
+msgctxt "#32417"
+msgid "Start scene"
+msgstr "Starte eine Lichtszene"
+
+msgctxt "#32418"
+msgid "Start a built-in light scene"
+msgstr "Starte eine der vordefinierten Lichtszenen"
+
+msgctxt "#32419"
+msgid "Select scene"
+msgstr "Wähle Lichtszene"
+
+msgctxt "#32420"
+msgid "Set speed (10 to 200)"
+msgstr "Setze Geschwindigkeit (10 bis 200)"
+
+msgctxt "#32421"
+msgid "Fade mode"
+msgstr "Pulsieren"
+
+msgctxt "#32422"
+msgid "let bulb slowly fade in and out"
+msgstr "Lasse Lampe langsam ein- und ausblenden"
+
+msgctxt "#32423"
+msgid "Set amplitude (10 to 100)"
+msgstr "Setze Aplitude"
+
+msgctxt "#32424"
+msgid "Set duration in minutes (2 to 60)"
+msgstr "Setze Dauer in Minuten (2 bis 60)"
