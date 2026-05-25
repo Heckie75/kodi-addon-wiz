@@ -361,6 +361,34 @@ msgctxt "#32160"
 msgid "Room 10"
 msgstr "Raum 10"
 
+msgctxt "#32161"
+msgid "Extras"
+msgstr "Extras"
+
+msgctxt "#32162"
+msgid "Favorites"
+msgstr "Favoriten"
+
+msgctxt "#32163"
+msgid "Latest ip addresses"
+msgstr "zuletzt genutzte IP Adressen"
+
+msgctxt "#32164"
+msgid "List of most recent used ip addresses"
+msgstr "Liste zuletzt genutzter IP Adressen"
+
+msgctxt "#32165"
+msgid "Latest command"
+msgstr "Letztes Kommando"
+
+msgctxt "#32166"
+msgid "JSON of most recent command"
+msgstr "JSON des zuletzt abgesetzten Kommandos"
+
+msgctxt "#32167"
+msgid "Create favorite"
+msgstr "Favoriten erstellen"
+
 msgctxt "#32201"
 msgid "Bulb"
 msgstr "Birne"
@@ -736,3 +764,167 @@ msgstr "Setze Aplitude"
 msgctxt "#32424"
 msgid "Set duration in minutes (2 to 60)"
 msgstr "Setze Dauer in Minuten (2 bis 60)"
+
+msgctxt "#32501"
+msgid "Ambient"
+msgstr "Ambient"
+
+msgctxt "#32502"
+msgid "BGR"
+msgstr "BGR"
+
+msgctxt "#32503"
+msgid "Blink"
+msgstr "Blink"
+
+msgctxt "#32504"
+msgid "Bulb blue"
+msgstr "Birne blau"
+
+msgctxt "#32505"
+msgid "Bulb cyan"
+msgstr "Birne cyan"
+
+msgctxt "#32506"
+msgid "Bulb down"
+msgstr "Birne nach unten"
+
+msgctxt "#32507"
+msgid "Bulb green"
+msgstr "Birne grün"
+
+msgctxt "#32508"
+msgid "Bulb magenta"
+msgstr "Birne magenta"
+
+msgctxt "#32509"
+msgid "Bulb off"
+msgstr "Birne aus"
+
+msgctxt "#32510"
+msgid "Bulb on"
+msgstr "Birne ein"
+
+msgctxt "#32511"
+msgid "Bulb red"
+msgstr "Birne rot"
+
+msgctxt "#32512"
+msgid "Bulb up"
+msgstr "Birne nach oben"
+
+msgctxt "#32513"
+msgid "Bulb white"
+msgstr "Birne weiß"
+
+msgctxt "#32514"
+msgid "Bulb yellow"
+msgstr "Birne gelb"
+
+msgctxt "#32515"
+msgid "Disco"
+msgstr "Disco"
+
+msgctxt "#32516"
+msgid "Doze"
+msgstr "Dösen"
+
+msgctxt "#32517"
+msgid "Effect"
+msgstr "Effekt"
+
+msgctxt "#32518"
+msgid "Fade"
+msgstr "Fade"
+
+msgctxt "#32519"
+msgid "Group"
+msgstr "Gruppe"
+
+msgctxt "#32520"
+msgid "Group all"
+msgstr "Alle Gruppen"
+
+msgctxt "#32521"
+msgid "Presets"
+msgstr "Vorgaben"
+
+msgctxt "#32522"
+msgid "Program"
+msgstr "Programm"
+
+msgctxt "#32523"
+msgid "Pulse"
+msgstr "Puls"
+
+msgctxt "#32524"
+msgid "Rainbow"
+msgstr "Regenbogen"
+
+msgctxt "#32525"
+msgid "Random"
+msgstr "Zufall"
+
+msgctxt "#32526"
+msgid "Sleep"
+msgstr "Schlaf"
+
+msgctxt "#32527"
+msgid "Wakeup"
+msgstr "Aufwachen"
+
+msgctxt "#32528"
+msgid "Default"
+msgstr "Standard"
+
+msgctxt "#32530"
+msgid "Enter favorite name"
+msgstr "Gebe den Namen für das Lesezeichen ein"
+
+msgctxt "#32531"
+msgid "Select favorite icon"
+msgstr "Wähle ein Symbol für das Lesezeichen"
+
+msgctxt "#32534"
+msgid "Confirm favorite"
+msgstr "Lesezeichen bestätigen"
+
+msgctxt "#32535"
+msgid "Name: %s"
+msgstr "Name: %s"
+
+msgctxt "#32536"
+msgid "Icon: %s"
+msgstr "Symbol: %s"
+
+msgctxt "#32537"
+msgid "Command: %s"
+msgstr "Befehl: %s"
+
+msgctxt "#32538"
+msgid "Favorite created"
+msgstr "Lesezeichen erstellt"
+
+msgctxt "#32539"
+msgid "Failed to create favorite"
+msgstr "Lesezeichen konnte nicht erstellt werden"
+
+msgctxt "#32540"
+msgid "No favorite command available. Please use the device control flow before saving a favorite."
+msgstr "Kein Favoriten-Befehl verfügbar. Bitte benutze zuerst den Geräte-Steuerungsfluss."
+
+msgctxt "#32541"
+msgid "No favorite devices available."
+msgstr "Keine Favoriten-Geräte verfügbar."
+
+msgctxt "#32542"
+msgid "Unable to parse favorite command."
+msgstr "Favoriten-Befehl konnte nicht analysiert werden."
+
+msgctxt "#32543"
+msgid "Confirm"
+msgstr "Bestätigen"
+
+msgctxt "#32544"
+msgid "Cancel"
+msgstr "Abbrechen"

@@ -1,9 +1,12 @@
+import json
+
 from resources.lib import wiz
 from resources.lib.util import MAX_DEVICES, createListItem
 import xbmc
 import xbmcgui
 import xbmcaddon
 from resources.lib.logger import MyLogger
+from resources.lib import util
 
 
 class WizardListener(wiz.WiZListener):
@@ -13,6 +16,7 @@ class WizardListener(wiz.WiZListener):
         self.addon = addon
         self.current: int = 0
         self.max_: int = 100
+        self.last_command_summary: list[str] = ""
 
     def reset(self, max_) -> None:
 
@@ -27,17 +31,28 @@ class WizardListener(wiz.WiZListener):
         self.progress.update(message=name or ip_address,
                              percent=int(100 * self.current / self.max_))
 
-    def onStart(self):
+    def onStart(self, ip_addresses: list[str], commands: dict[str, dict]) -> None:
 
         self.progress = xbmcgui.DialogProgressBG()
         self.progress.create(heading=self.addon.getLocalizedString(32001),
                              message=self.addon.getLocalizedString(32004))
 
-    def onMessageReceived(self, ip_address, message):
+        self.addon.setSettingString("favs_latest_ip_addresses", "|".join(
+            [ip_address for ip_address in ip_addresses]))
+        self.addon.setSettingString("favs_latest_pilot", json.dumps(
+            commands["setPilot"]) if commands["setPilot"] else "")
+
+        self.addon.setSettingString("favs_latest_devices", ", ".join(
+            [util.getNameByIP(ip_address) for ip_address in ip_addresses]))
+        self.addon.setSettingString(
+            "favs_latest_command", ", ".join(self.last_command_summary))
+        self.last_command_summary = []
+
+    def onMessageReceived(self, ip_address: str, message: str):
 
         self._update(ip_address=ip_address, message=message)
 
-    def onFinished(self):
+    def onFinished(self, devices: list[wiz.WizDevice]):
 
         self.progress.close()
 
@@ -47,11 +62,10 @@ class Wizard():
     def __init__(self, ip_addresses: list[str]) -> None:
 
         wiz.LOGGER = MyLogger(xbmc.LOGINFO)
-        self.controller: wiz.WizDeviceController = wiz.WizDeviceController(
-            ip_addresses=ip_addresses)
         self.addon = xbmcaddon.Addon()
         self.listener: WizardListener = WizardListener(self.addon)
-        self.controller.listener = self.listener
+        self.controller: wiz.WizDeviceController = wiz.WizDeviceController(
+            ip_addresses=ip_addresses, listener=self.listener)
 
     def sync(self) -> None:
 
@@ -215,7 +229,9 @@ class Wizard():
         if selection == -1:
             return False
 
-        self.controller.withDimming(10 + 10 * selection)
+        level = 10 + 10 * selection
+        self.controller.withDimming(level)
+        self.listener.last_command_summary.append(f"Dimming {level}%")
         return True
 
     def temperatureMenu(self) -> bool:
@@ -240,7 +256,9 @@ class Wizard():
         if selection == -1:
             return False
 
-        self.controller.withTemp(2200 + 500 * selection)
+        temp = 2200 + 500 * selection
+        self.controller.withTemp(temp)
+        self.listener.last_command_summary.append(f"Temperature {temp}K")
         return True
 
     def colorMenu(self, pure: bool = False) -> bool:
@@ -315,8 +333,16 @@ class Wizard():
         else:
             selectedcolor = _transform(hexstr)
 
+        r, g, b = selectedcolor[1], selectedcolor[2], selectedcolor[3]
         self.controller.withColor(
-            red=selectedcolor[1], green=selectedcolor[2], blue=selectedcolor[3], white=selectedcolor[0])
+            red=r, green=g, blue=b, white=selectedcolor[0])
+        try:
+            hexcol = f"#{r:02x}{g:02x}{b:02x}"
+        except Exception:
+            hexcol = str((r, g, b))
+
+        self.listener.last_command_summary.append(
+            f"Color {hexcol} ({r},{g},{b})")
         return True
 
     def sceneMenu(self) -> bool:
@@ -343,13 +369,15 @@ class Wizard():
         selectedScene = wiz.Pilot.index_to_sceneId(selection)
         if selectedScene:
             self.controller.withScene(scene=str(selectedScene))
+        # build a human-readable scene summary
+        scene_name = None
+        try:
+            scene_name = wiz.Pilot.SCENES_LIST[selection]
+        except Exception:
+            scene_name = str(selectedScene)
 
-        if selectedScene in wiz.Pilot.SCENE_HAS_RGB:
-            if not self.colorMenu():
-                return False
-
+        speed_used = None
         if selectedScene in wiz.Pilot.SCENE_HAS_SPEED:
-
             while True:
                 speed = xbmcgui.Dialog().input(
                     heading=self.addon.getLocalizedString(32420), type=xbmcgui.INPUT_NUMERIC, defaultt=str(max(10, self.controller.devices[0].pilot.speed)) if self.controller.devices[0].pilot else "10")
@@ -358,14 +386,26 @@ class Wizard():
                     break
 
                 elif 10 <= int(speed) <= 200:
-                    self.controller.withSpeed(speed=int(speed))
+                    speed_used = int(speed)
+                    self.controller.withSpeed(speed=speed_used)
                     break
 
                 else:
                     continue
 
+        if selectedScene in wiz.Pilot.SCENE_HAS_RGB:
+            if not self.colorMenu():
+                return False
+
         if selectedScene in wiz.Pilot.SCENE_HAS_DIMMING:
             self.dimmingMenu()
+
+        # final summary: scene name plus optional speed
+        if speed_used:
+            self.listener.last_command_summary.append(
+                f"Scene {scene_name}, speed {speed_used}")
+        else:
+            self.listener.last_command_summary.append(f"Scene {scene_name}")
 
         return True
 
@@ -402,6 +442,8 @@ class Wizard():
                 continue
 
         self.controller.pulse(delta=delta, duration=duration * 60000)
+        self.listener.last_command_summary.append(
+            f"Pulse with delta {delta} and duration {duration} minutes")
         return True
 
     def start(self) -> None:
@@ -428,14 +470,15 @@ class Wizard():
             if not li:
                 return
 
-            self.controller.reset()
             self.listener.reset(len(self.controller.devices) * 2)
 
             command = li.getProperty("command")
             if command == "ON":
+                self.listener.last_command_summary = ["Turn On"]
                 self.controller.withState(True).getPilot().perform()
 
             elif command == "OFF":
+                self.listener.last_command_summary = ["Turn Off"]
                 self.controller.withState(False).getPilot().perform()
 
             elif command == "DIMMING":

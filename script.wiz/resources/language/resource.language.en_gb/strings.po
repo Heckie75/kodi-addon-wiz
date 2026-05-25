@@ -544,3 +544,167 @@ msgstr ""
 msgctxt "#32416"
 msgid "Select color"
 msgstr ""
+
+msgctxt "#32501"
+msgid "Ambient"
+msgstr "Ambient"
+
+msgctxt "#32502"
+msgid "BGR"
+msgstr "BGR"
+
+msgctxt "#32503"
+msgid "Blink"
+msgstr "Blink"
+
+msgctxt "#32504"
+msgid "Bulb blue"
+msgstr "Bulb blue"
+
+msgctxt "#32505"
+msgid "Bulb cyan"
+msgstr "Bulb cyan"
+
+msgctxt "#32506"
+msgid "Bulb down"
+msgstr "Bulb down"
+
+msgctxt "#32507"
+msgid "Bulb green"
+msgstr "Bulb green"
+
+msgctxt "#32508"
+msgid "Bulb magenta"
+msgstr "Bulb magenta"
+
+msgctxt "#32509"
+msgid "Bulb off"
+msgstr "Bulb off"
+
+msgctxt "#32510"
+msgid "Bulb on"
+msgstr "Bulb on"
+
+msgctxt "#32511"
+msgid "Bulb red"
+msgstr "Bulb red"
+
+msgctxt "#32512"
+msgid "Bulb up"
+msgstr "Bulb up"
+
+msgctxt "#32513"
+msgid "Bulb white"
+msgstr "Bulb white"
+
+msgctxt "#32514"
+msgid "Bulb yellow"
+msgstr "Bulb yellow"
+
+msgctxt "#32515"
+msgid "Disco"
+msgstr "Disco"
+
+msgctxt "#32516"
+msgid "Doze"
+msgstr "Doze"
+
+msgctxt "#32517"
+msgid "Effect"
+msgstr "Effect"
+
+msgctxt "#32518"
+msgid "Fade"
+msgstr "Fade"
+
+msgctxt "#32519"
+msgid "Group"
+msgstr "Group"
+
+msgctxt "#32520"
+msgid "Group all"
+msgstr "Group all"
+
+msgctxt "#32521"
+msgid "Presets"
+msgstr "Presets"
+
+msgctxt "#32522"
+msgid "Program"
+msgstr "Program"
+
+msgctxt "#32523"
+msgid "Pulse"
+msgstr "Pulse"
+
+msgctxt "#32524"
+msgid "Rainbow"
+msgstr "Rainbow"
+
+msgctxt "#32525"
+msgid "Random"
+msgstr "Random"
+
+msgctxt "#32526"
+msgid "Sleep"
+msgstr "Sleep"
+
+msgctxt "#32527"
+msgid "Wakeup"
+msgstr "Wakeup"
+
+msgctxt "#32528"
+msgid "Default"
+msgstr "Default"
+
+msgctxt "#32530"
+msgid "Enter favorite name"
+msgstr "Enter favorite name"
+
+msgctxt "#32531"
+msgid "Select favorite icon"
+msgstr "Select favorite icon"
+
+msgctxt "#32534"
+msgid "Confirm favorite"
+msgstr "Confirm favorite"
+
+msgctxt "#32535"
+msgid "Name: %s"
+msgstr "Name: %s"
+
+msgctxt "#32536"
+msgid "Icon: %s"
+msgstr "Icon: %s"
+
+msgctxt "#32537"
+msgid "Command: %s"
+msgstr "Command: %s"
+
+msgctxt "#32538"
+msgid "Favorite created"
+msgstr "Favorite created"
+
+msgctxt "#32539"
+msgid "Failed to create favorite"
+msgstr "Failed to create favorite"
+
+msgctxt "#32540"
+msgid "No favorite command available. Please use the device control flow before saving a favorite."
+msgstr "No favorite command available. Please use the device control flow before saving a favorite."
+
+msgctxt "#32541"
+msgid "No favorite devices available."
+msgstr "No favorite devices available."
+
+msgctxt "#32542"
+msgid "Unable to parse favorite command."
+msgstr "Unable to parse favorite command."
+
+msgctxt "#32543"
+msgid "Confirm"
+msgstr "Confirm"
+
+msgctxt "#32544"
+msgid "Cancel"
+msgstr "Cancel"

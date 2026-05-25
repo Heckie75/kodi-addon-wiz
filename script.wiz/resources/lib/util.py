@@ -20,6 +20,9 @@ def getAddonDir() -> str:
 
 def getIconPath(icon: str) -> str:
 
+    if icon == "default":
+        return os.path.join(getAddonDir(), "resources", "assets", "icon.png")
+
     return os.path.join(getAddonDir(), "resources", "assets", f"icon_{icon}.png")
 
 
@@ -114,3 +117,12 @@ def getDeviceIPsFromSettings() -> str:
 
     addon = xbmcaddon.Addon()
     return [addon.getSettingString(f"wiz_{i}_ipaddress") for i in range(MAX_DEVICES) if addon.getSettingBool(f"wiz_{i}_enable")]
+
+def getNameByIP(ip_address: str) -> str:
+
+    addon = xbmcaddon.Addon()
+    for i in range(MAX_DEVICES):
+        if addon.getSettingString(f"wiz_{i}_ipaddress") == ip_address:
+            return addon.getSettingString(f"wiz_{i}_name")
+
+    return ip_address
