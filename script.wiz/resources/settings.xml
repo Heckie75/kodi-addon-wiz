@@ -2674,6 +2674,70 @@
                 </setting>
             </group>
         </category>
+        <category id="c_extras" label="32161" help="">
+            <group id="g_favs" label="32162">
+                <setting id="favs_latest_ip_addresses" type="string" label="32163" help="32164">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32163</heading>
+                    </control>
+                    <visible>false</visible>
+                </setting>
+                <setting id="favs_latest_pilot" type="string" label="32165" help="32166">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32165</heading>
+                    </control>
+                    <visible>false</visible>
+                </setting>
+                <setting id="favs_latest_devices" type="string" label="32001" help="32001">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32001</heading>
+                    </control>
+                    <enable>false</enable>
+                </setting>
+                <setting id="favs_latest_command" type="string" label="32165" help="32166">
+                    <level>0</level>
+                    <default />
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32165</heading>
+                    </control>
+                    <enable>false</enable>
+                </setting>
+                <setting id="add_favorite" type="action" label="32167" help="">
+                    <level>0</level>
+                    <data>RunScript($ID,add_fav)</data>
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <dependencies>
+                        <dependency type="enable">
+                            <and>
+                                <condition setting="favs_latest_pilot" operator="!is"></condition>
+                                <condition setting="favs_latest_ip_addresses" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                    <control type="button" format="action" />
+                </setting>
+            </group>
+        </category>
     </section>
 </settings>
   

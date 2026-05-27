@@ -131,7 +131,7 @@ class Features():
 
         return features
 
-    def to_json(self) -> dict:
+    def to_json(self) -> dict[str, bool | str]:
 
         return {
             "module_name": self.module_name,
@@ -144,7 +144,7 @@ class Features():
         }
 
     def __str__(self) -> str:
-        return f"Features(module_name={self.module_name}, device_type={self.device_type}, color={self.coler}, white={self.white}, temp={self.temp}, dimming={self.dimming}, power_meter={self.power_meter})"
+        return f"Features(module_name={self.module_name}, device_type={self.device_type}, color={self.color}, white={self.white}, temp={self.temp}, dimming={self.dimming}, power_meter={self.power_meter})"
 
 
 class DeviceInfo():
@@ -584,10 +584,10 @@ class Pilot():
 
         return pilot
 
-    def isOff(self) -> bool:
+    def isOff(self) -> bool | None:
         """Determine if the light is off based on its state and color values. A light is considered off if its state is False or if all color values (red, green, blue, and temperature) are zero."""
 
-        return not self.state
+        return not self.state if self.state is not None else None
 
     def color_str(self) -> str:
 
@@ -596,7 +596,7 @@ class Pilot():
 
         # If temp is set, show temperature and ignore RGB values (since they are not relevant in white mode)
         if self.temp and not (self.r or self.g or self.b):
-            return f"temperature ({self.temp})"
+            return f"temperature ({self.temp}K)"
 
         r = int(self.r & 0xFF)
         g = int(self.g & 0xFF)
@@ -779,7 +779,7 @@ class WizDevice():
 class WiZListener():
     """Listener WiZnterface for handling events related to Wiz device discovery and connection. Users can subclass this to implement custom behavior on events."""
 
-    def onStart(self):
+    def onStart(self, ip_addresses: list[str], commands: dict[str, dict]):
 
         LOGGER.debug("start processing")
 
@@ -793,17 +793,14 @@ class WiZListener():
 
     def onError(self, ip_address: str, exception: Exception):
 
-        LOGGER.debug(f"Error while comminicating weith {ip_address}: {exception}")
+        LOGGER.debug(
+            f"Error while comminicating weith {ip_address}: {exception}")
 
-    def onDevicesHandled(self, devices: list[WizDevice]):
+    def onFinished(self, devices: list[WizDevice]):
 
         output = "\n".join([str(d) for d in devices])
 
         LOGGER.debug(f"Devices handled: \n{output}")
-
-    def onFinished(self):
-
-        LOGGER.debug("end processing")
 
 
 class Alias():
@@ -935,7 +932,8 @@ class WizDeviceController():
                         )
                         continue
 
-                    listener.onMessageReceived(ip_address=addr[0], message=message)
+                    listener.onMessageReceived(
+                        ip_address=addr[0], message=message)
 
                 except socket.timeout:
                     continue
@@ -1226,7 +1224,8 @@ class WizDeviceController():
             return responses
 
         if self.listener:
-            self.listener.onStart()
+            self.listener.onStart(
+                ip_addresses=self.ip_addresses, commands=self.commands)
 
         for ip_address in self.ip_addresses:
 
@@ -1246,11 +1245,8 @@ class WizDeviceController():
                     ip_address=ip_address, payload=json.dumps(payload), timeout=timeout)
                 handle_responses(command=command, responses=responses)
 
-            if self.listener:
-                self.listener.onDevicesHandled(devices=self.devices)
-
         if self.listener:
-            self.listener.onFinished()
+            self.listener.onFinished(devices=self.devices)
 
         self.resetCommands()
 
@@ -1540,10 +1536,10 @@ USAGE:   wiz.py <ip_1/alias_1> [<ip_2/alias_2>] ... --<command_1> [<param_1> <pa
             def __init__(self, alias: Alias) -> None:
                 self.alias: Alias = alias
 
-            def onStart(self):
+            def onStart(self, ip_addresses: list[str], commands: dict[str, dict]):
                 print("MAC\t\tIP Address\tModule\tHome\tRoom\tGroup\tAlias", flush=True)
 
-            def onDevicesHandled(self, devices: list[WizDevice]):
+            def onFinished(self, devices: list[WizDevice]):
 
                 for device in devices:
                     if not device.system_config:

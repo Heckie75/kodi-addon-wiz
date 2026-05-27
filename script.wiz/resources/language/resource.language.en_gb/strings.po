@@ -361,6 +361,34 @@ msgctxt "#32160"
 msgid "Room 10"
 msgstr ""
 
+msgctxt "#32161"
+msgid "Extras"
+msgstr ""
+
+msgctxt "#32162"
+msgid "Favorites"
+msgstr ""
+
+msgctxt "#32163"
+msgid "Latest ip addresses"
+msgstr ""
+
+msgctxt "#32164"
+msgid "List of most recent used ip addresses"
+msgstr ""
+
+msgctxt "#32165"
+msgid "Latest command"
+msgstr ""
+
+msgctxt "#32166"
+msgid "JSON of most recent command"
+msgstr ""
+
+msgctxt "#32167"
+msgid "Create favorite"
+msgstr ""
+
 msgctxt "#32201"
 msgid "Bulb"
 msgstr ""
@@ -481,6 +509,166 @@ msgctxt "#32311"
 msgid "yellow"
 msgstr ""
 
+msgctxt "#32330"
+msgid "Colors"
+msgstr ""
+
+msgctxt "#32331"
+msgid "Ocean"
+msgstr ""
+
+msgctxt "#32332"
+msgid "Romance"
+msgstr ""
+
+msgctxt "#32333"
+msgid "Sunset"
+msgstr ""
+
+msgctxt "#32334"
+msgid "Party"
+msgstr ""
+
+msgctxt "#32335"
+msgid "Fireplace"
+msgstr ""
+
+msgctxt "#32336"
+msgid "Cozy"
+msgstr ""
+
+msgctxt "#32337"
+msgid "Forest"
+msgstr ""
+
+msgctxt "#32338"
+msgid "Pastel Colors"
+msgstr ""
+
+msgctxt "#32339"
+msgid "Wakeup"
+msgstr ""
+
+msgctxt "#32340"
+msgid "Bedtime"
+msgstr ""
+
+msgctxt "#32341"
+msgid "Warm White"
+msgstr ""
+
+msgctxt "#32342"
+msgid "Daylight"
+msgstr ""
+
+msgctxt "#32343"
+msgid "Cool White"
+msgstr ""
+
+msgctxt "#32344"
+msgid "Night light"
+msgstr ""
+
+msgctxt "#32345"
+msgid "Focus"
+msgstr ""
+
+msgctxt "#32346"
+msgid "Relax"
+msgstr ""
+
+msgctxt "#32347"
+msgid "True colors"
+msgstr ""
+
+msgctxt "#32348"
+msgid "TV time"
+msgstr ""
+
+msgctxt "#32349"
+msgid "Plant growth"
+msgstr ""
+
+msgctxt "#32350"
+msgid "Spring"
+msgstr ""
+
+msgctxt "#32351"
+msgid "Summer"
+msgstr ""
+
+msgctxt "#32352"
+msgid "Fall"
+msgstr ""
+
+msgctxt "#32353"
+msgid "Deep dive"
+msgstr ""
+
+msgctxt "#32354"
+msgid "Jungle"
+msgstr ""
+
+msgctxt "#32355"
+msgid "Mojito"
+msgstr ""
+
+msgctxt "#32356"
+msgid "Club"
+msgstr ""
+
+msgctxt "#32357"
+msgid "Christmas"
+msgstr ""
+
+msgctxt "#32358"
+msgid "Halloween"
+msgstr ""
+
+msgctxt "#32359"
+msgid "Candlelight"
+msgstr ""
+
+msgctxt "#32360"
+msgid "Golden white"
+msgstr ""
+
+msgctxt "#32361"
+msgid "Pulse"
+msgstr ""
+
+msgctxt "#32362"
+msgid "Steampunk"
+msgstr ""
+
+msgctxt "#32363"
+msgid "Diwali"
+msgstr ""
+
+msgctxt "#32364"
+msgid "(unknown)"
+msgstr ""
+
+msgctxt "#32365"
+msgid "Light alarm"
+msgstr ""
+
+msgctxt "#32366"
+msgid "Snowy sky"
+msgstr ""
+
+msgctxt "#32367"
+msgid "Dim to warm"
+msgstr ""
+
+msgctxt "#32368"
+msgid "Pulse"
+msgstr ""
+
+msgctxt "#32369"
+msgid "Rhythm"
+msgstr ""
+
 msgctxt "#32401"
 msgid "Select devices"
 msgstr ""
@@ -543,4 +731,200 @@ msgstr ""
 
 msgctxt "#32416"
 msgid "Select color"
+msgstr ""
+
+msgctxt "#32417"
+msgid "Start scene"
+msgstr ""
+
+msgctxt "#32418"
+msgid "Start a built-in light scene"
+msgstr ""
+
+msgctxt "#32419"
+msgid "Select scene"
+msgstr ""
+
+msgctxt "#32420"
+msgid "Set speed (10 to 200)"
+msgstr ""
+
+msgctxt "#32421"
+msgid "Fade mode"
+msgstr ""
+
+msgctxt "#32422"
+msgid "let bulb slowly fade in and out"
+msgstr ""
+
+msgctxt "#32423"
+msgid "Set amplitude (10 to 100)"
+msgstr ""
+
+msgctxt "#32424"
+msgid "Set duration in minutes (2 to 60)"
+msgstr ""
+
+msgctxt "#32501"
+msgid "Ambient"
+msgstr ""
+
+msgctxt "#32502"
+msgid "BGR"
+msgstr ""
+
+msgctxt "#32503"
+msgid "Blink"
+msgstr ""
+
+msgctxt "#32504"
+msgid "Bulb blue"
+msgstr ""
+
+msgctxt "#32505"
+msgid "Bulb cyan"
+msgstr ""
+
+msgctxt "#32506"
+msgid "Bulb down"
+msgstr ""
+
+msgctxt "#32507"
+msgid "Bulb green"
+msgstr ""
+
+msgctxt "#32508"
+msgid "Bulb magenta"
+msgstr ""
+
+msgctxt "#32509"
+msgid "Bulb off"
+msgstr ""
+
+msgctxt "#32510"
+msgid "Bulb on"
+msgstr ""
+
+msgctxt "#32511"
+msgid "Bulb red"
+msgstr ""
+
+msgctxt "#32512"
+msgid "Bulb up"
+msgstr ""
+
+msgctxt "#32513"
+msgid "Bulb white"
+msgstr ""
+
+msgctxt "#32514"
+msgid "Bulb yellow"
+msgstr ""
+
+msgctxt "#32515"
+msgid "Disco"
+msgstr ""
+
+msgctxt "#32516"
+msgid "Doze"
+msgstr ""
+
+msgctxt "#32517"
+msgid "Effect"
+msgstr ""
+
+msgctxt "#32518"
+msgid "Fade"
+msgstr ""
+
+msgctxt "#32519"
+msgid "Group"
+msgstr ""
+
+msgctxt "#32520"
+msgid "Group all"
+msgstr ""
+
+msgctxt "#32521"
+msgid "Presets"
+msgstr ""
+
+msgctxt "#32522"
+msgid "Program"
+msgstr ""
+
+msgctxt "#32523"
+msgid "Pulse"
+msgstr ""
+
+msgctxt "#32524"
+msgid "Rainbow"
+msgstr ""
+
+msgctxt "#32525"
+msgid "Random"
+msgstr ""
+
+msgctxt "#32526"
+msgid "Sleep"
+msgstr ""
+
+msgctxt "#32527"
+msgid "Wakeup"
+msgstr ""
+
+msgctxt "#32528"
+msgid "Default"
+msgstr ""
+
+msgctxt "#32530"
+msgid "Enter favorite name"
+msgstr ""
+
+msgctxt "#32531"
+msgid "Select favorite icon"
+msgstr ""
+
+msgctxt "#32534"
+msgid "Confirm favorite"
+msgstr ""
+
+msgctxt "#32535"
+msgid "Name: %s"
+msgstr ""
+
+msgctxt "#32536"
+msgid "Icon: %s"
+msgstr ""
+
+msgctxt "#32537"
+msgid "Command: %s"
+msgstr ""
+
+msgctxt "#32538"
+msgid "Favorite created"
+msgstr ""
+
+msgctxt "#32539"
+msgid "Failed to create favorite"
+msgstr ""
+
+msgctxt "#32540"
+msgid "No favorite command available. Please use the device control flow before saving a favorite."
+msgstr ""
+
+msgctxt "#32541"
+msgid "No favorite devices available."
+msgstr ""
+
+msgctxt "#32542"
+msgid "Unable to parse favorite command."
+msgstr ""
+
+msgctxt "#32543"
+msgid "Confirm"
+msgstr ""
+
+msgctxt "#32544"
+msgid "Cancel"
 msgstr ""
