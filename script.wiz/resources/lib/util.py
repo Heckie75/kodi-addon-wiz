@@ -1,17 +1,10 @@
-import xbmcaddon
-import xbmc
-import xbmcvfs
 import os
-import xbmcgui
 import xbmcaddon
-from resources.lib.wiz import WizDevice
-
-MAX_DEVICES = 20
-MAX_ROOMS = 10
+import xbmcgui
+import xbmcvfs
 
 _COLORS = ["off", "blue", "green", "cyan",
            "red", "magenta", "yellow", "white", "on"]
-
 
 def getAddonDir() -> str:
 
@@ -37,48 +30,6 @@ def createListItem(label: str, label2: str = None, icon: str = None, ipaddress: 
     if command:
         li.setProperty("command", "|".join(command))
     return li
-
-
-def updateRooms(devices: list[WizDevice]) -> None:
-
-    addon = xbmcaddon.Addon()
-
-    knownRooms = getRooms()
-
-    freeRooms = [i for i in range(
-        MAX_ROOMS) if addon.getSetting(f"room_{i}_id") == ""]
-
-    seenRooms = set(
-        [d.system_config.room_id for d in devices if d.system_config])
-    for seenRoom in seenRooms:
-        if not freeRooms:
-            break
-
-        if seenRoom in knownRooms:
-            continue
-
-        i = freeRooms.pop(0)
-        addon.setSetting(f"room_{i}_id", str(seenRoom))
-        addon.setSetting(f"room_{i}_name", "")
-
-
-def getRooms() -> dict[str, str]:
-
-    addon = xbmcaddon.Addon()
-    rooms = dict()
-    for i in range(MAX_ROOMS):
-        id = addon.getSetting(f"room_{i}_id")
-        name = addon.getSetting(f"room_{i}_name")
-        if id and name:
-            rooms[id] = name
-
-    return rooms
-
-
-def getRoomById(id: int) -> str:
-
-    rooms = getRooms()
-    return rooms[str(id)] if str(id) in rooms else str(id)
 
 
 def getTypeByModulename(moduleName: str) -> str:
@@ -111,18 +62,3 @@ def getLightName(color: dict) -> 'tuple[str, str, bool]':
             max_ = max(c, max_)
 
     return f"{xbmcaddon.Addon().getLocalizedString(32121 + v)} ({int(100 * max_/255)}%)", _COLORS[v],  v and 0.8 < (max_ / min_) < 1.2
-
-
-def getDeviceIPsFromSettings() -> str:
-
-    addon = xbmcaddon.Addon()
-    return [addon.getSettingString(f"wiz_{i}_ipaddress") for i in range(MAX_DEVICES) if addon.getSettingBool(f"wiz_{i}_enable")]
-
-def getNameByIP(ip_address: str) -> str:
-
-    addon = xbmcaddon.Addon()
-    for i in range(MAX_DEVICES):
-        if addon.getSettingString(f"wiz_{i}_ipaddress") == ip_address:
-            return addon.getSettingString(f"wiz_{i}_name")
-
-    return ip_address

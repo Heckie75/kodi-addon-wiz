@@ -5,11 +5,11 @@ import xbmc
 import xbmcaddon
 import xbmcgui
 
-from .util import getIconPath, getNameByIP
-from .wiz import WizDeviceController, Pilot
+from resources.lib.util import getIconPath
+from resources.lib.settings_util import write_request
 
-ADDON_ID = xbmcaddon.Addon().getAddonInfo("id")
-ADDON = xbmcaddon.Addon()
+from resources.lib import wiz
+from resources.lib.wizard import Wizard
 
 ICON_LABEL_IDS = {
     "bulb_on": 32510,
@@ -23,6 +23,7 @@ ICON_LABEL_IDS = {
     "bulb_white": 32513,
     "bulb": 32201,
     "lamp": 32202,
+    "hanginglamp": 32219,
     "spot": 32203,
     "livingroom": 32204,
     "bedroom": 32205,
@@ -63,7 +64,6 @@ ICON_LABEL_IDS = {
 FAVORITE_TITLE_ID = 32534
 FAVORITE_NAME_LABEL_ID = 32535
 FAVORITE_ICON_LABEL_ID = 32536
-FAVORITE_COMMAND_LABEL_ID = 32537
 FAVORITE_CREATED_ID = 32538
 FAVORITE_FAILED_ID = 32539
 FAVORITE_NO_COMMAND_ID = 32540
@@ -76,25 +76,35 @@ FAVORITE_SELECT_ICON_ID = 32531
 class FavoriteManager:
 
     def __init__(self):
-        self.addon = ADDON
+        self.addon = xbmcaddon.Addon()
         self.dialog = xbmcgui.Dialog()
 
-    def start_add_favorite(self) -> None:
-        devices = self.addon.getSettingString("favs_latest_ip_addresses")
-        command_json = self.addon.getSettingString("favs_latest_pilot")
+    def execute_favorite(self, request: str = None) -> None:
 
-        if not command_json:
-            self._notify(self.addon.getLocalizedString(FAVORITE_TITLE_ID), self.addon.getLocalizedString(FAVORITE_NO_COMMAND_ID))
-            return
-
-        if not devices:
-            self._notify(self.addon.getLocalizedString(FAVORITE_TITLE_ID), self.addon.getLocalizedString(FAVORITE_NO_DEVICES_ID))
+        if not request:
             return
 
         try:
-            pilot = Pilot.from_json(json.loads(command_json))
-        except json.JSONDecodeError:
-            self._notify(self.addon.getLocalizedString(FAVORITE_TITLE_ID), self.addon.getLocalizedString(FAVORITE_PARSE_FAILED_ID))
+            padded = request + "=" * (-len(request) % 4)
+            decoded = base64.urlsafe_b64decode(padded.encode()).decode()
+            request = json.loads(decoded)
+            write_request(request=json.loads(decoded))
+            if "pilot" in request:
+                controller = wiz.WizDeviceController(
+                    ip_addresses=request["ip_addresses"])
+                controller.commands["setPilot"] = request["pilot"]
+                controller.perform()
+
+        except Exception:
+            pass
+
+    def start_add_favorite(self) -> None:
+
+        wizard = Wizard(ip_addresses=["255.255.255.255"])
+        wizard.sync()
+        request = wizard.ask_request()
+
+        if not request or ("pilot" not in request and "program" not in request):
             return
 
         name = self._ask_favorite_name()
@@ -108,39 +118,12 @@ class FavoriteManager:
         if not self._confirm_favorite(name, icon, ""):
             return
 
-        if self._create_favorite(name, icon, command_json, devices):
-            self._notify(self.addon.getLocalizedString(FAVORITE_TITLE_ID), self.addon.getLocalizedString(FAVORITE_CREATED_ID))
+        if self._create_favorite(name, icon, request):
+            self._notify(self.addon.getLocalizedString(
+                FAVORITE_TITLE_ID), self.addon.getLocalizedString(FAVORITE_CREATED_ID))
         else:
-            self._notify(self.addon.getLocalizedString(FAVORITE_TITLE_ID), self.addon.getLocalizedString(FAVORITE_FAILED_ID))
-
-    def execute_favorite(self, favorite_data: str = None) -> None:
-
-        pilot = None
-        ip_addresses: list[str] = []
-
-        # Decode favorite data from plugin URL
-        if favorite_data:
-            try:
-                padded = favorite_data + "=" * (-len(favorite_data) % 4)
-                decoded = base64.urlsafe_b64decode(padded.encode()).decode()
-                xbmc.log(
-                    f"Decoded favorite data: {decoded[:50]}...", xbmc.LOGINFO)
-                favorite_info = json.loads(decoded)
-                pilot = favorite_info.get("command")
-                ip_addresses_str = favorite_info.get("devices", "")
-                ip_addresses = [ip for ip in ip_addresses_str.split("|") if ip]
-            except Exception:
-                pass
-
-        if not ip_addresses or not pilot:
-            return
-
-        device_names = [getNameByIP(ip_address) for ip_address in ip_addresses]
-
-        self._notify(self.addon.getLocalizedString(32004), ", ".join(device_names), icon="default")
-
-        controller = WizDeviceController(ip_addresses=ip_addresses)
-        controller.setPilot(pilot).perform()
+            self._notify(self.addon.getLocalizedString(
+                FAVORITE_TITLE_ID), self.addon.getLocalizedString(FAVORITE_FAILED_ID))
 
     def _ask_favorite_name(self) -> str:
         value = self.dialog.input(
@@ -172,21 +155,17 @@ class FavoriteManager:
     def _confirm_favorite(self, name: str, icon: str, command_summary: str) -> bool:
         return self.dialog.yesno(
             heading=self.addon.getLocalizedString(FAVORITE_TITLE_ID),
-            message=f"{self.addon.getLocalizedString(FAVORITE_NAME_LABEL_ID) % name}\n{self.addon.getLocalizedString(FAVORITE_ICON_LABEL_ID) % self.addon.getLocalizedString(ICON_LABEL_IDS.get(icon, 32528))}\n{self.addon.getLocalizedString(FAVORITE_COMMAND_LABEL_ID) % command_summary}",
+            message=f"{self.addon.getLocalizedString(FAVORITE_NAME_LABEL_ID) % name}\n{self.addon.getLocalizedString(FAVORITE_ICON_LABEL_ID) % self.addon.getLocalizedString(ICON_LABEL_IDS.get(icon, 32528))}",
             nolabel=self.addon.getLocalizedString(32544),
             yeslabel=self.addon.getLocalizedString(32543),
         )
 
-    def _create_favorite(self, name: str, icon: str, command_json: str, devices: str) -> bool:
+    def _create_favorite(self, name: str, icon: str, request: dict) -> bool:
+
         icon_path = getIconPath(icon)
-        # Encode both command and devices
-        favorite_info = json.dumps({
-            "command": json.loads(command_json),
-            "devices": devices
-        })
-        encoded_data = base64.urlsafe_b64encode(
-            favorite_info.encode()).decode()
-        path = f"plugin://{ADDON_ID}/?cmd=run_fav&data={encoded_data}"
+        encoded_request = base64.urlsafe_b64encode(
+            json.dumps(request).encode()).decode()
+        path = f"plugin://{self.addon.getAddonInfo("id")}/?cmd=run_fav&request={encoded_request}"
 
         payload = {
             "jsonrpc": "2.0",

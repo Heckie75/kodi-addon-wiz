@@ -149,6 +149,14 @@ msgctxt "#32039"
 msgid "Motion Sensor (Passive Infrared)"
 msgstr "Bewegungssensor (passives Infrarot)"
 
+msgctxt "#32040"
+msgid "All WiZ devices"
+msgstr "Alle WiZ Geräte"
+
+msgctxt "#32041"
+msgid "All WiZ devices in network via broadcast"
+msgstr "Alle WiZ Geräte im Netzwerk via Rundruf"
+
 msgctxt "#32051"
 msgid "scan for WiZ devices in your network"
 msgstr "suche WiZ Geräte in Deinem Netzwerk"
@@ -168,6 +176,10 @@ msgstr "Keine Geräte gefunden. Sind die Geräte mit dem Netzwerk verbunden? Sin
 msgctxt "#32055"
 msgid "Select devices to add"
 msgstr "Füge Geräte hinzu"
+
+msgctxt "#32056"
+msgid "Added %i devices"
+msgstr "%i Geräte hinzugefügt"
 
 msgctxt "#32101"
 msgid "WiZ device 1"
@@ -197,57 +209,6 @@ msgctxt "#32107"
 msgid "WiZ device 7"
 msgstr "WiZ Gerät 7"
 
-msgctxt "#32108"
-msgid "WiZ device 8"
-msgstr "WiZ Gerät 8"
-
-msgctxt "#32109"
-msgid "WiZ device 9"
-msgstr "WiZ Gerät 9"
-
-msgctxt "#32110"
-msgid "WiZ device 10"
-msgstr "WiZ Gerät 10"
-
-msgctxt "#32111"
-msgid "WiZ device 11"
-msgstr "WiZ Gerät 11"
-
-msgctxt "#32112"
-msgid "WiZ device 12"
-msgstr "WiZ Gerät 12"
-
-msgctxt "#32113"
-msgid "WiZ device 13"
-msgstr "WiZ Gerät 13"
-
-msgctxt "#32114"
-msgid "WiZ device 14"
-msgstr "WiZ Gerät 14"
-
-msgctxt "#32115"
-msgid "WiZ device 15"
-msgstr "WiZ Gerät 15"
-
-msgctxt "#32116"
-msgid "WiZ device 16"
-msgstr "WiZ Gerät 16"
-
-msgctxt "#32117"
-msgid "WiZ device 17"
-msgstr "WiZ Gerät 17"
-
-msgctxt "#32118"
-msgid "WiZ device 18"
-msgstr "WiZ Gerät 18"
-
-msgctxt "#32119"
-msgid "WiZ device 19"
-msgstr "WiZ Gerät 19"
-
-msgctxt "#32120"
-msgid "WiZ device 20"
-msgstr "WiZ Gerät 20"
 
 msgctxt "#32121"
 msgid "off"
@@ -302,64 +263,64 @@ msgid "violet"
 msgstr "lila"
 
 msgctxt "#32140"
-msgid "Rooms"
-msgstr "Räume"
-
-msgctxt "#32141"
 msgid "Room ID"
 msgstr "Raum ID"
 
+msgctxt "#32141"
+msgid "Group ID"
+msgstr "Gruppen ID"
+
 msgctxt "#32142"
-msgid "technical ID of room given by WiZ"
-msgstr "technische ID des Raumes von WiZ vergeben"
+msgid "internal ID given by WiZ"
+msgstr "interne ID von WiZ vergeben"
 
 msgctxt "#32143"
-msgid "Room name"
-msgstr "Raumname"
+msgid "Location name"
+msgstr "Name des Ortes"
 
 msgctxt "#32144"
-msgid "Room name given by you"
-msgstr "Raumname, der von Dir vergeben wird"
+msgid "Location name given by you"
+msgstr "Name des Ortes, der von Dir vergeben wird"
 
 msgctxt "#32151"
-msgid "Room 1"
-msgstr "Raum 1"
+msgid "Location 1"
+msgstr "Ort 1"
 
 msgctxt "#32152"
-msgid "Room 2"
-msgstr "Raum 2"
+msgid "Location 2"
+msgstr "Ort 2"
 
 msgctxt "#32153"
-msgid "Room 3"
-msgstr "Raum 3"
+msgid "Location 3"
+msgstr "Ort 3"
 
 msgctxt "#32154"
-msgid "Room 4"
-msgstr "Raum 4"
+msgid "Location 4"
+msgstr "Ort 4"
 
 msgctxt "#32155"
-msgid "Room 5"
-msgstr "Raum 5"
+msgid "Location 5"
+msgstr "Ort 5"
 
 msgctxt "#32156"
-msgid "Room 6"
-msgstr "Raum 6"
+msgid "Location 6"
+msgstr "Ort 6"
 
 msgctxt "#32157"
-msgid "Room 7"
-msgstr "Raum 7"
+msgid "Location 7"
+msgstr "Ort 7"
 
 msgctxt "#32158"
-msgid "Room 8"
-msgstr "Raum 8"
+msgid "Location 8"
+msgstr "Ort 8"
 
 msgctxt "#32159"
-msgid "Room 9"
-msgstr "Raum 9"
+msgid "Location 9"
+msgstr "Ort 9"
 
 msgctxt "#32160"
-msgid "Room 10"
-msgstr "Raum 10"
+msgid "Location 10"
+msgstr "Ort 10"
 
 msgctxt "#32161"
 msgid "Extras"
@@ -460,6 +421,10 @@ msgstr "Drucker"
 msgctxt "#32218"
 msgid "Server"
 msgstr "Server"
+
+msgctxt "#32219"
+msgid "Hanging lamp"
+msgstr "Hängelampe"
 
 msgctxt "#32300"
 msgid "off"
@@ -897,10 +862,6 @@ msgctxt "#32536"
 msgid "Icon: %s"
 msgstr "Symbol: %s"
 
-msgctxt "#32537"
-msgid "Command: %s"
-msgstr "Befehl: %s"
-
 msgctxt "#32538"
 msgid "Favorite created"
 msgstr "Lesezeichen erstellt"
@@ -928,3 +889,175 @@ msgstr "Bestätigen"
 msgctxt "#32544"
 msgid "Cancel"
 msgstr "Abbrechen"
+
+msgctxt "#32545"
+msgid "Start a program"
+msgstr "Starte ein Programm"
+
+msgctxt "#32546"
+msgid "Enter runtime"
+msgstr "Gebe die Laufzeit ein"
+
+msgctxt "#32547"
+msgid "Stop program"
+msgstr "Stoppe Programm"
+
+msgctxt "#32548"
+msgid "Join a running program"
+msgstr "Trete einem laufenden Programm bei"
+
+msgctxt "#32549"
+msgid "%i running program(s)"
+msgstr "%i laufende(s) Programm(e)"
+
+msgctxt "#32550"
+msgid "Halt program"
+msgstr "Programm anhalten"
+
+msgctxt "#32551"
+msgid "Stop running program"
+msgstr "stoppe laufendes Programm"
+
+msgctxt "#32552"
+msgid "Interval program"
+msgstr "Intervallprogramm"
+
+msgctxt "#32553"
+msgid "Turn device on and off after a certain period"
+msgstr "Schalte Gerät ein und nach einem Zeitraum wieder aus"
+
+msgctxt "#32554"
+msgid "Fade program"
+msgstr "Fade-Programm"
+
+msgctxt "#32555"
+msgid "Let the light slowly fade out"
+msgstr "Lässt das Licht langsam ausblenden"
+
+msgctxt "#32556"
+msgid "Wakeup program"
+msgstr "Aufwachprogramm"
+
+msgctxt "#32557"
+msgid "Gradually increase brightness for wakeup"
+msgstr "Erhöht die Helligkeit allmählich zum Aufwachen"
+
+msgctxt "#32558"
+msgid "Doze program"
+msgstr "Döseprogramm"
+
+msgctxt "#32559"
+msgid "Use gentle dimmed light for relaxation"
+msgstr "Verwendet sanft gedimmtes Licht zur Entspannung"
+
+msgctxt "#32560"
+msgid "Ambient program"
+msgstr "Ambient-Programm"
+
+msgctxt "#32561"
+msgid "Create a subtle ambient lighting atmosphere"
+msgstr "Erzeugt eine dezente Ambientebeleuchtung"
+
+msgctxt "#32562"
+msgid "Wheel RGB program"
+msgstr "Farbzyklus RGB"
+
+msgctxt "#32563"
+msgid "Rotate colors in RGB order"
+msgstr "Wechselt die Farben in RGB-Reihenfolge"
+
+msgctxt "#32564"
+msgid "Wheel GBR program"
+msgstr "Farbzyklus GBR"
+
+msgctxt "#32565"
+msgid "Rotate colors in GBR order"
+msgstr "Wechselt die Farben in GBR-Reihenfolge"
+
+msgctxt "#32566"
+msgid "Wheel BRG program"
+msgstr "Farbzyklus BRG"
+
+msgctxt "#32567"
+msgid "Rotate colors in BRG order"
+msgstr "Wechselt die Farben in BRG-Reihenfolge"
+
+msgctxt "#32568"
+msgid "Wheel BGR program"
+msgstr "Farbzyklus BGR"
+
+msgctxt "#32569"
+msgid "Rotate colors in BGR order"
+msgstr "Wechselt die Farben in BGR-Reihenfolge"
+
+msgctxt "#32570"
+msgid "Wheel RBG program"
+msgstr "Farbzyklus RBG"
+
+msgctxt "#32571"
+msgid "Rotate colors in RBG order"
+msgstr "Wechselt die Farben in RBG-Reihenfolge"
+
+msgctxt "#32572"
+msgid "Wheel GRB program"
+msgstr "Farbzyklus GRB"
+
+msgctxt "#32573"
+msgid "Rotate colors in GRB order"
+msgstr "Wechselt die Farben in GRB-Reihenfolge"
+
+msgctxt "#32574"
+msgid "Wheel random program"
+msgstr "Farbzyklus Zufall"
+
+msgctxt "#32575"
+msgid "Rotate colors in random order"
+msgstr "Wechselt die Farben in zufälliger Reihenfolge"
+
+msgctxt "#32576"
+msgid "Infinite wheel program"
+msgstr "Unendlicher Farbzyklus"
+
+msgctxt "#32577"
+msgid "Never ending rotating of colors"
+msgstr "Unendliche Farbrotation"
+
+msgctxt "#32578"
+msgid "Warm to cold program"
+msgstr "Warm-zu-kalt-Programm"
+
+msgctxt "#32579"
+msgid "Transition light from warm white to cold white"
+msgstr "Übergang des Lichts von warmem Weiß zu kaltem Weiß"
+
+msgctxt "#32580"
+msgid "Cold to warm program"
+msgstr "Kalt-zu-warm-Programm"
+
+msgctxt "#32581"
+msgid "Transition light from cold white to warm white"
+msgstr "Übergang des Lichts von kaltem Weiß zu warmem Weiß"
+
+msgctxt "#32582"
+msgid "Sunrise program"
+msgstr "Sonnenaufgangsprogramm"
+
+msgctxt "#32583"
+msgid "Simulate a natural sunrise"
+msgstr "Simuliert einen natürlichen Sonnenaufgang"
+
+msgctxt "#32584"
+msgid "Sunset program"
+msgstr "Sonnenuntergangsprogramm"
+
+msgctxt "#32585"
+msgid "Simulate a natural sunset"
+msgstr "Simuliert einen natürlichen Sonnenuntergang"
+
+msgctxt "#32586"
+msgid "Sunrise-sunset program"
+msgstr "Sonnenaufgang-Sonnenuntergangsprogramm"
+
+msgctxt "#32587"
+msgid "Simulate sunrise followed by sunset"
+msgstr "Simuliert zuerst einen Sonnenaufgang und anschließend einen Sonnenuntergang"
