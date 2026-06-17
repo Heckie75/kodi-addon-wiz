@@ -139,6 +139,48 @@ def get_location_device_prefixes(room_id: int, group_id: int) -> list[str]:
     return prefixes
 
 
+def get_enabled_prefixes_for_location(location_id: int) -> list[str]:
+
+    addon = xbmcaddon.Addon()
+    prefixes: list[str] = []
+    for device in range(MAX_DEVICES_PER_LOCATION):
+        prefix = get_location_wiz_prefix(location_id, device)
+        if addon.getSettingBool(f"{prefix}_enable"):
+            prefixes.append(prefix)
+
+    prefixes.sort(key=lambda key: addon.getSettingInt(f"{key}_order"))
+    return prefixes
+
+
+def get_location_ip_addresses(location_id: int) -> list[str]:
+
+    addon = xbmcaddon.Addon()
+    ip_addresses: list[str] = []
+    for prefix in get_enabled_prefixes_for_location(location_id):
+        ip_address = addon.getSettingString(f"{prefix}_ipaddress")
+        if ip_address:
+            ip_addresses.append(ip_address)
+
+    return list(dict.fromkeys(ip_addresses))
+
+
+def get_enabled_location_ids() -> list[int]:
+
+    addon = xbmcaddon.Addon()
+    location_ids: list[int] = []
+    for location_id in range(MAX_LOCATIONS):
+        if addon.getSetting(f"room_{location_id}_id") == "":
+            continue
+        if not addon.getSettingBool(f"location_{location_id}_show_as_location"):
+            continue
+        if get_location_ip_addresses(location_id):
+            location_ids.append(location_id)
+
+    location_ids.sort(key=lambda key: addon.getSettingInt(
+        f"location_{key}_order"))
+    return location_ids
+
+
 def get_all_device_prefixes() -> list[str]:
 
     prefixes: list[str] = []
@@ -240,3 +282,32 @@ def delete_running_programs() -> None:
     path = _get_storage_path()
     if xbmcvfs.exists(path):
         xbmcvfs.delete(path)
+
+
+def transform_url_params_to_request(params: dict) -> dict:
+
+    if "pilot" in params:
+        pass
+
+    elif "program" in params:
+
+        program = {
+            "program": params["program"][0]
+        }
+
+        if "dimming" in params:
+            program["dimming"] = int(params["dimming"][0])
+        if "duration" in params:
+            program["duration"] = int(params["duration"][0])
+        if "phase_shift" in params:
+            program["phase_shift"] = int(params["phase_shift"][0])
+        if "offset" in params:
+            program["offset"] = int(params["offset"][0])
+
+        request = {
+            "ip_addresses": params["ip_addresses"][0].split(";"),
+            "program": program
+        }
+        return request
+
+    return {}

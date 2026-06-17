@@ -41,9 +41,8 @@ class WizRunner(xbmc.Monitor):
 
                     if halt:
                         halt_program = wiz.Program(wizController=wiz.WizDeviceController(ip_addresses=[
-                                                   ip_address]), programID=program.programID, duration=program.duration, dimming=program.dimming)
-                        self._performPilot(
-                            program=halt_program, elapsed=halt_program.duration)
+                                                   ip_address]), programID=program.programID, duration=program.duration, dimming=program.dimming, phase_shift=program.phase_shift)
+                        self.stopProgram(program=halt_program)
                         xbmc.log(
                             f"[script.wiz] halted program {halt_program} for IP {ip_address}", xbmc.LOGINFO)
 
@@ -52,8 +51,7 @@ class WizRunner(xbmc.Monitor):
                             f"[script.wiz] no more target IPs for program {program}, stopping it", xbmc.LOGINFO)
                         self._programs.remove(program)
                 elif self._is_broadcast(ip_address):
-                    self._performPilot(
-                        program=program, elapsed=program.duration)
+                    self.stopProgram(program=program)
                     self._programs.remove(program)
                     xbmc.log(
                         f"[script.wiz] halted program {program}", xbmc.LOGINFO)
@@ -70,11 +68,11 @@ class WizRunner(xbmc.Monitor):
 
         return False
 
-    def _performPilot(self, program: wiz.Program, elapsed: int) -> None:
+    def stopProgram(self, program: wiz.Program) -> None:
 
         with self.lock:
             try:
-                program.performPilot(elapsed=elapsed)
+                program.end()
             except Exception as ex:
                 xbmc.log(f"{ex}", xbmc.LOGWARNING)
 
@@ -106,20 +104,20 @@ class WizRunner(xbmc.Monitor):
         if program and program["program"] == "join":
             self._join_program(request)
 
-        elif program and not halt:
+        elif halt:
+            xbmcgui.Dialog().notification(heading=self.addon.getLocalizedString(
+                32547), message=device_names, icon=getIconPath("halt"), time=5000)
 
+        elif program:
             new_program = wiz.Program(controller, programID=program.get(
-                "program", ""), duration=program.get("duration", 60), dimming=program.get("dimming", None))
-            new_program.initialize()
+                "program", ""), duration=program.get("duration", 60), dimming=program.get("dimming", None), phase_shift=program.get("phase_shift", 0))
+            new_program.initialize(offset=program.get("offset", 0))
             self._programs.append(new_program)
             xbmcgui.Dialog().notification(heading=self.addon.getLocalizedString(
                 32545), message=device_names, icon=getIconPath("program"), time=5000)
             xbmc.log(
                 f"[script.wiz] added new program {new_program}", xbmc.LOGINFO)
 
-        elif halt:
-            xbmcgui.Dialog().notification(heading=self.addon.getLocalizedString(
-                32547), message=device_names, icon=getIconPath("halt"), time=5000)
 
         elif pilot:
             # controller.commands["setPilot"] = pilot
@@ -157,12 +155,12 @@ class WizRunner(xbmc.Monitor):
                         longest_running = max(
                             program.start_time + program.duration, longest_running)
 
-            if self.waitForAbort(max(.1, 1 - (time.time() - before_perform)) + 0 if self._programs else 4):
+            if self.waitForAbort(max(.1, 1 - (time.time() - before_perform)) + (0 if self._programs else 4)):
                 break
 
         for program in self._programs:
             xbmc.log(
                 f"[script.wiz] finalize program on exit: {program}", xbmc.LOGINFO)
-            self._performPilot(program=program, elapsed=program.duration)
+            self.stopProgram(program=program)
 
         delete_running_programs()

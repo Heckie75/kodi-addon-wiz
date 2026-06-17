@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="script.wiz" name="WiZ Control" version="1.0.0"
+<addon id="script.wiz" name="WiZ Control" version="1.0.1"
 	provider-name="Heckie">
 	<requires>
 		<import addon="xbmc.python" version="3.0.0" />
@@ -19,6 +19,8 @@
 		<email></email>
 		<source>https://github.com/heckie75/kodi-addon-wiz</source>
 		<news>
+			v1.0.1 (2026-07-04)
+			- Added phase-shift support for infinite programs with multiple bulbs
 			v1.0.0 (2026-05-10)
 			- Initial version
 		</news>

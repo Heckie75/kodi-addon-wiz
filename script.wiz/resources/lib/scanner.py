@@ -1,3 +1,4 @@
+import time
 import xbmcaddon
 import xbmcgui
 from resources.lib.util import createListItem, getIconPath
@@ -10,13 +11,42 @@ class Scanner(WiZListener):
     def __init__(self):
 
         self.addon = xbmcaddon.Addon()
-        self.progress = xbmcgui.DialogProgressBG()
+        self.progress = xbmcgui.DialogProgress()
         self.knownLocations = get_locations()
 
     def onMessageReceived(self, ip_address: str, message: str):
 
         self.progress.update(
             message=self.addon.getLocalizedString(32053), percent=90)
+
+    def pulse(self, location: str, device: str) -> None:
+
+        ip_address = self.addon.getSetting(
+            f"location_{location}_wiz_{device}_ipaddress")
+        controller = WizDeviceController(ip_addresses=[ip_address])
+
+        controller.getPilot().getSystemConfig().perform()
+        is_bulb = False
+        if controller.devices[0].system_config:
+            features = Features.fromModuleName(
+                controller.devices[0].system_config.module_name)
+            is_bulb = features.device_type == Features.DEVICE_BULB
+
+        if is_bulb:
+            current = controller.devices[0].pilot.to_dict()
+            controller.withColor(red=255, green=0, blue=255).withDimming(
+                10).withState(True).perform()
+            for i in range(10):
+                controller.pulse(
+                    delta=100, duration=100).perform()
+                time.sleep(.2)
+
+            controller.setPilot(current)
+            controller.perform()
+        else:
+            controller.withState(state=True).perform()
+            time.sleep(1)
+            controller.withState(state=False).perform()
 
     def scan(self):
 

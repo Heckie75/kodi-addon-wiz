@@ -87,6 +87,39 @@
                     </control>
                     <enable>true</enable>
                 </setting>
+                <setting id="location_0_show_as_location" type="boolean" label="32168" help="32169">
+                    <level>0</level>
+                    <default>false</default>
+                    <control type="toggle" />
+                </setting>
+                <setting id="location_0_icon" type="string" label="32017" help="32018">
+                    <level>0</level>
+                    <default>livingroom</default>
+                    <constraints>
+                        <options>
+                            <option label="32201">bulb</option>
+                            <option label="32202">lamp</option>
+                            <option label="32219">hanginglamp</option>
+                            <option label="32203">spot</option>
+                            <option label="32204">livingroom</option>
+                            <option label="32205">bedroom</option>
+                            <option label="32206">kitchen</option>
+                            <option label="32207">hall</option>
+                            <option label="32208">bathroom</option>
+                            <option label="32209">globe</option>
+                            <option label="32210">candle</option>
+                            <option label="32211">socket</option>
+                            <option label="32212">tv</option>
+                            <option label="32213">radio</option>
+                            <option label="32214">coffee</option>
+                            <option label="32215">cooker</option>
+                            <option label="32216">computer</option>
+                            <option label="32217">printer</option>
+                            <option label="32218">server</option>
+                        </options>
+                    </constraints>
+                    <control type="spinner" format="string" />
+                </setting>
                 <setting id="location_0_order" type="integer" label="32021" help="32022">
                     <level>0</level>
                     <default>1</default>
@@ -129,6 +162,20 @@
                         <heading>32013</heading>
                     </control>
                     <visible>false</visible>
+                </setting>
+                <setting id="location_0_wiz_0_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,0,0)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_0_wiz_0_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
                 </setting>
                 <setting id="location_0_wiz_0_name" type="string" label="32025" help="32026">
                     <level>0</level>
@@ -251,6 +298,20 @@
                     </control>
                     <visible>false</visible>
                 </setting>
+                <setting id="location_0_wiz_1_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,0,1)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_0_wiz_1_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
                 <setting id="location_0_wiz_1_name" type="string" label="32025" help="32026">
                     <level>0</level>
                     <default />
@@ -371,6 +432,20 @@
                         <heading>32013</heading>
                     </control>
                     <visible>false</visible>
+                </setting>
+                <setting id="location_0_wiz_2_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,0,2)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_0_wiz_2_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
                 </setting>
                 <setting id="location_0_wiz_2_name" type="string" label="32025" help="32026">
                     <level>0</level>
@@ -493,6 +568,20 @@
                     </control>
                     <visible>false</visible>
                 </setting>
+                <setting id="location_0_wiz_3_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,0,3)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_0_wiz_3_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
                 <setting id="location_0_wiz_3_name" type="string" label="32025" help="32026">
                     <level>0</level>
                     <default />
@@ -613,6 +702,20 @@
                         <heading>32013</heading>
                     </control>
                     <visible>false</visible>
+                </setting>
+                <setting id="location_0_wiz_4_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,0,4)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_0_wiz_4_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
                 </setting>
                 <setting id="location_0_wiz_4_name" type="string" label="32025" help="32026">
                     <level>0</level>
@@ -735,6 +838,20 @@
                     </control>
                     <visible>false</visible>
                 </setting>
+                <setting id="location_0_wiz_5_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,0,5)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_0_wiz_5_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
                 <setting id="location_0_wiz_5_name" type="string" label="32025" help="32026">
                     <level>0</level>
                     <default />
@@ -855,6 +972,20 @@
                         <heading>32013</heading>
                     </control>
                     <visible>false</visible>
+                </setting>
+                <setting id="location_0_wiz_6_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,0,6)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_0_wiz_6_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
                 </setting>
                 <setting id="location_0_wiz_6_name" type="string" label="32025" help="32026">
                     <level>0</level>
@@ -984,6 +1115,39 @@
                     </control>
                     <enable>true</enable>
                 </setting>
+                <setting id="location_1_show_as_location" type="boolean" label="32168" help="32169">
+                    <level>0</level>
+                    <default>false</default>
+                    <control type="toggle" />
+                </setting>
+                <setting id="location_1_icon" type="string" label="32017" help="32018">
+                    <level>0</level>
+                    <default>livingroom</default>
+                    <constraints>
+                        <options>
+                            <option label="32201">bulb</option>
+                            <option label="32202">lamp</option>
+                            <option label="32219">hanginglamp</option>
+                            <option label="32203">spot</option>
+                            <option label="32204">livingroom</option>
+                            <option label="32205">bedroom</option>
+                            <option label="32206">kitchen</option>
+                            <option label="32207">hall</option>
+                            <option label="32208">bathroom</option>
+                            <option label="32209">globe</option>
+                            <option label="32210">candle</option>
+                            <option label="32211">socket</option>
+                            <option label="32212">tv</option>
+                            <option label="32213">radio</option>
+                            <option label="32214">coffee</option>
+                            <option label="32215">cooker</option>
+                            <option label="32216">computer</option>
+                            <option label="32217">printer</option>
+                            <option label="32218">server</option>
+                        </options>
+                    </constraints>
+                    <control type="spinner" format="string" />
+                </setting>
                 <setting id="location_1_order" type="integer" label="32021" help="32022">
                     <level>0</level>
                     <default>1</default>
@@ -1026,6 +1190,20 @@
                         <heading>32013</heading>
                     </control>
                     <visible>false</visible>
+                </setting>
+                <setting id="location_1_wiz_0_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,1,0)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_1_wiz_0_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
                 </setting>
                 <setting id="location_1_wiz_0_name" type="string" label="32025" help="32026">
                     <level>0</level>
@@ -1148,6 +1326,20 @@
                     </control>
                     <visible>false</visible>
                 </setting>
+                <setting id="location_1_wiz_1_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,1,1)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_1_wiz_1_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
                 <setting id="location_1_wiz_1_name" type="string" label="32025" help="32026">
                     <level>0</level>
                     <default />
@@ -1268,6 +1460,20 @@
                         <heading>32013</heading>
                     </control>
                     <visible>false</visible>
+                </setting>
+                <setting id="location_1_wiz_2_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,1,2)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_1_wiz_2_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
                 </setting>
                 <setting id="location_1_wiz_2_name" type="string" label="32025" help="32026">
                     <level>0</level>
@@ -1390,6 +1596,20 @@
                     </control>
                     <visible>false</visible>
                 </setting>
+                <setting id="location_1_wiz_3_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,1,3)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_1_wiz_3_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
                 <setting id="location_1_wiz_3_name" type="string" label="32025" help="32026">
                     <level>0</level>
                     <default />
@@ -1510,6 +1730,20 @@
                         <heading>32013</heading>
                     </control>
                     <visible>false</visible>
+                </setting>
+                <setting id="location_1_wiz_4_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,1,4)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_1_wiz_4_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
                 </setting>
                 <setting id="location_1_wiz_4_name" type="string" label="32025" help="32026">
                     <level>0</level>
@@ -1632,6 +1866,20 @@
                     </control>
                     <visible>false</visible>
                 </setting>
+                <setting id="location_1_wiz_5_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,1,5)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_1_wiz_5_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
                 <setting id="location_1_wiz_5_name" type="string" label="32025" help="32026">
                     <level>0</level>
                     <default />
@@ -1752,6 +2000,20 @@
                         <heading>32013</heading>
                     </control>
                     <visible>false</visible>
+                </setting>
+                <setting id="location_1_wiz_6_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,1,6)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_1_wiz_6_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
                 </setting>
                 <setting id="location_1_wiz_6_name" type="string" label="32025" help="32026">
                     <level>0</level>
@@ -1881,6 +2143,39 @@
                     </control>
                     <enable>true</enable>
                 </setting>
+                <setting id="location_2_show_as_location" type="boolean" label="32168" help="32169">
+                    <level>0</level>
+                    <default>false</default>
+                    <control type="toggle" />
+                </setting>
+                <setting id="location_2_icon" type="string" label="32017" help="32018">
+                    <level>0</level>
+                    <default>livingroom</default>
+                    <constraints>
+                        <options>
+                            <option label="32201">bulb</option>
+                            <option label="32202">lamp</option>
+                            <option label="32219">hanginglamp</option>
+                            <option label="32203">spot</option>
+                            <option label="32204">livingroom</option>
+                            <option label="32205">bedroom</option>
+                            <option label="32206">kitchen</option>
+                            <option label="32207">hall</option>
+                            <option label="32208">bathroom</option>
+                            <option label="32209">globe</option>
+                            <option label="32210">candle</option>
+                            <option label="32211">socket</option>
+                            <option label="32212">tv</option>
+                            <option label="32213">radio</option>
+                            <option label="32214">coffee</option>
+                            <option label="32215">cooker</option>
+                            <option label="32216">computer</option>
+                            <option label="32217">printer</option>
+                            <option label="32218">server</option>
+                        </options>
+                    </constraints>
+                    <control type="spinner" format="string" />
+                </setting>
                 <setting id="location_2_order" type="integer" label="32021" help="32022">
                     <level>0</level>
                     <default>1</default>
@@ -1923,6 +2218,20 @@
                         <heading>32013</heading>
                     </control>
                     <visible>false</visible>
+                </setting>
+                <setting id="location_2_wiz_0_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,2,0)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_2_wiz_0_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
                 </setting>
                 <setting id="location_2_wiz_0_name" type="string" label="32025" help="32026">
                     <level>0</level>
@@ -2045,6 +2354,20 @@
                     </control>
                     <visible>false</visible>
                 </setting>
+                <setting id="location_2_wiz_1_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,2,1)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_2_wiz_1_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
                 <setting id="location_2_wiz_1_name" type="string" label="32025" help="32026">
                     <level>0</level>
                     <default />
@@ -2165,6 +2488,20 @@
                         <heading>32013</heading>
                     </control>
                     <visible>false</visible>
+                </setting>
+                <setting id="location_2_wiz_2_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,2,2)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_2_wiz_2_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
                 </setting>
                 <setting id="location_2_wiz_2_name" type="string" label="32025" help="32026">
                     <level>0</level>
@@ -2287,6 +2624,20 @@
                     </control>
                     <visible>false</visible>
                 </setting>
+                <setting id="location_2_wiz_3_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,2,3)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_2_wiz_3_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
                 <setting id="location_2_wiz_3_name" type="string" label="32025" help="32026">
                     <level>0</level>
                     <default />
@@ -2407,6 +2758,20 @@
                         <heading>32013</heading>
                     </control>
                     <visible>false</visible>
+                </setting>
+                <setting id="location_2_wiz_4_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,2,4)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_2_wiz_4_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
                 </setting>
                 <setting id="location_2_wiz_4_name" type="string" label="32025" help="32026">
                     <level>0</level>
@@ -2529,6 +2894,20 @@
                     </control>
                     <visible>false</visible>
                 </setting>
+                <setting id="location_2_wiz_5_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,2,5)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_2_wiz_5_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
                 <setting id="location_2_wiz_5_name" type="string" label="32025" help="32026">
                     <level>0</level>
                     <default />
@@ -2649,6 +3028,20 @@
                         <heading>32013</heading>
                     </control>
                     <visible>false</visible>
+                </setting>
+                <setting id="location_2_wiz_6_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,2,6)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_2_wiz_6_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
                 </setting>
                 <setting id="location_2_wiz_6_name" type="string" label="32025" help="32026">
                     <level>0</level>
@@ -2778,6 +3171,39 @@
                     </control>
                     <enable>true</enable>
                 </setting>
+                <setting id="location_3_show_as_location" type="boolean" label="32168" help="32169">
+                    <level>0</level>
+                    <default>false</default>
+                    <control type="toggle" />
+                </setting>
+                <setting id="location_3_icon" type="string" label="32017" help="32018">
+                    <level>0</level>
+                    <default>livingroom</default>
+                    <constraints>
+                        <options>
+                            <option label="32201">bulb</option>
+                            <option label="32202">lamp</option>
+                            <option label="32219">hanginglamp</option>
+                            <option label="32203">spot</option>
+                            <option label="32204">livingroom</option>
+                            <option label="32205">bedroom</option>
+                            <option label="32206">kitchen</option>
+                            <option label="32207">hall</option>
+                            <option label="32208">bathroom</option>
+                            <option label="32209">globe</option>
+                            <option label="32210">candle</option>
+                            <option label="32211">socket</option>
+                            <option label="32212">tv</option>
+                            <option label="32213">radio</option>
+                            <option label="32214">coffee</option>
+                            <option label="32215">cooker</option>
+                            <option label="32216">computer</option>
+                            <option label="32217">printer</option>
+                            <option label="32218">server</option>
+                        </options>
+                    </constraints>
+                    <control type="spinner" format="string" />
+                </setting>
                 <setting id="location_3_order" type="integer" label="32021" help="32022">
                     <level>0</level>
                     <default>1</default>
@@ -2820,6 +3246,20 @@
                         <heading>32013</heading>
                     </control>
                     <visible>false</visible>
+                </setting>
+                <setting id="location_3_wiz_0_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,3,0)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_3_wiz_0_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
                 </setting>
                 <setting id="location_3_wiz_0_name" type="string" label="32025" help="32026">
                     <level>0</level>
@@ -2942,6 +3382,20 @@
                     </control>
                     <visible>false</visible>
                 </setting>
+                <setting id="location_3_wiz_1_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,3,1)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_3_wiz_1_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
                 <setting id="location_3_wiz_1_name" type="string" label="32025" help="32026">
                     <level>0</level>
                     <default />
@@ -3062,6 +3516,20 @@
                         <heading>32013</heading>
                     </control>
                     <visible>false</visible>
+                </setting>
+                <setting id="location_3_wiz_2_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,3,2)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_3_wiz_2_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
                 </setting>
                 <setting id="location_3_wiz_2_name" type="string" label="32025" help="32026">
                     <level>0</level>
@@ -3184,6 +3652,20 @@
                     </control>
                     <visible>false</visible>
                 </setting>
+                <setting id="location_3_wiz_3_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,3,3)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_3_wiz_3_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
                 <setting id="location_3_wiz_3_name" type="string" label="32025" help="32026">
                     <level>0</level>
                     <default />
@@ -3304,6 +3786,20 @@
                         <heading>32013</heading>
                     </control>
                     <visible>false</visible>
+                </setting>
+                <setting id="location_3_wiz_4_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,3,4)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_3_wiz_4_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
                 </setting>
                 <setting id="location_3_wiz_4_name" type="string" label="32025" help="32026">
                     <level>0</level>
@@ -3426,6 +3922,20 @@
                     </control>
                     <visible>false</visible>
                 </setting>
+                <setting id="location_3_wiz_5_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,3,5)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_3_wiz_5_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
                 <setting id="location_3_wiz_5_name" type="string" label="32025" help="32026">
                     <level>0</level>
                     <default />
@@ -3546,6 +4056,20 @@
                         <heading>32013</heading>
                     </control>
                     <visible>false</visible>
+                </setting>
+                <setting id="location_3_wiz_6_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,3,6)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_3_wiz_6_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
                 </setting>
                 <setting id="location_3_wiz_6_name" type="string" label="32025" help="32026">
                     <level>0</level>
@@ -3675,6 +4199,39 @@
                     </control>
                     <enable>true</enable>
                 </setting>
+                <setting id="location_4_show_as_location" type="boolean" label="32168" help="32169">
+                    <level>0</level>
+                    <default>false</default>
+                    <control type="toggle" />
+                </setting>
+                <setting id="location_4_icon" type="string" label="32017" help="32018">
+                    <level>0</level>
+                    <default>livingroom</default>
+                    <constraints>
+                        <options>
+                            <option label="32201">bulb</option>
+                            <option label="32202">lamp</option>
+                            <option label="32219">hanginglamp</option>
+                            <option label="32203">spot</option>
+                            <option label="32204">livingroom</option>
+                            <option label="32205">bedroom</option>
+                            <option label="32206">kitchen</option>
+                            <option label="32207">hall</option>
+                            <option label="32208">bathroom</option>
+                            <option label="32209">globe</option>
+                            <option label="32210">candle</option>
+                            <option label="32211">socket</option>
+                            <option label="32212">tv</option>
+                            <option label="32213">radio</option>
+                            <option label="32214">coffee</option>
+                            <option label="32215">cooker</option>
+                            <option label="32216">computer</option>
+                            <option label="32217">printer</option>
+                            <option label="32218">server</option>
+                        </options>
+                    </constraints>
+                    <control type="spinner" format="string" />
+                </setting>
                 <setting id="location_4_order" type="integer" label="32021" help="32022">
                     <level>0</level>
                     <default>1</default>
@@ -3717,6 +4274,20 @@
                         <heading>32013</heading>
                     </control>
                     <visible>false</visible>
+                </setting>
+                <setting id="location_4_wiz_0_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,4,0)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_4_wiz_0_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
                 </setting>
                 <setting id="location_4_wiz_0_name" type="string" label="32025" help="32026">
                     <level>0</level>
@@ -3839,6 +4410,20 @@
                     </control>
                     <visible>false</visible>
                 </setting>
+                <setting id="location_4_wiz_1_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,4,1)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_4_wiz_1_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
                 <setting id="location_4_wiz_1_name" type="string" label="32025" help="32026">
                     <level>0</level>
                     <default />
@@ -3959,6 +4544,20 @@
                         <heading>32013</heading>
                     </control>
                     <visible>false</visible>
+                </setting>
+                <setting id="location_4_wiz_2_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,4,2)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_4_wiz_2_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
                 </setting>
                 <setting id="location_4_wiz_2_name" type="string" label="32025" help="32026">
                     <level>0</level>
@@ -4081,6 +4680,20 @@
                     </control>
                     <visible>false</visible>
                 </setting>
+                <setting id="location_4_wiz_3_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,4,3)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_4_wiz_3_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
                 <setting id="location_4_wiz_3_name" type="string" label="32025" help="32026">
                     <level>0</level>
                     <default />
@@ -4201,6 +4814,20 @@
                         <heading>32013</heading>
                     </control>
                     <visible>false</visible>
+                </setting>
+                <setting id="location_4_wiz_4_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,4,4)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_4_wiz_4_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
                 </setting>
                 <setting id="location_4_wiz_4_name" type="string" label="32025" help="32026">
                     <level>0</level>
@@ -4323,6 +4950,20 @@
                     </control>
                     <visible>false</visible>
                 </setting>
+                <setting id="location_4_wiz_5_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,4,5)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_4_wiz_5_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
                 <setting id="location_4_wiz_5_name" type="string" label="32025" help="32026">
                     <level>0</level>
                     <default />
@@ -4443,6 +5084,20 @@
                         <heading>32013</heading>
                     </control>
                     <visible>false</visible>
+                </setting>
+                <setting id="location_4_wiz_6_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,4,6)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_4_wiz_6_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
                 </setting>
                 <setting id="location_4_wiz_6_name" type="string" label="32025" help="32026">
                     <level>0</level>
@@ -4572,6 +5227,39 @@
                     </control>
                     <enable>true</enable>
                 </setting>
+                <setting id="location_5_show_as_location" type="boolean" label="32168" help="32169">
+                    <level>0</level>
+                    <default>false</default>
+                    <control type="toggle" />
+                </setting>
+                <setting id="location_5_icon" type="string" label="32017" help="32018">
+                    <level>0</level>
+                    <default>livingroom</default>
+                    <constraints>
+                        <options>
+                            <option label="32201">bulb</option>
+                            <option label="32202">lamp</option>
+                            <option label="32219">hanginglamp</option>
+                            <option label="32203">spot</option>
+                            <option label="32204">livingroom</option>
+                            <option label="32205">bedroom</option>
+                            <option label="32206">kitchen</option>
+                            <option label="32207">hall</option>
+                            <option label="32208">bathroom</option>
+                            <option label="32209">globe</option>
+                            <option label="32210">candle</option>
+                            <option label="32211">socket</option>
+                            <option label="32212">tv</option>
+                            <option label="32213">radio</option>
+                            <option label="32214">coffee</option>
+                            <option label="32215">cooker</option>
+                            <option label="32216">computer</option>
+                            <option label="32217">printer</option>
+                            <option label="32218">server</option>
+                        </options>
+                    </constraints>
+                    <control type="spinner" format="string" />
+                </setting>
                 <setting id="location_5_order" type="integer" label="32021" help="32022">
                     <level>0</level>
                     <default>1</default>
@@ -4614,6 +5302,20 @@
                         <heading>32013</heading>
                     </control>
                     <visible>false</visible>
+                </setting>
+                <setting id="location_5_wiz_0_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,5,0)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_5_wiz_0_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
                 </setting>
                 <setting id="location_5_wiz_0_name" type="string" label="32025" help="32026">
                     <level>0</level>
@@ -4736,6 +5438,20 @@
                     </control>
                     <visible>false</visible>
                 </setting>
+                <setting id="location_5_wiz_1_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,5,1)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_5_wiz_1_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
                 <setting id="location_5_wiz_1_name" type="string" label="32025" help="32026">
                     <level>0</level>
                     <default />
@@ -4856,6 +5572,20 @@
                         <heading>32013</heading>
                     </control>
                     <visible>false</visible>
+                </setting>
+                <setting id="location_5_wiz_2_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,5,2)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_5_wiz_2_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
                 </setting>
                 <setting id="location_5_wiz_2_name" type="string" label="32025" help="32026">
                     <level>0</level>
@@ -4978,6 +5708,20 @@
                     </control>
                     <visible>false</visible>
                 </setting>
+                <setting id="location_5_wiz_3_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,5,3)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_5_wiz_3_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
                 <setting id="location_5_wiz_3_name" type="string" label="32025" help="32026">
                     <level>0</level>
                     <default />
@@ -5098,6 +5842,20 @@
                         <heading>32013</heading>
                     </control>
                     <visible>false</visible>
+                </setting>
+                <setting id="location_5_wiz_4_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,5,4)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_5_wiz_4_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
                 </setting>
                 <setting id="location_5_wiz_4_name" type="string" label="32025" help="32026">
                     <level>0</level>
@@ -5220,6 +5978,20 @@
                     </control>
                     <visible>false</visible>
                 </setting>
+                <setting id="location_5_wiz_5_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,5,5)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_5_wiz_5_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
                 <setting id="location_5_wiz_5_name" type="string" label="32025" help="32026">
                     <level>0</level>
                     <default />
@@ -5341,6 +6113,20 @@
                     </control>
                     <visible>false</visible>
                 </setting>
+                <setting id="location_5_wiz_6_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,5,6)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_5_wiz_6_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
                 <setting id="location_5_wiz_6_name" type="string" label="32025" help="32026">
                     <level>0</level>
                     <default />
@@ -5446,7 +6232,8 @@
                     </control>
                     <enable>false</enable>
                 </setting>
-                <setting id="group_6_id" type="string" label="32141" help="32142">
+                <setting id="group_6_id"
+                    type="string" label="32141" help="32142">
                     <level>0</level>
                     <default />
                     <constraints>
@@ -5458,7 +6245,8 @@
                     <enable>false</enable>
                 </setting>
 
-                <setting id="location_6_name" type="string" label="32143" help="32144">
+                <setting id="location_6_name"
+                    type="string" label="32143" help="32144">
                     <level>0</level>
                     <default />
                     <constraints>
@@ -5469,7 +6257,43 @@
                     </control>
                     <enable>true</enable>
                 </setting>
-                <setting id="location_6_order" type="integer" label="32021" help="32022">
+                <setting
+                    id="location_6_show_as_location" type="boolean" label="32168" help="32169">
+                    <level>0</level>
+                    <default>false</default>
+                    <control type="toggle" />
+                </setting>
+                <setting id="location_6_icon"
+                    type="string" label="32017" help="32018">
+                    <level>0</level>
+                    <default>livingroom</default>
+                    <constraints>
+                        <options>
+                            <option label="32201">bulb</option>
+                            <option label="32202">lamp</option>
+                            <option label="32219">hanginglamp</option>
+                            <option label="32203">spot</option>
+                            <option label="32204">livingroom</option>
+                            <option label="32205">bedroom</option>
+                            <option label="32206">kitchen</option>
+                            <option label="32207">hall</option>
+                            <option label="32208">bathroom</option>
+                            <option label="32209">globe</option>
+                            <option label="32210">candle</option>
+                            <option label="32211">socket</option>
+                            <option label="32212">tv</option>
+                            <option label="32213">radio</option>
+                            <option label="32214">coffee</option>
+                            <option label="32215">cooker</option>
+                            <option label="32216">computer</option>
+                            <option label="32217">printer</option>
+                            <option label="32218">server</option>
+                        </options>
+                    </constraints>
+                    <control type="spinner" format="string" />
+                </setting>
+                <setting
+                    id="location_6_order" type="integer" label="32021" help="32022">
                     <level>0</level>
                     <default>1</default>
                     <constraints>
@@ -5511,6 +6335,20 @@
                         <heading>32013</heading>
                     </control>
                     <visible>false</visible>
+                </setting>
+                <setting id="location_6_wiz_0_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,6,0)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_6_wiz_0_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
                 </setting>
                 <setting id="location_6_wiz_0_name" type="string" label="32025" help="32026">
                     <level>0</level>
@@ -5633,6 +6471,20 @@
                     </control>
                     <visible>false</visible>
                 </setting>
+                <setting id="location_6_wiz_1_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,6,1)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_6_wiz_1_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
                 <setting id="location_6_wiz_1_name" type="string" label="32025" help="32026">
                     <level>0</level>
                     <default />
@@ -5753,6 +6605,20 @@
                         <heading>32013</heading>
                     </control>
                     <visible>false</visible>
+                </setting>
+                <setting id="location_6_wiz_2_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,6,2)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_6_wiz_2_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
                 </setting>
                 <setting id="location_6_wiz_2_name" type="string" label="32025" help="32026">
                     <level>0</level>
@@ -5875,6 +6741,20 @@
                     </control>
                     <visible>false</visible>
                 </setting>
+                <setting id="location_6_wiz_3_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,6,3)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_6_wiz_3_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
                 <setting id="location_6_wiz_3_name" type="string" label="32025" help="32026">
                     <level>0</level>
                     <default />
@@ -5995,6 +6875,20 @@
                         <heading>32013</heading>
                     </control>
                     <visible>false</visible>
+                </setting>
+                <setting id="location_6_wiz_4_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,6,4)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_6_wiz_4_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
                 </setting>
                 <setting id="location_6_wiz_4_name" type="string" label="32025" help="32026">
                     <level>0</level>
@@ -6117,6 +7011,20 @@
                     </control>
                     <visible>false</visible>
                 </setting>
+                <setting id="location_6_wiz_5_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,6,5)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_6_wiz_5_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
                 <setting id="location_6_wiz_5_name" type="string" label="32025" help="32026">
                     <level>0</level>
                     <default />
@@ -6237,6 +7145,20 @@
                         <heading>32013</heading>
                     </control>
                     <visible>false</visible>
+                </setting>
+                <setting id="location_6_wiz_6_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,6,6)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_6_wiz_6_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
                 </setting>
                 <setting id="location_6_wiz_6_name" type="string" label="32025" help="32026">
                     <level>0</level>
@@ -6366,6 +7288,39 @@
                     </control>
                     <enable>true</enable>
                 </setting>
+                <setting id="location_7_show_as_location" type="boolean" label="32168" help="32169">
+                    <level>0</level>
+                    <default>false</default>
+                    <control type="toggle" />
+                </setting>
+                <setting id="location_7_icon" type="string" label="32017" help="32018">
+                    <level>0</level>
+                    <default>livingroom</default>
+                    <constraints>
+                        <options>
+                            <option label="32201">bulb</option>
+                            <option label="32202">lamp</option>
+                            <option label="32219">hanginglamp</option>
+                            <option label="32203">spot</option>
+                            <option label="32204">livingroom</option>
+                            <option label="32205">bedroom</option>
+                            <option label="32206">kitchen</option>
+                            <option label="32207">hall</option>
+                            <option label="32208">bathroom</option>
+                            <option label="32209">globe</option>
+                            <option label="32210">candle</option>
+                            <option label="32211">socket</option>
+                            <option label="32212">tv</option>
+                            <option label="32213">radio</option>
+                            <option label="32214">coffee</option>
+                            <option label="32215">cooker</option>
+                            <option label="32216">computer</option>
+                            <option label="32217">printer</option>
+                            <option label="32218">server</option>
+                        </options>
+                    </constraints>
+                    <control type="spinner" format="string" />
+                </setting>
                 <setting id="location_7_order" type="integer" label="32021" help="32022">
                     <level>0</level>
                     <default>1</default>
@@ -6408,6 +7363,20 @@
                         <heading>32013</heading>
                     </control>
                     <visible>false</visible>
+                </setting>
+                <setting id="location_7_wiz_0_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,7,0)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_7_wiz_0_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
                 </setting>
                 <setting id="location_7_wiz_0_name" type="string" label="32025" help="32026">
                     <level>0</level>
@@ -6530,6 +7499,20 @@
                     </control>
                     <visible>false</visible>
                 </setting>
+                <setting id="location_7_wiz_1_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,7,1)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_7_wiz_1_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
                 <setting id="location_7_wiz_1_name" type="string" label="32025" help="32026">
                     <level>0</level>
                     <default />
@@ -6650,6 +7633,20 @@
                         <heading>32013</heading>
                     </control>
                     <visible>false</visible>
+                </setting>
+                <setting id="location_7_wiz_2_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,7,2)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_7_wiz_2_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
                 </setting>
                 <setting id="location_7_wiz_2_name" type="string" label="32025" help="32026">
                     <level>0</level>
@@ -6772,6 +7769,20 @@
                     </control>
                     <visible>false</visible>
                 </setting>
+                <setting id="location_7_wiz_3_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,7,3)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_7_wiz_3_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
                 <setting id="location_7_wiz_3_name" type="string" label="32025" help="32026">
                     <level>0</level>
                     <default />
@@ -6892,6 +7903,20 @@
                         <heading>32013</heading>
                     </control>
                     <visible>false</visible>
+                </setting>
+                <setting id="location_7_wiz_4_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,7,4)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_7_wiz_4_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
                 </setting>
                 <setting id="location_7_wiz_4_name" type="string" label="32025" help="32026">
                     <level>0</level>
@@ -7014,6 +8039,20 @@
                     </control>
                     <visible>false</visible>
                 </setting>
+                <setting id="location_7_wiz_5_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,7,5)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_7_wiz_5_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
                 <setting id="location_7_wiz_5_name" type="string" label="32025" help="32026">
                     <level>0</level>
                     <default />
@@ -7134,6 +8173,20 @@
                         <heading>32013</heading>
                     </control>
                     <visible>false</visible>
+                </setting>
+                <setting id="location_7_wiz_6_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,7,6)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_7_wiz_6_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
                 </setting>
                 <setting id="location_7_wiz_6_name" type="string" label="32025" help="32026">
                     <level>0</level>
@@ -7263,6 +8316,39 @@
                     </control>
                     <enable>true</enable>
                 </setting>
+                <setting id="location_8_show_as_location" type="boolean" label="32168" help="32169">
+                    <level>0</level>
+                    <default>false</default>
+                    <control type="toggle" />
+                </setting>
+                <setting id="location_8_icon" type="string" label="32017" help="32018">
+                    <level>0</level>
+                    <default>livingroom</default>
+                    <constraints>
+                        <options>
+                            <option label="32201">bulb</option>
+                            <option label="32202">lamp</option>
+                            <option label="32219">hanginglamp</option>
+                            <option label="32203">spot</option>
+                            <option label="32204">livingroom</option>
+                            <option label="32205">bedroom</option>
+                            <option label="32206">kitchen</option>
+                            <option label="32207">hall</option>
+                            <option label="32208">bathroom</option>
+                            <option label="32209">globe</option>
+                            <option label="32210">candle</option>
+                            <option label="32211">socket</option>
+                            <option label="32212">tv</option>
+                            <option label="32213">radio</option>
+                            <option label="32214">coffee</option>
+                            <option label="32215">cooker</option>
+                            <option label="32216">computer</option>
+                            <option label="32217">printer</option>
+                            <option label="32218">server</option>
+                        </options>
+                    </constraints>
+                    <control type="spinner" format="string" />
+                </setting>
                 <setting id="location_8_order" type="integer" label="32021" help="32022">
                     <level>0</level>
                     <default>1</default>
@@ -7305,6 +8391,20 @@
                         <heading>32013</heading>
                     </control>
                     <visible>false</visible>
+                </setting>
+                <setting id="location_8_wiz_0_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,8,0)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_8_wiz_0_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
                 </setting>
                 <setting id="location_8_wiz_0_name" type="string" label="32025" help="32026">
                     <level>0</level>
@@ -7427,6 +8527,20 @@
                     </control>
                     <visible>false</visible>
                 </setting>
+                <setting id="location_8_wiz_1_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,8,1)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_8_wiz_1_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
                 <setting id="location_8_wiz_1_name" type="string" label="32025" help="32026">
                     <level>0</level>
                     <default />
@@ -7547,6 +8661,20 @@
                         <heading>32013</heading>
                     </control>
                     <visible>false</visible>
+                </setting>
+                <setting id="location_8_wiz_2_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,8,2)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_8_wiz_2_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
                 </setting>
                 <setting id="location_8_wiz_2_name" type="string" label="32025" help="32026">
                     <level>0</level>
@@ -7669,6 +8797,20 @@
                     </control>
                     <visible>false</visible>
                 </setting>
+                <setting id="location_8_wiz_3_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,8,3)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_8_wiz_3_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
                 <setting id="location_8_wiz_3_name" type="string" label="32025" help="32026">
                     <level>0</level>
                     <default />
@@ -7789,6 +8931,20 @@
                         <heading>32013</heading>
                     </control>
                     <visible>false</visible>
+                </setting>
+                <setting id="location_8_wiz_4_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,8,4)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_8_wiz_4_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
                 </setting>
                 <setting id="location_8_wiz_4_name" type="string" label="32025" help="32026">
                     <level>0</level>
@@ -7911,6 +9067,20 @@
                     </control>
                     <visible>false</visible>
                 </setting>
+                <setting id="location_8_wiz_5_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,8,5)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_8_wiz_5_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
                 <setting id="location_8_wiz_5_name" type="string" label="32025" help="32026">
                     <level>0</level>
                     <default />
@@ -8031,6 +9201,20 @@
                         <heading>32013</heading>
                     </control>
                     <visible>false</visible>
+                </setting>
+                <setting id="location_8_wiz_6_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,8,6)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_8_wiz_6_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
                 </setting>
                 <setting id="location_8_wiz_6_name" type="string" label="32025" help="32026">
                     <level>0</level>
@@ -8160,6 +9344,39 @@
                     </control>
                     <enable>true</enable>
                 </setting>
+                <setting id="location_9_show_as_location" type="boolean" label="32168" help="32169">
+                    <level>0</level>
+                    <default>false</default>
+                    <control type="toggle" />
+                </setting>
+                <setting id="location_9_icon" type="string" label="32017" help="32018">
+                    <level>0</level>
+                    <default>livingroom</default>
+                    <constraints>
+                        <options>
+                            <option label="32201">bulb</option>
+                            <option label="32202">lamp</option>
+                            <option label="32219">hanginglamp</option>
+                            <option label="32203">spot</option>
+                            <option label="32204">livingroom</option>
+                            <option label="32205">bedroom</option>
+                            <option label="32206">kitchen</option>
+                            <option label="32207">hall</option>
+                            <option label="32208">bathroom</option>
+                            <option label="32209">globe</option>
+                            <option label="32210">candle</option>
+                            <option label="32211">socket</option>
+                            <option label="32212">tv</option>
+                            <option label="32213">radio</option>
+                            <option label="32214">coffee</option>
+                            <option label="32215">cooker</option>
+                            <option label="32216">computer</option>
+                            <option label="32217">printer</option>
+                            <option label="32218">server</option>
+                        </options>
+                    </constraints>
+                    <control type="spinner" format="string" />
+                </setting>
                 <setting id="location_9_order" type="integer" label="32021" help="32022">
                     <level>0</level>
                     <default>1</default>
@@ -8202,6 +9419,20 @@
                         <heading>32013</heading>
                     </control>
                     <visible>false</visible>
+                </setting>
+                <setting id="location_9_wiz_0_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,9,0)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_9_wiz_0_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
                 </setting>
                 <setting id="location_9_wiz_0_name" type="string" label="32025" help="32026">
                     <level>0</level>
@@ -8324,6 +9555,20 @@
                     </control>
                     <visible>false</visible>
                 </setting>
+                <setting id="location_9_wiz_1_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,9,1)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_9_wiz_1_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
                 <setting id="location_9_wiz_1_name" type="string" label="32025" help="32026">
                     <level>0</level>
                     <default />
@@ -8444,6 +9689,20 @@
                         <heading>32013</heading>
                     </control>
                     <visible>false</visible>
+                </setting>
+                <setting id="location_9_wiz_2_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,9,2)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_9_wiz_2_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
                 </setting>
                 <setting id="location_9_wiz_2_name" type="string" label="32025" help="32026">
                     <level>0</level>
@@ -8566,6 +9825,20 @@
                     </control>
                     <visible>false</visible>
                 </setting>
+                <setting id="location_9_wiz_3_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,9,3)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_9_wiz_3_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
                 <setting id="location_9_wiz_3_name" type="string" label="32025" help="32026">
                     <level>0</level>
                     <default />
@@ -8686,6 +9959,20 @@
                         <heading>32013</heading>
                     </control>
                     <visible>false</visible>
+                </setting>
+                <setting id="location_9_wiz_4_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,9,4)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_9_wiz_4_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
                 </setting>
                 <setting id="location_9_wiz_4_name" type="string" label="32025" help="32026">
                     <level>0</level>
@@ -8808,6 +10095,20 @@
                     </control>
                     <visible>false</visible>
                 </setting>
+                <setting id="location_9_wiz_5_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,9,5)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_9_wiz_5_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
+                </setting>
                 <setting id="location_9_wiz_5_name" type="string" label="32025" help="32026">
                     <level>0</level>
                     <default />
@@ -8928,6 +10229,20 @@
                         <heading>32013</heading>
                     </control>
                     <visible>false</visible>
+                </setting>
+                <setting id="location_9_wiz_6_pulse" type="action" label="32006" help="32007">
+                    <level>0</level>
+                    <data>RunScript($ID,pulse,9,6)</data>
+                    <control type="button" format="action">
+                        <close>false</close>
+                    </control>
+                    <dependencies>
+                        <dependency type="visible">
+                            <and>
+                                <condition setting="location_9_wiz_6_ipaddress" operator="!is"></condition>
+                            </and>
+                        </dependency>
+                    </dependencies>
                 </setting>
                 <setting id="location_9_wiz_6_name" type="string" label="32025" help="32026">
                     <level>0</level>

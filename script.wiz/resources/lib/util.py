@@ -19,13 +19,13 @@ def getIconPath(icon: str) -> str:
     return os.path.join(getAddonDir(), "resources", "assets", f"icon_{icon}.png")
 
 
-def createListItem(label: str, label2: str = None, icon: str = None, ipaddress: str = "", rank: int = 0, preselect=False, command: 'list[str]' = None) -> xbmcgui.ListItem:
+def createListItem(label: str, label2: str | None = None, icon: str | None = None, ipaddresses: 'list[str]' = [], rank: int = 0, preselect: bool=False, command: 'list[str]' = None) -> xbmcgui.ListItem:
 
     li = xbmcgui.ListItem(label=label, label2=label2)
     if icon:
         li.setArt({"thumb": getIconPath(icon=icon)})
     li.setProperty("rank", str(rank))
-    li.setProperty("ipaddress", ipaddress)
+    li.setProperty("ipaddresses", "|".join(ipaddresses))
     li.setProperty("preselect", str(preselect))
     if command:
         li.setProperty("command", "|".join(command))

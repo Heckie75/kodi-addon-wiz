@@ -445,96 +445,48 @@ class Pilot():
     WHITE_DAYLIGHT = 4200
     WHITE_COLD = 6500
 
-    SCENE_COLORS = 0
-    SCENE_OCEAN = 1
-    SCENE_ROMANCE = 2
-    SCENE_SUNSET = 3
-    SCENE_PARTY = 4
-    SCENE_FIREPLACE = 5
-    SCENE_COZY = 6
-    SCENE_FOREST = 7
-    SCENE_PASTEL_COLORS = 8
-    SCENE_WAKE_UP = 9
-    SCENE_BEDTIME = 10
-    SCENE_WARM_WHITE = 11
-    SCENE_DAYLIGHT = 12
-    SCENE_COOL_WHITE = 13
-    SCENE_NIGHT_LIGHT = 14
-    SCENE_FOCUS = 15
-    SCENE_RELAX = 16
-    SCENE_TRUE_COLORS = 17
-    SCENE_TV_TIME = 18
-    SCENE_PLANT_GROWTH = 19
-    SCENE_SPRING = 20
-    SCENE_SUMMER = 21
-    SCENE_FALL = 22
-    SCENE_DEEP_DIVE = 23
-    SCENE_JUNGLE = 24
-    SCENE_MOJITO = 25
-    SCENE_CLUB = 26
-    SCENE_CHRISTMAS = 27
-    SCENE_HALLOWEEN = 28
-    SCENE_CANDLELIGHT = 29
-    SCENE_GOLDEN_WHITE = 30
-    SCENE_31 = 31
-    SCENE_STEAMPUNK = 32
-    SCENE_DIWALI = 33
-    SCENE_34 = 34
-    SCENE_LIGHT_ALARM = 35
-    SCENE_SNOWY_SKY = 36
-    SCENE_DIM_TO_WARM = 40
-    SCENE_PULSE = 249
-    SCENE_RHYTHM = 1000
-
-    SCENES_LIST = [
-        "Colors",
-        "Ocean",
-        "Romance",
-        "Sunset",
-        "Party",
-        "Fireplace",
-        "Cozy",
-        "Forest",
-        "Pastel Colors",
-        "Wakeup",
-        "Bedtime",
-        "Warm White",
-        "Daylight",
-        "Cool White",
-        "Night light",
-        "Focus",
-        "Relax",
-        "True colors",
-        "TV time",
-        "Plant growth",
-        "Spring",
-        "Summer",
-        "Fall",
-        "Deep dive",
-        "Jungle",
-        "Mojito",
-        "Club",
-        "Christmas",
-        "Halloween",
-        "Candlelight",
-        "Golden white",
-        "Pulse",
-        "Steampunk",
-        "Diwali",
-        "(unknown)",
-        "Light alarm",
-        "Snowy sky",
-        "Dim to warm",
-        "Pulse",
-        "Rhythm"
-    ]
-
-    SCENE_HAS_DIMMING = [1, 2, 3, 4, 5, 6, 8, 9, 10, 11, 12, 13, 15, 16,
-                         17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 31, 32, 33, 36]
-    SCENE_HAS_SPEED = [1, 2, 3, 4, 5, 8, 20, 21, 22,
-                       23, 24, 25, 26, 27, 28, 31, 32, 33, 36]
-    SCENE_HAS_RGB = [0]
-    SCENE_HAS_TEMPERATURE = [0, 11, 12, 13, 40]
+    SCENES = {
+        11: {"name": "warm white", "dimming": True, "speed": False, "rgb": False, "temp": True},
+        17: {"name": "true colors", "dimming": True, "speed": False, "rgb": False, "temp": False},
+        12: {"name": "daylight", "dimming": True, "speed": False, "rgb": False, "temp": True},
+        13: {"name": "cool white", "dimming": True, "speed": False, "rgb": False, "temp": True},
+        30: {"name": "golden white", "dimming": True, "speed": True, "rgb": False, "temp": False},
+        15: {"name": "focus", "dimming": True, "speed": False, "rgb": False, "temp": False},
+        16: {"name": "relax", "dimming": True, "speed": False, "rgb": False, "temp": False},
+        2: {"name": "romance", "dimming": True, "speed": True, "rgb": False, "temp": False},
+        6: {"name": "cozy", "dimming": True, "speed": False, "rgb": False, "temp": False},
+        26: {"name": "club", "dimming": True, "speed": True, "rgb": False, "temp": False},
+        29: {"name": "candlelight", "dimming": False, "speed": False, "rgb": False, "temp": False},
+        5: {"name": "fireplace", "dimming": True, "speed": True, "rgb": False, "temp": False},
+        18: {"name": "tv time", "dimming": True, "speed": False, "rgb": False, "temp": False},
+        10: {"name": "bedtime", "dimming": True, "speed": False, "rgb": False, "temp": False},
+        14: {"name": "night light", "dimming": False, "speed": False, "rgb": False, "temp": False},
+        3: {"name": "sunset", "dimming": True, "speed": True, "rgb": False, "temp": False},
+        9: {"name": "wakeup", "dimming": True, "speed": False, "rgb": False, "temp": False},
+        20: {"name": "spring", "dimming": True, "speed": True, "rgb": False, "temp": False},
+        21: {"name": "summer", "dimming": True, "speed": True, "rgb": False, "temp": False},
+        22: {"name": "fall", "dimming": True, "speed": True, "rgb": False, "temp": False},
+        36: {"name": "snowy sky", "dimming": True, "speed": True, "rgb": False, "temp": False},
+        23: {"name": "deep dive", "dimming": True, "speed": True, "rgb": False, "temp": False},
+        1: {"name": "ocean", "dimming": True, "speed": True, "rgb": False, "temp": False},
+        7: {"name": "forest", "dimming": False, "speed": False, "rgb": False, "temp": False},
+        24: {"name": "jungle", "dimming": True, "speed": True, "rgb": False, "temp": False},
+        25: {"name": "mojito", "dimming": True, "speed": True, "rgb": False, "temp": False},
+        19: {"name": "plant growth", "dimming": True, "speed": False, "rgb": False, "temp": False},
+        28: {"name": "halloween", "dimming": True, "speed": True, "rgb": False, "temp": False},
+        27: {"name": "christmas", "dimming": True, "speed": True, "rgb": False, "temp": False},
+        4: {"name": "party", "dimming": True, "speed": True, "rgb": False, "temp": False},
+        8: {"name": "pastel Colors", "dimming": True, "speed": True, "rgb": False, "temp": False},
+        32: {"name": "steampunk", "dimming": True, "speed": True, "rgb": False, "temp": False},
+        33: {"name": "diwali", "dimming": True, "speed": True, "rgb": False, "temp": False},
+        35: {"name": "light alarm", "dimming": False, "speed": False, "rgb": False, "temp": False},
+        31: {"name": "pulse", "dimming": True, "speed": True, "rgb": False, "temp": False},
+        0: {"name": "colors", "dimming": False, "speed": False, "rgb": True, "temp": True},
+        40: {"name": "dim to warm", "dimming": False, "speed": False, "rgb": False, "temp": True},
+        34: {"name": "(unknown)", "dimming": False, "speed": False, "rgb": False, "temp": False},
+        249: {"name": "pulse", "dimming": False, "speed": False, "rgb": False, "temp": False},
+        1000: {"name": "rhythm", "dimming": False, "speed": False, "rgb": False, "temp": False}
+    }
 
     def __init__(self) -> None:
 
@@ -659,31 +611,13 @@ class Pilot():
 
     @staticmethod
     def scene_list() -> 'list[str]':
-        return [
-            f"{s} ({Pilot.SCENE_DIM_TO_WARM})" if i == 37 else
-            f"{s} ({Pilot.SCENE_PULSE})" if i == 38 else
-            f"{s} ({Pilot.SCENE_RHYTHM})" if i == 39 else
-            f"{s} ({i})"
-            for i, s in enumerate(Pilot.SCENES_LIST)
-        ]
-
-    @staticmethod
-    def index_to_sceneId(sceneId) -> int:
-
-        return Pilot.SCENE_DIM_TO_WARM if sceneId == 37 else Pilot.SCENE_PULSE if sceneId == 38 else Pilot.SCENE_RHYTHM if sceneId == 39 else sceneId
+        return [Pilot.SCENES.get(sceneId).get("name") for sceneId in Pilot.SCENES]
 
     def scene_str(self) -> str:
         """Get the human-readable name of a scene based on its integer identifier. Handles special cases for certain scene values and falls back to a predefined list of scene names."""
 
-        if self.sceneId == Pilot.SCENE_RHYTHM:
-            return f"Rhythm ({Pilot.SCENE_RHYTHM}, speed: {self.speed})"
-        elif self.sceneId == Pilot.SCENE_PULSE:
-            return f"Pulse ({Pilot.SCENE_PULSE})"
-        elif self.sceneId == Pilot.SCENE_DIM_TO_WARM:
-            return f"Dim to Warm ({Pilot.SCENE_DIM_TO_WARM}, temp: {self.temp}, dimming: {self.dimming})"
-
         try:
-            return f"{Pilot.SCENES_LIST[self.sceneId]} ({self.sceneId}, speed: {self.speed})"
+            return f"{Pilot.SCENES.get(self.sceneId).get("name")} ({self.sceneId}, speed: {self.speed})"
 
         except IndexError:
             return "Unknown Scene"
@@ -1067,6 +1001,10 @@ class WizDeviceController():
             self.commands["setPilot"] = {}
 
         for p in properties:
+            if p not in ["state", "temp", "r", "g", "b", "dimming", "sceneId", "speed"]:
+                continue
+            if p in ["temp", "speed", "dimming", "sceneId"] and properties[p] == 0:
+                continue
             self.commands["setPilot"][p] = properties[p]
 
         return self
@@ -1096,19 +1034,10 @@ class WizDeviceController():
         if scene.isdigit():
             sceneId = int(scene)
         else:
-            normalized_scene = scene.strip().lower().replace("-", " ")
-            scene_map = {
-                s.lower(): i
-                for i, s in enumerate(Pilot.SCENES_LIST)
-            }
-            if normalized_scene in scene_map:
-                sceneId = scene_map[normalized_scene]
-            elif normalized_scene == "dim to warm":
-                sceneId = Pilot.SCENE_DIM_TO_WARM
-            elif normalized_scene == "rhythm":
-                sceneId = Pilot.SCENE_RHYTHM
-            else:
+            _sceneIds = [sceneId for sceneId in Pilot.SCENES if Pilot.SCENES.get(sceneId, None).get("name") == scene]
+            if not _sceneIds:
                 raise WizDeviceException(f"Unknown scene '{scene}'")
+            sceneId = _sceneIds[0]
 
         self.setPilot(properties={"sceneId": sceneId})
         return self
@@ -1446,7 +1375,7 @@ class Program():
         }
     }
 
-    def __init__(self, wizController: WizDeviceController, programID: str, duration: int, dimming: int | None = None) -> None:
+    def __init__(self, wizController: WizDeviceController, programID: str, duration: int, dimming: int | None = None, phase_shift: int = 0) -> None:
 
         if programID not in Program.PROGRAMS:
             raise ValueError(f"Invalid program ID: {programID}")
@@ -1467,6 +1396,7 @@ class Program():
 
         self.programID: int = programID
         self.dimming: int | None = dimming
+        self.phase_shift: int = phase_shift
         self.start_time: float = 0
         self.duration: int = duration
 
@@ -1476,19 +1406,23 @@ class Program():
         self._time_factor: float = max_time / duration
 
         self.wizController: WizDeviceController = wizController
-        self._last_pilot: Pilot = None
+        self._last_pilots: dict[int, Pilot] = {}
 
     def reset(self) -> None:
 
         self._time = Program._BEGINelapsed
 
-    def get_pilot(self, time_: int) -> Pilot:
+    def get_pilot(self, time_: int, device_index: int = 0) -> Pilot:
 
-        current_step, next_step = self._get_step(time_)
-        if time_ <= 0 or time_ >= self.duration:
+        effective_time = int(time_)
+        if self.programID == Program.PROGRAM_INFINITE and self.duration > 0:
+            effective_time = (effective_time + (self.phase_shift * device_index)) % self.duration
+
+        current_step, next_step = self._get_step(effective_time)
+        if effective_time <= 0 or effective_time >= self.duration:
             return Pilot.from_json(self._current_program[current_step]) if current_step is not None else None
 
-        pilot = self.interpolate(time_, current_step, next_step)
+        pilot = self.interpolate(effective_time, current_step, next_step)
 
         return pilot
 
@@ -1565,16 +1499,46 @@ class Program():
 
     def performPilot(self, elapsed: int) -> None:
 
-        pilot = self.get_pilot(elapsed)
-        if pilot is not None and not pilot.equals(self._last_pilot):
+        if not self.wizController.ip_addresses:
+            return
+
+        if self.phase_shift > 0 and len(self.wizController.ip_addresses) > 1:
             LOGGER.debug(
-                f"Sending pilot for program duration {self.duration} sec at elapsed {elapsed} sec")
-            self.wizController.resetCommands()
-            self.wizController.setPilot(pilot.to_payload()).perform()
+                f"Performing program '{self.programID}' with phase shift {self.phase_shift} sec for {len(self.wizController.ip_addresses)} devices")
 
-        self._last_pilot = pilot
+            for device_index, ip_address in enumerate(self.wizController.ip_addresses):
+                pilot = self.get_pilot(elapsed, device_index=device_index)
+                if pilot is None:
+                    continue
 
-    def initialize(self) -> 'Program':
+                last_pilot = self._last_pilots.get(device_index)
+                if not pilot.equals(last_pilot):
+                    LOGGER.debug(
+                        f"Sending pilot for program duration {self.duration} sec at elapsed {elapsed} sec to {ip_address} (phase offset {self.phase_shift * device_index})")
+                    original_ip_addresses = list(self.wizController.ip_addresses)
+                    try:
+                        self.wizController.ip_addresses = [ip_address]
+                        self.wizController.resetCommands()
+                        self.wizController.setPilot(pilot.to_payload()).perform()
+                    finally:
+                        self.wizController.ip_addresses = original_ip_addresses
+
+                self._last_pilots[device_index] = pilot
+                
+        else:
+            pilot = self.get_pilot(elapsed)
+            if pilot is None:
+                return
+
+            if not pilot.equals(self._last_pilots.get(0)):
+                LOGGER.debug(
+                    f"Sending pilot for program duration {self.duration} sec at elapsed {elapsed} sec to {len(self.wizController.ip_addresses)} devices")
+                self.wizController.resetCommands()
+                self.wizController.setPilot(pilot.to_payload()).perform()
+
+            self._last_pilots[0] = pilot
+
+    def initialize(self, offset: int = 0) -> 'Program':
 
         if self.programID in Program.PROGRAMS_STARTING_FROM_CURRENT:
             self.wizController.resetCommands()
@@ -1591,7 +1555,7 @@ class Program():
                     self._current_program[Program._BEGIN][k] = current_pilot[k]
 
         self._last_pilot: Pilot | None = None
-        self.start_time = int(time.time())
+        self.start_time = int(time.time()) - offset
 
         return self
 
@@ -1661,7 +1625,12 @@ class Program():
             if interrupted:
                 LOGGER.info(
                     f"Program interrupted after {elapsed} seconds; sending final program step")
-                self.performPilot(self.duration)
+                self.end()
+            
+            elif self.phase_shift > 0 and len(self.wizController.ip_addresses) > 1:
+                LOGGER.info(
+                    f"Program with phase shift completed after {elapsed} seconds; sending final program step")
+                self.end()
 
             try:
                 if original_sigint is not None:
@@ -1674,13 +1643,20 @@ class Program():
         if interrupted and interrupted_exception is not None:
             raise interrupted_exception
 
+    def end(self) -> None:
+
+        pilot = Pilot.from_json(self._current_program[-1])
+        self.wizController.resetCommands()
+        self.wizController.setPilot(pilot.to_payload()).perform()
+
     @staticmethod
     def from_json(json_: dict) -> 'Program':
 
         program = Program(wizController=WizDeviceController(ip_addresses=json_.get("ip_addresses", [])),
                           programID=json_.get("programID", None),
                           dimming=json_.get("dimming", 100),
-                          duration=json_.get("duration", 0))
+                          duration=json_.get("duration", 0),
+                          phase_shift=json_.get("phase_shift", 0))
 
         program.start_time = json_.get("start_time", 0)
 
@@ -1691,13 +1667,14 @@ class Program():
         return {
             "programID": self.programID,
             "dimming": self.dimming,
+            "phase_shift": self.phase_shift,
             "start_time": self.start_time,
             "duration": self.duration,
             "ip_addresses": self.wizController.ip_addresses
         }
 
     def __str__(self):
-        return f"Program(controller={self.wizController}, programId={self.programID}, duration={self.duration}, dimming={self.dimming}, start_time={self.start_time})"
+        return f"Program(controller={self.wizController}, programId={self.programID}, duration={self.duration}, dimming={self.dimming}, phase_shift={self.phase_shift}, start_time={self.start_time})"
 
 
 class WizDeviceCLI():
@@ -1808,7 +1785,7 @@ class WizDeviceCLI():
         "scene": {
             _USAGE: "--scene <id/name>",
             _DESCR: "set scene by name or id\n- %s" % "\n- ".join(Pilot.scene_list()),
-            _REGEX: r"^(%s|%s|%s|%s)$" % (str(Pilot.SCENE_DIM_TO_WARM), str(Pilot.SCENE_RHYTHM), "|".join([str(i) for i in range(len(Pilot.SCENES_LIST) - 2)]), "|".join(Pilot.SCENES_LIST)),
+            _REGEX: r"^(%s)$" % ("|".join([Pilot.SCENES.get(sceneId).get("name") for i, sceneId in enumerate(Pilot.SCENES) if i < len(Pilot.SCENES) - 2])),
             _TYPES: [str],
             _ACTION: lambda controller, params: controller.withScene(scene=params[0]),
         },
@@ -1827,11 +1804,11 @@ class WizDeviceCLI():
             _ACTION: lambda controller, params: controller.withSpeed(speed=params[0]),
         },
         "program": {
-            _USAGE: "--program <name> <duration> [<dimming>]",
-            _DESCR: "run a built-in program for a duration in minutes or HH:MM (24:00 supported)\n- supported names: %s" % ", ".join(sorted(Program.PROGRAMS.keys())),
-            _REGEX: r"^(%s) ((?:[1-9][0-9]{0,3})|(?:[01]?\d:[0-5]\d)|(?:2[0-3]:[0-5]\d)|24:00)(?: ((?:[1-9][0-9]|100)))?$" % "|".join([re.escape(name) for name in Program.PROGRAMS]),
-            _TYPES: [str, parse_program_duration, int],
-            _ACTION: lambda controller, params: Program(controller, params[0], duration=params[1], dimming=params[2] if len(params) > 2 else None).initialize().start(),
+            _USAGE: "--program <name> <duration> [<dimming>] [<phase_shift>]",
+            _DESCR: "run a built-in program for a duration in minutes or HH:MM (24:00 supported)\n- supported names: %s\n- phase shift: optional seconds between multiple devices, e.g. 30 means each next device starts 30 seconds ahead" % ", ".join(sorted(Program.PROGRAMS.keys())),
+            _REGEX: r"^(%s) ((?:[1-9][0-9]{0,3})|(?:[01]?\d:[0-5]\d)|(?:2[0-3]:[0-5]\d)|24:00)(?: ((?:[1-9][0-9]|100)))?(?: (-?\d+))?$" % "|".join([re.escape(name) for name in Program.PROGRAMS]),
+            _TYPES: [str, parse_program_duration, int, int],
+            _ACTION: lambda controller, params: Program(controller, params[0], duration=params[1], dimming=params[2] if len(params) > 2 else None, phase_shift=params[3] if len(params) > 3 else 0).initialize().start(),
         },
         "register": {
             _USAGE: "--register",
@@ -2056,6 +2033,7 @@ USAGE:   wiz.py <ip_1/alias_1> [<ip_2/alias_2>] ... --<command_1> [<param_1> <pa
         help += self._build_help(command="program")
 
         help += "\n\nOther commands:"
+        help += self._build_help(command="pulse")
         help += self._build_help(command="register")
         help += self._build_help(command="unregister")
         help += self._build_help(command="listen")

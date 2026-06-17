@@ -14,8 +14,8 @@ class WizardListener(wiz.WiZListener):
 
         self.addon = addon
         self.current: int = 0
-        self.max_: int = 100
-        self.progress = xbmcgui.DialogProgressBG()
+        self.max_: int = settings_util.MAX_DEVICES * 2
+        self.progress = xbmcgui.DialogProgress()
 
     def initialize(self, max_) -> None:
 
@@ -42,20 +42,63 @@ class WizardListener(wiz.WiZListener):
 
 class Wizard():
 
+    SCENE_ICONS = {
+        11: "warmwhite",  # warm white
+        17: "",  # true colors
+        12: "daylight",  # daylight
+        13: "bulb_white",  # cool white
+        30: "",  # golden white
+        15: "",  # focus
+        16: "",  # relax
+        2: "romance",  # romance
+        6: "cozy",  # cozy
+        26: "",  # club
+        29: "",  # candlelight
+        5: "fireplace",  # fireplace
+        18: "tvtime",  # tv time
+        10: "bedtime",  # bedtime
+        14: "nightlight",  # night light
+        3: "sunset",  # sunset
+        9: "wakeup_scene",  # wakeup
+        20: "spring",  # spring
+        21: "summer",  # summer
+        22: "fall",  # fall
+        36: "",  # snowy sky
+        23: "",  # deep dive
+        1: "ocean",  # ocean
+        7: "forest",  # forest
+        24: "",  # jungle
+        25: "",  # mojito
+        19: "plantgrowth",  # plant growth
+        28: "halloween",  # halloween
+        27: "xmas",  # christmas
+        4: "party",  # party
+        8: "pastel",  # pastel Colors
+        32: "",  # steampunk
+        33: "",  # diwali
+        35: "",  # light alarm
+        31: "",  # pulse
+        0: "",  # colors
+        40: "",  # dim to warm
+        34: "",  # (unknown)
+        249: "",  # pulse
+        1000: ""  # rhythm
+    }
+
     PROGRAM_ICONS = {
         wiz.Program.PROGRAM_INTERVAL: "sleep",
         wiz.Program.PROGRAM_FADE: "fade",
         wiz.Program.PROGRAM_WAKEUP: "wakeup",
         wiz.Program.PROGRAM_DOZE: "doze",
         wiz.Program.PROGRAM_AMBIENT: "ambient",
-        wiz.Program.PROGRAM_RGB: "bgr",
-        wiz.Program.PROGRAM_GBR: "bgr",
-        wiz.Program.PROGRAM_BRG: "bgr",
+        wiz.Program.PROGRAM_RGB: "rgb",
+        wiz.Program.PROGRAM_GBR: "gbr",
+        wiz.Program.PROGRAM_BRG: "brg",
         wiz.Program.PROGRAM_BGR: "bgr",
-        wiz.Program.PROGRAM_RBG: "bgr",
-        wiz.Program.PROGRAM_GRB: "bgr",
-        wiz.Program.PROGRAM_RANDOM: "bgr",
-        wiz.Program.PROGRAM_INFINITE: "bgr",
+        wiz.Program.PROGRAM_RBG: "rbg",
+        wiz.Program.PROGRAM_GRB: "grb",
+        wiz.Program.PROGRAM_RANDOM: "random",
+        wiz.Program.PROGRAM_INFINITE: "infinite",
         wiz.Program.PROGRAM_WARM_TO_COLD: "bulb_up",
         wiz.Program.PROGRAM_COLD_TO_WARM: "bulb_down",
         wiz.Program.PROGRAM_SUNRISE: "wakeup",
@@ -74,7 +117,8 @@ class Wizard():
 
         for i in range(3):
             try:
-                self.listener.initialize(settings_util.MAX_DEVICES * 2)
+                self.listener.initialize(
+                    max_=len(settings_util.get_enabled_device_prefixes())*2)
                 self.controller.getSystemConfig().getPilot().perform()
                 break
             except:
@@ -111,19 +155,54 @@ class Wizard():
 
             listitems: list[xbmcgui.ListItem] = list()
             preselected_ip_addresses = settings_util.get_preselection()
-            for prefix in settings_util.get_enabled_device_prefixes():
-                ipaddress = self.addon.getSettingString(f"{prefix}_ipaddress")
-                device = next(
-                    (d for d in self.controller.devices if d.ip_address == ipaddress), None)
-                label = self.addon.getSetting(f"{prefix}_name")
-                label2 = f"{device.pilot.color_str()}" if device and device.pilot else self.addon.getLocalizedString(
-                    32005)
-                icon = self.addon.getSetting(f"{prefix}_icon")
-                listitems.append(util.createListItem(label=label, label2=label2, icon=icon, ipaddress=ipaddress, rank=self.addon.getSettingInt(
-                    f"{prefix}_order"), preselect=ipaddress in preselected_ip_addresses))
+            addon = self.addon
+
+            locations = [i for i in range(settings_util.MAX_LOCATIONS)
+                         if addon.getSetting(f"room_{i}_id") != ""]
+            locations.sort(key=lambda key: addon.getSettingInt(
+                f"location_{key}_order"))
+
+            for location in locations:
+                show_as_location = addon.getSettingBool(
+                    f"location_{location}_show_as_location")
+                if show_as_location:
+                    ip_addresses = settings_util.get_location_ip_addresses(
+                        location)
+                    if not ip_addresses:
+                        continue
+
+                    label = addon.getSetting(f"location_{location}_name")
+                    if not label:
+                        label = addon.getLocalizedString(32151 + location)
+
+                    label2 = f"{len(ip_addresses)} %s: %s" % (
+                        addon.getLocalizedString(32001), "")
+                    icon = addon.getSetting(f"location_{location}_icon")
+                    listitems.append(util.createListItem(
+                        label=label,
+                        label2=label2,
+                        icon=icon,
+                        ipaddresses=settings_util.get_location_ip_addresses(
+                            location),
+                        rank=addon.getSettingInt(f"location_{location}_order"),
+                        preselect=any(
+                            ip in preselected_ip_addresses for ip in ip_addresses)
+                    ))
+                    continue
+
+                for prefix in settings_util.get_enabled_prefixes_for_location(location):
+                    ipaddress = addon.getSettingString(f"{prefix}_ipaddress")
+                    device = next(
+                        (d for d in self.controller.devices if d.ip_address == ipaddress), None)
+                    label = addon.getSetting(f"{prefix}_name")
+                    label2 = f"{device.pilot.color_str()}" if device and device.pilot else addon.getLocalizedString(
+                        32005)
+                    icon = addon.getSetting(f"{prefix}_icon")
+                    listitems.append(util.createListItem(label=label, label2=label2, icon=icon, ipaddresses=[ipaddress], rank=addon.getSettingInt(
+                        f"{prefix}_order"), preselect=ipaddress in preselected_ip_addresses))
 
             listitems.append(util.createListItem(label=self.addon.getLocalizedString(
-                32040), label2=self.addon.getLocalizedString(32041), icon="group_all", ipaddress="255.255.255.255", rank=9999))
+                32040), label2=self.addon.getLocalizedString(32041), icon="group_all", ipaddresses=["255.255.255.255"], rank=9999))
 
             return listitems
 
@@ -224,13 +303,15 @@ class Wizard():
         listitems.append(getTurnOffListItem())
 
         if allBulbs:
-            listitems.append(getTemperatureListItem())
-            listitems.append(getColorListItem())
             listitems.append(getDimmingListItem())
             listitems.append(getSceneListItem())
-            listitems.append(getPulseListItem())
 
         listitems.append(getProgramListItem())
+
+        if allBulbs:
+            listitems.append(getTemperatureListItem())
+            listitems.append(getColorListItem())
+            listitems.append(getPulseListItem())
 
         selection = xbmcgui.Dialog().select(
             heading=heading, list=listitems, useDetails=True)
@@ -379,35 +460,29 @@ class Wizard():
 
         pilot = self.pilotForCurrent()
         current = pilot.sceneId if pilot else 0
+        xbmc.log(f"current scene {current}", xbmc.LOGINFO)
         preselect = 0
 
         heading = self.addon.getLocalizedString(32419)
         options: 'list[xbmcgui.ListItem]' = list()
-        for i, level in enumerate(wiz.Pilot.SCENES_LIST):
+        for i, sceneId in enumerate(wiz.Pilot.SCENES):
 
-            preselect = i if wiz.Pilot.index_to_sceneId(
-                i) == current else preselect
+            preselect = i if sceneId == current else preselect
             options.append(util.createListItem(
-                label=self.addon.getLocalizedString(32330 + i)))
+                label=self.addon.getLocalizedString(32330 + i), icon=Wizard.SCENE_ICONS[sceneId] or "effect", command=[str(sceneId)]))
 
         selection = xbmcgui.Dialog().select(
-            heading=heading, list=options, preselect=preselect)
+            heading=heading, list=options, preselect=preselect, useDetails=True)
 
         if selection == -1:
             return False
 
-        selectedScene = wiz.Pilot.index_to_sceneId(selection)
+        selectedScene = int(options[selection].getProperty("command"))
         if selectedScene:
             self.controller.withScene(scene=str(selectedScene))
-        # build a human-readable scene summary
-        scene_name = None
-        try:
-            scene_name = wiz.Pilot.SCENES_LIST[selection]
-        except Exception:
-            scene_name = str(selectedScene)
 
         speed_used = None
-        if selectedScene in wiz.Pilot.SCENE_HAS_SPEED:
+        if wiz.Pilot.SCENES.get(selectedScene).get("speed"):
             while True:
                 speed = xbmcgui.Dialog().input(
                     heading=self.addon.getLocalizedString(32420), type=xbmcgui.INPUT_NUMERIC, defaultt=str(max(10, self.controller.devices[0].pilot.speed)) if self.controller.devices[0].pilot else "10")
@@ -423,11 +498,11 @@ class Wizard():
                 else:
                     continue
 
-        if selectedScene in wiz.Pilot.SCENE_HAS_RGB:
+        if wiz.Pilot.SCENES.get(selectedScene).get("rgb"):
             if not self.colorMenu():
                 return False
 
-        if selectedScene in wiz.Pilot.SCENE_HAS_DIMMING:
+        if wiz.Pilot.SCENES.get(selectedScene).get("dimming"):
             if not self.dimmingMenu():
                 return False
 
@@ -569,10 +644,22 @@ class Wizard():
         else:
             dimming = None
 
+        phase_shift = 0
+        if command == wiz.Program.PROGRAM_INFINITE and allBulbs and len(ip_addresses) > 1:
+            _shift = int(duration / len(ip_addresses))
+            if xbmcgui.Dialog().yesno(
+                heading=self.addon.getLocalizedString(32617),
+                message=self.addon.getLocalizedString(32616) % _shift,
+                nolabel=self.addon.getLocalizedString(32544),
+                yeslabel=self.addon.getLocalizedString(32543),
+            ):
+                phase_shift = _shift
+
         return {
             "program": command,
             "duration": duration,
-            "dimming": dimming
+            "dimming": dimming,
+            "phase_shift": phase_shift
         }
 
     def ask_request(self) -> dict:
@@ -581,8 +668,11 @@ class Wizard():
         if not selectedListItems:
             return None
 
-        ip_addresses = [item.getProperty("ipaddress")
-                        for item in selectedListItems]
+        ip_addresses: list[str] = []
+        for item in selectedListItems:
+            ip_addresses.extend(item.getProperty("ipaddresses").split("|"))
+
+        ip_addresses = list(dict.fromkeys(ip_addresses))
         allBulbs = self.isAllBulbs(ip_addresses=ip_addresses)
         request = {
             "ip_addresses": ip_addresses

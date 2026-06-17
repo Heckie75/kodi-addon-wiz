@@ -33,6 +33,14 @@ msgctxt "#32005"
 msgid "(not synchronized)"
 msgstr ""
 
+msgctxt "#32006"
+msgid "identify"
+msgstr ""
+
+msgctxt "#32007"
+msgid "Let device blink to identify device"
+msgstr ""
+
 msgctxt "#32011"
 msgid "IP address"
 msgstr ""
@@ -350,6 +358,14 @@ msgctxt "#32167"
 msgid "Create favorite"
 msgstr ""
 
+msgctxt "#32168"
+msgid "Show location only"
+msgstr ""
+
+msgctxt "#32169"
+msgid "Display this location instead of single devices in selection"
+msgstr ""
+
 msgctxt "#32201"
 msgid "Bulb"
 msgstr ""
@@ -475,59 +491,59 @@ msgid "yellow"
 msgstr ""
 
 msgctxt "#32330"
-msgid "Colors"
-msgstr ""
-
-msgctxt "#32331"
-msgid "Ocean"
-msgstr ""
-
-msgctxt "#32332"
-msgid "Romance"
-msgstr ""
-
-msgctxt "#32333"
-msgid "Sunset"
-msgstr ""
-
-msgctxt "#32334"
-msgid "Party"
-msgstr ""
-
-msgctxt "#32335"
-msgid "Fireplace"
-msgstr ""
-
-msgctxt "#32336"
-msgid "Cozy"
-msgstr ""
-
-msgctxt "#32337"
-msgid "Forest"
-msgstr ""
-
-msgctxt "#32338"
-msgid "Pastel Colors"
-msgstr ""
-
-msgctxt "#32339"
-msgid "Wakeup"
-msgstr ""
-
-msgctxt "#32340"
-msgid "Bedtime"
-msgstr ""
-
-msgctxt "#32341"
 msgid "Warm White"
 msgstr ""
 
-msgctxt "#32342"
+msgctxt "#32331"
+msgid "True colors"
+msgstr ""
+
+msgctxt "#32332"
 msgid "Daylight"
 msgstr ""
 
-msgctxt "#32343"
+msgctxt "#32333"
 msgid "Cool White"
+msgstr ""
+
+msgctxt "#32334"
+msgid "Golden white"
+msgstr ""
+
+msgctxt "#32335"
+msgid "Focus"
+msgstr ""
+
+msgctxt "#32336"
+msgid "Relax"
+msgstr ""
+
+msgctxt "#32337"
+msgid "Romance"
+msgstr ""
+
+msgctxt "#32338"
+msgid "Cozy"
+msgstr ""
+
+msgctxt "#32339"
+msgid "Club"
+msgstr ""
+
+msgctxt "#32340"
+msgid "Candlelight"
+msgstr ""
+
+msgctxt "#32341"
+msgid "Fireplace"
+msgstr ""
+
+msgctxt "#32342"
+msgid "TV time"
+msgstr ""
+
+msgctxt "#32343"
+msgid "Bedtime"
 msgstr ""
 
 msgctxt "#32344"
@@ -535,39 +551,39 @@ msgid "Night light"
 msgstr ""
 
 msgctxt "#32345"
-msgid "Focus"
+msgid "Sunset"
 msgstr ""
 
 msgctxt "#32346"
-msgid "Relax"
+msgid "Wakeup"
 msgstr ""
 
 msgctxt "#32347"
-msgid "True colors"
-msgstr ""
-
-msgctxt "#32348"
-msgid "TV time"
-msgstr ""
-
-msgctxt "#32349"
-msgid "Plant growth"
-msgstr ""
-
-msgctxt "#32350"
 msgid "Spring"
 msgstr ""
 
-msgctxt "#32351"
+msgctxt "#32348"
 msgid "Summer"
 msgstr ""
 
-msgctxt "#32352"
+msgctxt "#32349"
 msgid "Fall"
 msgstr ""
 
-msgctxt "#32353"
+msgctxt "#32350"
+msgid "Snowy sky"
+msgstr ""
+
+msgctxt "#32351"
 msgid "Deep dive"
+msgstr ""
+
+msgctxt "#32352"
+msgid "Ocean"
+msgstr ""
+
+msgctxt "#32353"
+msgid "Forest"
 msgstr ""
 
 msgctxt "#32354"
@@ -579,51 +595,51 @@ msgid "Mojito"
 msgstr ""
 
 msgctxt "#32356"
-msgid "Club"
+msgid "Plant growth"
 msgstr ""
 
 msgctxt "#32357"
-msgid "Christmas"
-msgstr ""
-
-msgctxt "#32358"
 msgid "Halloween"
 msgstr ""
 
+msgctxt "#32358"
+msgid "Christmas"
+msgstr ""
+
 msgctxt "#32359"
-msgid "Candlelight"
+msgid "Party"
 msgstr ""
 
 msgctxt "#32360"
-msgid "Golden white"
+msgid "Pastel Colors"
 msgstr ""
 
 msgctxt "#32361"
-msgid "Pulse"
-msgstr ""
-
-msgctxt "#32362"
 msgid "Steampunk"
 msgstr ""
 
-msgctxt "#32363"
+msgctxt "#32362"
 msgid "Diwali"
 msgstr ""
 
-msgctxt "#32364"
-msgid "(unknown)"
-msgstr ""
-
-msgctxt "#32365"
+msgctxt "#32363"
 msgid "Light alarm"
 msgstr ""
 
+msgctxt "#32364"
+msgid "Pulse"
+msgstr ""
+
+msgctxt "#32365"
+msgid "Colors"
+msgstr ""
+
 msgctxt "#32366"
-msgid "Snowy sky"
+msgid "Dim to warm"
 msgstr ""
 
 msgctxt "#32367"
-msgid "Dim to warm"
+msgid "(unknown)"
 msgstr ""
 
 msgctxt "#32368"
@@ -1060,4 +1076,124 @@ msgstr ""
 
 msgctxt "#32587"
 msgid "Simulate sunrise followed by sunset"
+msgstr ""
+
+msgctxt "#32588"
+msgid "Warm white"
+msgstr "Warm white"
+
+msgctxt "#32589"
+msgid "Daylight"
+msgstr "Daylight"
+
+msgctxt "#32590"
+msgid "Halt"
+msgstr "Halt"
+
+msgctxt "#32591"
+msgid "Combine"
+msgstr "Combine"
+
+msgctxt "#32592"
+msgid "RGB"
+msgstr "RGB"
+
+msgctxt "#32593"
+msgid "GBR"
+msgstr "GBR"
+
+msgctxt "#32594"
+msgid "BRG"
+msgstr "BRG"
+
+msgctxt "#32595"
+msgid "RBG"
+msgstr "RBG"
+
+msgctxt "#32596"
+msgid "GRB"
+msgstr "GRB"
+
+msgctxt "#32597"
+msgid "Infinite"
+msgstr "Infinite"
+
+msgctxt "#32598"
+msgid "Romance"
+msgstr "Romance"
+
+msgctxt "#32599"
+msgid "Cozy"
+msgstr "Cozy"
+
+msgctxt "#32600"
+msgid "Fireplace"
+msgstr "Fireplace"
+
+msgctxt "#32601"
+msgid "TV time"
+msgstr "TV time"
+
+msgctxt "#32602"
+msgid "Bedtime"
+msgstr "Bedtime"
+
+msgctxt "#32603"
+msgid "Night light"
+msgstr "Night light"
+
+msgctxt "#32604"
+msgid "Sunset"
+msgstr "Sunset"
+
+msgctxt "#32605"
+msgid "Wakeup scene"
+msgstr "Wakeup scene"
+
+msgctxt "#32606"
+msgid "Spring"
+msgstr "Spring"
+
+msgctxt "#32607"
+msgid "Summer"
+msgstr "Summer"
+
+msgctxt "#32608"
+msgid "Fall"
+msgstr "Fall"
+
+msgctxt "#32609"
+msgid "Ocean"
+msgstr "Ocean"
+
+msgctxt "#32610"
+msgid "Forest"
+msgstr "Forest"
+
+msgctxt "#32611"
+msgid "Plant growth"
+msgstr "Plant growth"
+
+msgctxt "#32612"
+msgid "Halloween"
+msgstr "Halloween"
+
+msgctxt "#32613"
+msgid "Christmas"
+msgstr "Christmas"
+
+msgctxt "#32614"
+msgid "Party"
+msgstr "Party"
+
+msgctxt "#32615"
+msgid "Pastel"
+msgstr "Pastel"
+
+msgctxt "#32616"
+msgid "Apply a phase shift of %i secsonds to the selected bulbs?"
+msgstr ""
+
+msgctxt "#32617"
+msgid "Apply a phase shift?"
 msgstr ""
