@@ -73,14 +73,6 @@ msgctxt "#32018"
 msgid "Icon to display in selection"
 msgstr "Piktogramm welches in Auswahl angezeigt wird"
 
-msgctxt "#32019"
-msgid "Preselect"
-msgstr "Vorauswahl"
-
-msgctxt "#32020"
-msgid "Sets if device is preselected"
-msgstr "Setzt ob Gerät in der Auswahl vorausgewählt ist"
-
 msgctxt "#32021"
 msgid "Order"
 msgstr "Reihenfolge"
@@ -104,58 +96,6 @@ msgstr "Lampe"
 msgctxt "#32026"
 msgid "RGB-Bulb"
 msgstr "RGB-Lampe"
-
-msgctxt "#32027"
-msgid "Socket"
-msgstr "Schaltsteckdose"
-
-msgctxt "#32028"
-msgid "start alarm"
-msgstr "starte Alarm"
-
-msgctxt "#32029"
-msgid "start alarm to identify device"
-msgstr "starte Alarm, um das Gerät leichter zu identifizieren"
-
-msgctxt "#32030"
-msgid "Color Light (RGB + Dedicated White LED, fixed color temperature)"
-msgstr "Farblicht (RGB + dedizierte Weiß-LED, feste Farbtemperatur)"
-
-msgctxt "#32031"
-msgid "Full Color Light (RGB + Cold & Warm White)"
-msgstr "Vollfarbiges Licht (RGB + kaltes & warmes Weiß)"
-
-msgctxt "#32032"
-msgid "Color Light (RGB)"
-msgstr "Farblicht (RGB)"
-
-msgctxt "#32033"
-msgid "Tunable White (Cold & Warm White)"
-msgstr "Abstimmbares Weiß (kaltes & warmes Weiß)"
-
-msgctxt "#32034"
-msgid "Dimmable (Fixed Color Temperature)"
-msgstr "Dimmbare (feste Farbtemperatur)"
-
-msgctxt "#32035"
-msgid "Smart Outlet (Switching only, no power monitoring)"
-msgstr "Intelligente Steckdose (nur Schalten, keine Leistungsüberwachung)"
-
-msgctxt "#32036"
-msgid "Smart Plug (Switching)"
-msgstr "Intelligenter Stecker (Schalten)"
-
-msgctxt "#32037"
-msgid "Power Monitoring Outlet (Energy tracking enabled)"
-msgstr "Leistungsüberwachungssteckdose (Energiemessung aktiviert)"
-
-msgctxt "#32038"
-msgid "LED Strip Controller"
-msgstr "LED-Streifen Controller"
-
-msgctxt "#32039"
-msgid "Motion Sensor (Passive Infrared)"
-msgstr "Bewegungssensor (passives Infrarot)"
 
 msgctxt "#32040"
 msgid "All WiZ devices"
@@ -330,29 +270,9 @@ msgctxt "#32160"
 msgid "Location 10"
 msgstr "Ort 10"
 
-msgctxt "#32161"
-msgid "Extras"
-msgstr "Extras"
-
 msgctxt "#32162"
 msgid "Favorites"
 msgstr "Favoriten"
-
-msgctxt "#32163"
-msgid "Latest ip addresses"
-msgstr "zuletzt genutzte IP Adressen"
-
-msgctxt "#32164"
-msgid "List of most recent used ip addresses"
-msgstr "Liste zuletzt genutzter IP Adressen"
-
-msgctxt "#32165"
-msgid "Latest command"
-msgstr "Letztes Kommando"
-
-msgctxt "#32166"
-msgid "JSON of most recent command"
-msgstr "JSON des zuletzt abgesetzten Kommandos"
 
 msgctxt "#32167"
 msgid "Create favorite"
@@ -441,54 +361,6 @@ msgstr "Server"
 msgctxt "#32219"
 msgid "Hanging lamp"
 msgstr "Hängelampe"
-
-msgctxt "#32300"
-msgid "off"
-msgstr "aus"
-
-msgctxt "#32301"
-msgid "on"
-msgstr "an"
-
-msgctxt "#32302"
-msgid "white"
-msgstr "weiß"
-
-msgctxt "#32303"
-msgid "warm white"
-msgstr "warmweiß"
-
-msgctxt "#32304"
-msgid "cold white"
-msgstr "kaltweiß"
-
-msgctxt "#32305"
-msgid "daylight white"
-msgstr "Tageslicht weiß"
-
-msgctxt "#32306"
-msgid "blue"
-msgstr "blau"
-
-msgctxt "#32307"
-msgid "green"
-msgstr "grün"
-
-msgctxt "#32308"
-msgid "cyan"
-msgstr "zyan"
-
-msgctxt "#32309"
-msgid "red"
-msgstr "rot"
-
-msgctxt "#32310"
-msgid "magenta"
-msgstr "magenta"
-
-msgctxt "#32311"
-msgid "yellow"
-msgstr "gelb"
 
 msgctxt "#32330"
 msgid "Warm White"
@@ -654,10 +526,6 @@ msgctxt "#32401"
 msgid "Select devices"
 msgstr "Wähle Geräte aus"
 
-msgctxt "#32402"
-msgid "(unknown state)"
-msgstr "(unbekannter Status)"
-
 msgctxt "#32403"
 msgid "Turn on"
 msgstr "Schalte ein"
@@ -782,10 +650,6 @@ msgctxt "#32509"
 msgid "Bulb off"
 msgstr "Birne aus"
 
-msgctxt "#32510"
-msgid "Bulb on"
-msgstr "Birne ein"
-
 msgctxt "#32511"
 msgid "Bulb red"
 msgstr "Birne rot"
@@ -814,10 +678,6 @@ msgctxt "#32517"
 msgid "Effect"
 msgstr "Effekt"
 
-msgctxt "#32518"
-msgid "Fade"
-msgstr "Fade"
-
 msgctxt "#32519"
 msgid "Group"
 msgstr "Gruppe"
@@ -825,10 +685,6 @@ msgstr "Gruppe"
 msgctxt "#32520"
 msgid "Group all"
 msgstr "Alle Gruppen"
-
-msgctxt "#32521"
-msgid "Presets"
-msgstr "Vorgaben"
 
 msgctxt "#32522"
 msgid "Program"

@@ -133,15 +133,12 @@ class FavoriteManager:
         if not request or ("pilot" not in request and "program" not in request):
             return
 
-        name = self._ask_favorite_name()
-        if not name:
-            return
-
         icon = self._ask_favorite_icon()
         if not icon:
             return
 
-        if not self._confirm_favorite(name, icon, ""):
+        name = self._ask_favorite_name()
+        if not name:
             return
 
         if self._create_favorite(name, icon, request):
@@ -177,14 +174,6 @@ class FavoriteManager:
             return ""
 
         return icons[selected]
-
-    def _confirm_favorite(self, name: str, icon: str, command_summary: str) -> bool:
-        return self.dialog.yesno(
-            heading=self.addon.getLocalizedString(FAVORITE_TITLE_ID),
-            message=f"{self.addon.getLocalizedString(FAVORITE_NAME_LABEL_ID) % name}\n{self.addon.getLocalizedString(FAVORITE_ICON_LABEL_ID) % self.addon.getLocalizedString(ICON_LABEL_IDS.get(icon, 32528))}",
-            nolabel=self.addon.getLocalizedString(32544),
-            yeslabel=self.addon.getLocalizedString(32543),
-        )
 
     def _create_favorite(self, name: str, icon: str, request: dict) -> bool:
 

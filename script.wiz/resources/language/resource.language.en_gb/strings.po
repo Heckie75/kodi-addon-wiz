@@ -73,14 +73,6 @@ msgctxt "#32018"
 msgid "Icon to display in selection"
 msgstr ""
 
-msgctxt "#32019"
-msgid "Preselect"
-msgstr ""
-
-msgctxt "#32020"
-msgid "Sets if device is preselected"
-msgstr ""
-
 msgctxt "#32021"
 msgid "Order"
 msgstr ""
@@ -103,58 +95,6 @@ msgstr ""
 
 msgctxt "#32026"
 msgid "RGB-Bulb"
-msgstr ""
-
-msgctxt "#32027"
-msgid "Socket"
-msgstr ""
-
-msgctxt "#32028"
-msgid "start alarm"
-msgstr ""
-
-msgctxt "#32029"
-msgid "start alarm to identify device"
-msgstr ""
-
-msgctxt "#32030"
-msgid "Color Light (RGB + Dedicated White LED, fixed color temperature)"
-msgstr ""
-
-msgctxt "#32031"
-msgid "Full Color Light (RGB + Cold & Warm White)"
-msgstr ""
-
-msgctxt "#32032"
-msgid "Color Light (RGB)"
-msgstr ""
-
-msgctxt "#32033"
-msgid "Tunable White (Cold & Warm White)"
-msgstr ""
-
-msgctxt "#32034"
-msgid "Dimmable (Fixed Color Temperature)"
-msgstr ""
-
-msgctxt "#32035"
-msgid "Smart Outlet (Switching only, no power monitoring)"
-msgstr ""
-
-msgctxt "#32036"
-msgid "Smart Plug (Switching)"
-msgstr ""
-
-msgctxt "#32037"
-msgid "Power Monitoring Outlet (Energy tracking enabled)"
-msgstr ""
-
-msgctxt "#32038"
-msgid "LED Strip Controller"
-msgstr ""
-
-msgctxt "#32039"
-msgid "Motion Sensor (Passive Infrared)"
 msgstr ""
 
 msgctxt "#32040"
@@ -330,28 +270,8 @@ msgctxt "#32160"
 msgid "Location 10"
 msgstr ""
 
-msgctxt "#32161"
-msgid "Extras"
-msgstr ""
-
 msgctxt "#32162"
 msgid "Favorites"
-msgstr ""
-
-msgctxt "#32163"
-msgid "Latest ip addresses"
-msgstr ""
-
-msgctxt "#32164"
-msgid "List of most recent used ip addresses"
-msgstr ""
-
-msgctxt "#32165"
-msgid "Latest command"
-msgstr ""
-
-msgctxt "#32166"
-msgid "JSON of most recent command"
 msgstr ""
 
 msgctxt "#32167"
@@ -440,54 +360,6 @@ msgstr ""
 
 msgctxt "#32219"
 msgid "Hanging lamp"
-msgstr ""
-
-msgctxt "#32300"
-msgid "off"
-msgstr ""
-
-msgctxt "#32301"
-msgid "on"
-msgstr ""
-
-msgctxt "#32302"
-msgid "white"
-msgstr ""
-
-msgctxt "#32303"
-msgid "warm white"
-msgstr ""
-
-msgctxt "#32304"
-msgid "cold white"
-msgstr ""
-
-msgctxt "#32305"
-msgid "daylight white"
-msgstr ""
-
-msgctxt "#32306"
-msgid "blue"
-msgstr ""
-
-msgctxt "#32307"
-msgid "green"
-msgstr ""
-
-msgctxt "#32308"
-msgid "cyan"
-msgstr ""
-
-msgctxt "#32309"
-msgid "red"
-msgstr ""
-
-msgctxt "#32310"
-msgid "magenta"
-msgstr ""
-
-msgctxt "#32311"
-msgid "yellow"
 msgstr ""
 
 msgctxt "#32330"
@@ -654,10 +526,6 @@ msgctxt "#32401"
 msgid "Select devices"
 msgstr ""
 
-msgctxt "#32402"
-msgid "(unknown state)"
-msgstr ""
-
 msgctxt "#32403"
 msgid "Turn on"
 msgstr ""
@@ -782,10 +650,6 @@ msgctxt "#32509"
 msgid "Bulb off"
 msgstr ""
 
-msgctxt "#32510"
-msgid "Bulb on"
-msgstr ""
-
 msgctxt "#32511"
 msgid "Bulb red"
 msgstr ""
@@ -814,20 +678,12 @@ msgctxt "#32517"
 msgid "Effect"
 msgstr ""
 
-msgctxt "#32518"
-msgid "Fade"
-msgstr ""
-
 msgctxt "#32519"
 msgid "Group"
 msgstr ""
 
 msgctxt "#32520"
 msgid "Group all"
-msgstr ""
-
-msgctxt "#32521"
-msgid "Presets"
 msgstr ""
 
 msgctxt "#32522"
@@ -1080,115 +936,115 @@ msgstr ""
 
 msgctxt "#32588"
 msgid "Warm white"
-msgstr "Warm white"
+msgstr ""
 
 msgctxt "#32589"
 msgid "Daylight"
-msgstr "Daylight"
+msgstr ""
 
 msgctxt "#32590"
 msgid "Halt"
-msgstr "Halt"
+msgstr ""
 
 msgctxt "#32591"
 msgid "Combine"
-msgstr "Combine"
+msgstr ""
 
 msgctxt "#32592"
 msgid "RGB"
-msgstr "RGB"
+msgstr ""
 
 msgctxt "#32593"
 msgid "GBR"
-msgstr "GBR"
+msgstr ""
 
 msgctxt "#32594"
 msgid "BRG"
-msgstr "BRG"
+msgstr ""
 
 msgctxt "#32595"
 msgid "RBG"
-msgstr "RBG"
+msgstr ""
 
 msgctxt "#32596"
 msgid "GRB"
-msgstr "GRB"
+msgstr ""
 
 msgctxt "#32597"
 msgid "Infinite"
-msgstr "Infinite"
+msgstr ""
 
 msgctxt "#32598"
 msgid "Romance"
-msgstr "Romance"
+msgstr ""
 
 msgctxt "#32599"
 msgid "Cozy"
-msgstr "Cozy"
+msgstr ""
 
 msgctxt "#32600"
 msgid "Fireplace"
-msgstr "Fireplace"
+msgstr ""
 
 msgctxt "#32601"
 msgid "TV time"
-msgstr "TV time"
+msgstr ""
 
 msgctxt "#32602"
 msgid "Bedtime"
-msgstr "Bedtime"
+msgstr ""
 
 msgctxt "#32603"
 msgid "Night light"
-msgstr "Night light"
+msgstr ""
 
 msgctxt "#32604"
 msgid "Sunset"
-msgstr "Sunset"
+msgstr ""
 
 msgctxt "#32605"
 msgid "Wakeup scene"
-msgstr "Wakeup scene"
+msgstr ""
 
 msgctxt "#32606"
 msgid "Spring"
-msgstr "Spring"
+msgstr ""
 
 msgctxt "#32607"
 msgid "Summer"
-msgstr "Summer"
+msgstr ""
 
 msgctxt "#32608"
 msgid "Fall"
-msgstr "Fall"
+msgstr ""
 
 msgctxt "#32609"
 msgid "Ocean"
-msgstr "Ocean"
+msgstr ""
 
 msgctxt "#32610"
 msgid "Forest"
-msgstr "Forest"
+msgstr ""
 
 msgctxt "#32611"
 msgid "Plant growth"
-msgstr "Plant growth"
+msgstr ""
 
 msgctxt "#32612"
 msgid "Halloween"
-msgstr "Halloween"
+msgstr ""
 
 msgctxt "#32613"
 msgid "Christmas"
-msgstr "Christmas"
+msgstr ""
 
 msgctxt "#32614"
 msgid "Party"
-msgstr "Party"
+msgstr ""
 
 msgctxt "#32615"
 msgid "Pastel"
-msgstr "Pastel"
+msgstr ""
 
 msgctxt "#32616"
 msgid "Apply a phase shift of %i secsonds to the selected bulbs?"
