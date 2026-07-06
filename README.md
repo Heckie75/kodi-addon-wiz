@@ -35,6 +35,14 @@ A Kodi addon for discovering and controlling WiZ smart lighting and socket devic
 - v1.0.0 (2026-05-10)
   - Initial version
 
+## GitHub Releases
+
+This repository creates a GitHub release automatically whenever a tag matching `v*` is pushed.
+
+- Tag a release version locally, for example: `git tag v1.0.3`
+- Push the tag: `git push origin v1.0.3`
+- GitHub Actions will build `script.wiz.<version>.zip` and attach it to the release.
+
 ## Usage
 
 1. Open the `WiZ Control` addon from Kodi.
