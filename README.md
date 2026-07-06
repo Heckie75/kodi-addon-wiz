@@ -19,11 +19,14 @@ A Kodi addon for discovering and controlling WiZ smart lighting and socket devic
 
 ## Installation
 
-1. install addon by selecting the zip file, e.g. script.wiz.1.0.2.zip
+1. install addon by selecting the zip file, e.g. script.wiz.1.0.3.zip
 2. Enable the addon from Kodi's addon browser if needed.
 
 ## Version History
 
+- v1.0.3 (2026-07-06)
+  - Added unit tests for program controller logic and Wiz module helpers
+  - Refactored phase-shifted program execution to use dedicated controllers for each device
 - v1.0.2 (2026-07-05)
   - Cleaned up unused translation/message keys in the addon resources
 - v1.0.1 (2026-07-04)

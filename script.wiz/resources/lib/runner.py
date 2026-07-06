@@ -27,15 +27,15 @@ class WizRunner(xbmc.Monitor):
 
     def _update_programs(self, ip_addresses: list[str], halt: bool, dimming: int | None) -> None:
 
-        for program in self._programs:
+        for program in self._programs[:]:
             for ip_address in ip_addresses:
-                if ip_address in program.wizController.ip_addresses:
+                if program.has_ip_address(ip_address):
                     if dimming:
                         program.dimming = dimming
                         xbmc.log(
                             f"Set dimming for {ip_address} from running program {program}", xbmc.LOGINFO)
                     else:
-                        program.wizController.ip_addresses.remove(ip_address)
+                        program.remove_ip_address(ip_address)
                         xbmc.log(
                             f"Removed IP {ip_address} from running program {program}", xbmc.LOGINFO)
 
@@ -46,10 +46,11 @@ class WizRunner(xbmc.Monitor):
                         xbmc.log(
                             f"[script.wiz] halted program {halt_program} for IP {ip_address}", xbmc.LOGINFO)
 
-                    if not program.wizController.ip_addresses:
+                    if not program.controllers:
                         xbmc.log(
                             f"[script.wiz] no more target IPs for program {program}, stopping it", xbmc.LOGINFO)
                         self._programs.remove(program)
+                        break
                 elif self._is_broadcast(ip_address):
                     self.stopProgram(program=program)
                     self._programs.remove(program)
@@ -61,9 +62,8 @@ class WizRunner(xbmc.Monitor):
 
         for program in self._programs:
 
-            if request["program"]["ip_address"] in program.wizController.ip_addresses:
-                program.wizController.ip_addresses.extend(
-                    request["ip_addresses"])
+            if request["program"]["ip_address"] in program.ip_addresses:
+                program.add_ip_addresses(request["ip_addresses"])
                 return True
 
         return False

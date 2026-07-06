@@ -569,10 +569,10 @@ class Wizard():
 
             options.append(util.createListItem(
                 label=", ".join([settings_util.get_name_by_IP(ip)
-                                for ip in program.wizController.ip_addresses]),
+                                for ip in program.ip_addresses]),
                 label2=f"{program.programID}, {datetime.fromtimestamp(program.start_time).strftime("%H:%M")}, {program.duration // 60}m, {elapsed}%",
                 icon=Wizard.PROGRAM_ICONS[program.programID],
-                command=[program.wizController.ip_addresses[0]]))
+                command=[program.ip_addresses[0]] if program.ip_addresses else []))
 
         selection = xbmcgui.Dialog().select(
             heading=self.addon.getLocalizedString(32548), list=options, useDetails=True)
@@ -589,7 +589,7 @@ class Wizard():
         def _is_intersect(programs: list[wiz.Program], ip_addresses: list[str]) -> bool:
 
             for program in programs:
-                if not set(ip_addresses).isdisjoint(program.wizController.ip_addresses):
+                if not set(ip_addresses).isdisjoint(program.ip_addresses):
                     return True
 
             return False

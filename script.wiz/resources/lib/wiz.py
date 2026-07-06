@@ -1405,8 +1405,58 @@ class Program():
         max_time: int = max(max(self._current_program.keys()), 1)
         self._time_factor: float = max_time / duration
 
-        self.wizController: WizDeviceController = wizController
+        self.controllers: list[WizDeviceController] = self._build_controllers(wizController)
         self._last_pilots: dict[int, Pilot] = {}
+
+    def _build_controllers(self, wizController: WizDeviceController) -> list[WizDeviceController]:
+
+        ip_addresses = list(wizController.ip_addresses)
+        if self.phase_shift > 0 and len(ip_addresses) > 1:
+            return [WizDeviceController(ip_addresses=[ip_address]) for ip_address in ip_addresses]
+
+        return [WizDeviceController(ip_addresses=ip_addresses)]
+
+    @property
+    def ip_addresses(self) -> list[str]:
+
+        addresses: list[str] = []
+        for controller in self.controllers:
+            for ip_address in controller.ip_addresses:
+                if ip_address not in addresses:
+                    addresses.append(ip_address)
+
+        return addresses
+
+    def has_ip_address(self, ip_address: str) -> bool:
+
+        return ip_address in self.ip_addresses
+
+    def add_ip_addresses(self, ip_addresses: list[str]) -> None:
+
+        if self.phase_shift > 0 and len(self.controllers) > 1:
+            for ip_address in ip_addresses:
+                if self.has_ip_address(ip_address):
+                    continue
+                self.controllers.append(WizDeviceController(ip_addresses=[ip_address]))
+            return
+
+        if not self.controllers:
+            self.controllers = [WizDeviceController(ip_addresses=[])]
+
+        for ip_address in ip_addresses:
+            if ip_address not in self.controllers[0].ip_addresses:
+                self.controllers[0].ip_addresses.append(ip_address)
+
+    def remove_ip_address(self, ip_address: str) -> None:
+
+        remaining_controllers: list[WizDeviceController] = []
+        for controller in self.controllers:
+            if ip_address in controller.ip_addresses:
+                controller.ip_addresses.remove(ip_address)
+            if controller.ip_addresses:
+                remaining_controllers.append(controller)
+
+        self.controllers = remaining_controllers
 
     def reset(self) -> None:
 
@@ -1499,57 +1549,36 @@ class Program():
 
     def performPilot(self, elapsed: int) -> None:
 
-        if not self.wizController.ip_addresses:
+        if not self.controllers:
             return
 
-        if self.phase_shift > 0 and len(self.wizController.ip_addresses) > 1:
-            LOGGER.debug(
-                f"Performing program '{self.programID}' with phase shift {self.phase_shift} sec for {len(self.wizController.ip_addresses)} devices")
-
-            for device_index, ip_address in enumerate(self.wizController.ip_addresses):
-                pilot = self.get_pilot(elapsed, device_index=device_index)
-                if pilot is None:
-                    continue
-
-                last_pilot = self._last_pilots.get(device_index)
-                if not pilot.equals(last_pilot):
-                    LOGGER.debug(
-                        f"Sending pilot for program duration {self.duration} sec at elapsed {elapsed} sec to {ip_address} (phase offset {self.phase_shift * device_index})")
-                    original_ip_addresses = list(self.wizController.ip_addresses)
-                    try:
-                        self.wizController.ip_addresses = [ip_address]
-                        self.wizController.resetCommands()
-                        self.wizController.setPilot(pilot.to_payload()).perform()
-                    finally:
-                        self.wizController.ip_addresses = original_ip_addresses
-
-                self._last_pilots[device_index] = pilot
-                
-        else:
-            pilot = self.get_pilot(elapsed)
+        for device_index, controller in enumerate(self.controllers):
+            pilot = self.get_pilot(elapsed, device_index=device_index)
             if pilot is None:
-                return
+                continue
 
-            if not pilot.equals(self._last_pilots.get(0)):
+            last_pilot = self._last_pilots.get(device_index)
+            if not pilot.equals(last_pilot):
                 LOGGER.debug(
-                    f"Sending pilot for program duration {self.duration} sec at elapsed {elapsed} sec to {len(self.wizController.ip_addresses)} devices")
-                self.wizController.resetCommands()
-                self.wizController.setPilot(pilot.to_payload()).perform()
+                    f"Sending pilot for program duration {self.duration} sec at elapsed {elapsed} sec to {controller.ip_addresses[0] if controller.ip_addresses else 'no target'}")
+                controller.resetCommands()
+                controller.setPilot(pilot.to_payload()).perform()
 
-            self._last_pilots[0] = pilot
+            self._last_pilots[device_index] = pilot
 
     def initialize(self, offset: int = 0) -> 'Program':
 
         if self.programID in Program.PROGRAMS_STARTING_FROM_CURRENT:
-            self.wizController.resetCommands()
-            self.wizController.getPilot().perform()
+            controller = self.controllers[0]
+            controller.resetCommands()
+            controller.getPilot().perform()
 
-            if not self.wizController.devices or not self.wizController.devices[0].pilot:
+            if not controller.devices or not controller.devices[0].pilot:
                 raise WizDeviceException(
                     f"Unable to get current pilot for program '{self.programID}'"
                 )
 
-            current_pilot = self.wizController.devices[0].pilot.to_dict()
+            current_pilot = controller.devices[0].pilot.to_dict()
             for k in ["r", "g", "b", "w", "c", "dimming"]:
                 if k in current_pilot and k in self._current_program[Program._BEGIN]:
                     self._current_program[Program._BEGIN][k] = current_pilot[k]
@@ -1625,12 +1654,10 @@ class Program():
             if interrupted:
                 LOGGER.info(
                     f"Program interrupted after {elapsed} seconds; sending final program step")
-                self.end()
-            
-            elif self.phase_shift > 0 and len(self.wizController.ip_addresses) > 1:
+            else:
                 LOGGER.info(
-                    f"Program with phase shift completed after {elapsed} seconds; sending final program step")
-                self.end()
+                    f"Program completed after {elapsed} seconds; sending final program step")
+            self.end()
 
             try:
                 if original_sigint is not None:
@@ -1646,8 +1673,9 @@ class Program():
     def end(self) -> None:
 
         pilot = Pilot.from_json(self._current_program[-1])
-        self.wizController.resetCommands()
-        self.wizController.setPilot(pilot.to_payload()).perform()
+        for controller in self.controllers:
+            controller.resetCommands()
+            controller.setPilot(pilot.to_payload()).perform()
 
     @staticmethod
     def from_json(json_: dict) -> 'Program':
@@ -1670,11 +1698,11 @@ class Program():
             "phase_shift": self.phase_shift,
             "start_time": self.start_time,
             "duration": self.duration,
-            "ip_addresses": self.wizController.ip_addresses
+            "ip_addresses": self.ip_addresses
         }
 
     def __str__(self):
-        return f"Program(controller={self.wizController}, programId={self.programID}, duration={self.duration}, dimming={self.dimming}, phase_shift={self.phase_shift}, start_time={self.start_time})"
+        return f"Program(controllers={self.controllers}, programId={self.programID}, duration={self.duration}, dimming={self.dimming}, phase_shift={self.phase_shift}, start_time={self.start_time})"
 
 
 class WizDeviceCLI():

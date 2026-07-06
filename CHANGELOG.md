@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.0.3 (2026-07-06)
+- Added unit tests for program controller logic and Wiz module helpers
+- Refactored phase-shifted program execution to use dedicated controllers for each bulb
+
 ## v1.0.2 (2026-07-05)
 - Cleaned up unused translation/message keys in the addon resources
 
