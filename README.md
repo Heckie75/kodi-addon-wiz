@@ -19,11 +19,16 @@ A Kodi addon for discovering and controlling WiZ smart lighting and socket devic
 
 ## Installation
 
-1. install addon by selecting the zip file, e.g. script.wiz.1.0.3.zip
+1. install addon by selecting the zip file, e.g. script.wiz.1.0.5.zip
 2. Enable the addon from Kodi's addon browser if needed.
 
 ## Version History
 
+- v1.0.4 (2026-09-29)
+  - Added Python 3.8 compatibility for type annotations
+  - Added Windows and Python 3.8 test coverage
+  - Fixed f-string syntax that prevented imports on Python 3.8
+  - Added compile checks for all Python modules in CI
 - v1.0.3 (2026-07-06)
   - Added unit tests for program controller logic and Wiz module helpers
   - Refactored phase-shifted program execution to use dedicated controllers for each device
@@ -39,8 +44,8 @@ A Kodi addon for discovering and controlling WiZ smart lighting and socket devic
 
 This repository creates a GitHub release automatically whenever a tag matching `v*` is pushed.
 
-- Tag a release version locally, for example: `git tag v1.0.3`
-- Push the tag: `git push origin v1.0.3`
+- Tag a release version locally, for example: `git tag v1.0.5`
+- Push the tag: `git push origin v1.0.5`
 - GitHub Actions will build `script.wiz.<version>.zip` and attach it to the release.
 
 ## Usage

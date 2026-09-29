@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import base64
 import json
 
@@ -180,7 +182,7 @@ class FavoriteManager:
         icon_path = getIconPath(icon)
         encoded_request = base64.urlsafe_b64encode(
             json.dumps(request).encode()).decode()
-        path = f"plugin://{self.addon.getAddonInfo("id")}/?cmd=run_fav&request={encoded_request}"
+        path = f"plugin://{self.addon.getAddonInfo('id')}/?cmd=run_fav&request={encoded_request}"
 
         payload = {
             "jsonrpc": "2.0",

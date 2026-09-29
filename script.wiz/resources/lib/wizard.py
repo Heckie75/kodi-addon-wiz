@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import time
 from datetime import datetime
 
@@ -570,7 +572,7 @@ class Wizard():
             options.append(util.createListItem(
                 label=", ".join([settings_util.get_name_by_IP(ip)
                                 for ip in program.ip_addresses]),
-                label2=f"{program.programID}, {datetime.fromtimestamp(program.start_time).strftime("%H:%M")}, {program.duration // 60}m, {elapsed}%",
+                label2=f"{program.programID}, {datetime.fromtimestamp(program.start_time).strftime('%H:%M')}, {program.duration // 60}m, {elapsed}%",
                 icon=Wizard.PROGRAM_ICONS[program.programID],
                 command=[program.ip_addresses[0]] if program.ip_addresses else []))
 

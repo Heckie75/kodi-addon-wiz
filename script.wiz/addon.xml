@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="script.wiz" name="WiZ Control" version="1.0.3"
+<addon id="script.wiz" name="WiZ Control" version="1.0.4"
 	provider-name="Heckie">
 	<requires>
 		<import addon="xbmc.python" version="3.0.0" />
@@ -19,6 +19,9 @@
 		<email></email>
 		<source>https://github.com/heckie75/kodi-addon-wiz</source>
 		<news>
+			v1.0.4 (2026-09-29)
+			- Added Python 3.8 compatibility for type annotations and fixed f-string syntax
+			- Added Windows and Python 3.8 test coverage and compile checks for all Python modules in CI
 			v1.0.3 (2026-07-06)
 			- Added unit tests for program controller logic and Wiz module helpers
 			- Refactored phased programs to use multiple controllers and simplified pilot dispatch

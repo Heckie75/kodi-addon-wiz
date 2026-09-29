@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.0.4 (2026-09-29)
+- Added Python 3.8 compatibility for type annotations
+- Added Windows and Python 3.8 test coverage
+- Fixed f-string syntax that prevented imports on Python 3.8
+- Added compile checks for all Python modules in CI
+
 ## v1.0.3 (2026-07-06)
 - Added unit tests for program controller logic and Wiz module helpers
 - Refactored phase-shifted program execution to use dedicated controllers for each bulb
