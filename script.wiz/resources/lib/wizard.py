@@ -453,8 +453,7 @@ class Wizard():
             selectedcolor = _transform(hexstr)
 
         r, g, b = selectedcolor[1], selectedcolor[2], selectedcolor[3]
-        self.controller.withColor(
-            red=r, green=g, blue=b, white=selectedcolor[0])
+        self.controller.withColor(red=r, green=g, blue=b).withWhite(cold=0, warm=selectedcolor[0])
 
         return True
 
@@ -566,15 +565,16 @@ class Wizard():
         now = time.time()
 
         for program in programs:
+            ip_addresses = program.wizController.ip_addresses
 
             elapsed = int((now - program.start_time) / program.duration * 100)
 
             options.append(util.createListItem(
                 label=", ".join([settings_util.get_name_by_IP(ip)
-                                for ip in program.ip_addresses]),
+                                for ip in ip_addresses]),
                 label2=f"{program.programID}, {datetime.fromtimestamp(program.start_time).strftime('%H:%M')}, {program.duration // 60}m, {elapsed}%",
                 icon=Wizard.PROGRAM_ICONS[program.programID],
-                command=[program.ip_addresses[0]] if program.ip_addresses else []))
+                command=[ip_addresses[0]] if ip_addresses else []))
 
         selection = xbmcgui.Dialog().select(
             heading=self.addon.getLocalizedString(32548), list=options, useDetails=True)
@@ -591,7 +591,7 @@ class Wizard():
         def _is_intersect(programs: list[wiz.Program], ip_addresses: list[str]) -> bool:
 
             for program in programs:
-                if not set(ip_addresses).isdisjoint(program.ip_addresses):
+                if not set(ip_addresses).isdisjoint(program.wizController.ip_addresses):
                     return True
 
             return False

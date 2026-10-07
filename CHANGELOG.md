@@ -1,5 +1,8 @@
 # Changelog
 
+## v1.0.5 (2026-10-07)
+- Improved the wakeup program with a staged color and brightness progression and a wakeup scene transition
+
 ## v1.0.4 (2026-09-29)
 - Added Python 3.8 compatibility for type annotations
 - Added Windows and Python 3.8 test coverage

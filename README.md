@@ -24,6 +24,8 @@ A Kodi addon for discovering and controlling WiZ smart lighting and socket devic
 
 ## Version History
 
+- v1.0.5 (2026-10-07)
+  - Improved the wakeup program with a staged color and brightness progression and a wakeup scene transition
 - v1.0.4 (2026-09-29)
   - Added Python 3.8 compatibility for type annotations
   - Added Windows and Python 3.8 test coverage
@@ -73,4 +75,3 @@ This repository creates a GitHub release automatically whenever a tag matching `
 ## License
 
 This project is released under the MIT License. See `LICENSE` for details.
-

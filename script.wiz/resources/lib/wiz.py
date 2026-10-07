@@ -497,6 +497,7 @@ class Pilot():
         self.r: int = 0
         self.g: int = 0
         self.b: int = 0
+        self.c: int = 0
         self.w: int = 0
         self.dimming: int = 0
 
@@ -532,6 +533,10 @@ class Pilot():
         if "b" in json_data:
             pilot.b = json_data["b"]
             pilot._provided_fields.add("b")
+
+        if "c" in json_data:
+            pilot.c = json_data["c"]
+            pilot._provided_fields.add("c")
 
         if "w" in json_data:
             pilot.w = json_data["w"]
@@ -632,6 +637,7 @@ class Pilot():
             "r": self.r,
             "g": self.g,
             "b": self.b,
+            "c": self.c,
             "w": self.w,
             "dimming": self.dimming,
             "sceneId": self.sceneId,
@@ -644,7 +650,7 @@ class Pilot():
         """Return only the fields that were explicitly provided, suitable for setPilot payloads."""
 
         payload = {}
-        for key in ["state", "temp", "r", "g", "b", "w", "dimming", "sceneId", "speed"]:
+        for key in ["state", "temp", "r", "g", "b", "c", "w", "dimming", "sceneId", "speed"]:
             if key in self._provided_fields:
                 payload[key] = getattr(self, key)
 
@@ -661,7 +667,7 @@ class Pilot():
         return self.to_dict() == second.to_dict()
 
     def __str__(self):
-        return f"Pilot(state={self.state}, temp={self.temp}, r={self.r}, g={self.g}, b={self.b}, w={self.w}, dimming={self.dimming}, sceneId={self.sceneId}, speed={self.speed}, rssi={self.rssi}, mac={self.mac})"
+        return f"Pilot(state={self.state}, temp={self.temp}, r={self.r}, g={self.g}, b={self.b}, c={self.c}, w={self.w}, dimming={self.dimming}, sceneId={self.sceneId}, speed={self.speed}, rssi={self.rssi}, mac={self.mac})"
 
 
 class Power():
@@ -1003,7 +1009,7 @@ class WizDeviceController():
             self.commands["setPilot"] = {}
 
         for p in properties:
-            if p not in ["state", "temp", "r", "g", "b", "dimming", "sceneId", "speed"]:
+            if p not in ["state", "temp", "r", "g", "b", "c", "w", "dimming", "sceneId", "speed"]:
                 continue
             if p in ["temp", "speed", "dimming", "sceneId"] and properties[p] == 0:
                 continue
@@ -1026,9 +1032,14 @@ class WizDeviceController():
         self.setPilot(properties={"dimming": dimming})
         return self
 
-    def withColor(self, red: int = 0, green: int = 0, blue: int = 0, white: int = 0) -> 'WizDeviceController':
+    def withColor(self, red: int = 0, green: int = 0, blue: int = 0) -> 'WizDeviceController':
 
-        self.setPilot(properties={"r": red, "g": green, "b": blue, "w": white})
+        self.setPilot(properties={"r": red, "g": green, "b": blue})
+        return self
+
+    def withWhite(self, cold: int, warm: int) -> 'WizDeviceController':
+
+        self.setPilot(properties={"c": cold, "w": warm})
         return self
 
     def withScene(self, scene: str) -> 'WizDeviceController':
@@ -1206,6 +1217,25 @@ class WizDeviceController():
 
         self.resetCommands()
 
+    def runProgram(self, program: 'Program', interval: int = 1) -> 'WizDeviceController':
+        """Run a program and return this controller for compatibility with the fluent API."""
+
+        program.initialize().start(interval=interval)
+        return self
+
+    def runProgramByName(self, programID: str, duration: int, dimming: int | None = None,
+                         phase_shift: int | str = 0, interval: int = 1) -> 'WizDeviceController':
+        """Create and run a named program using this controller."""
+
+        program = Program(
+            wizController=self,
+            programID=programID,
+            duration=duration,
+            dimming=dimming,
+            phase_shift=phase_shift,
+        )
+        return self.runProgram(program, interval=interval)
+
     def __str__(self):
         return f"WizDeviceController(ip_addresses={self.ip_addresses}, commands={self.commands}, devices={self.devices})"
 
@@ -1247,11 +1277,11 @@ class Program():
             _END: {"state": False, "dimming": 10}
         },
         PROGRAM_WAKEUP: {
-            _BEGIN: {"r": 0, "g": 0, "b": 0, "w": 0, "dimming": 10},
-            16: {"r": 0, "g": 0, "b": 20, "w": 0, "dimming": 20},
-            24: {"r": 0, "g": 60, "b": 255, "w": 0, "dimming": 60},
-            59: {"r": 255, "g": 255, "b": 255, "w": 50, "dimming": 100},
-            60: {"r": 0, "g": 0, "b": 0, "w": 0, "dimming": 10},
+            _BEGIN: {"r": 0, "g": 0, "b": 0, "w": 0, "c": 0, "dimming": 10},
+            15: {"r": 255, "g": 31, "b": 31, "w": 0, "c": 0, "dimming": 15},
+            25: {"r": 255, "g": 31, "b": 31, "w": 0, "c": 7, "dimming": 30},
+            30: {"sceneId": 9},
+            60: {"r": 0, "g": 0, "b": 0, "w": 0, "dimming": 0},
             _END: {"state": False, "r": 0, "g": 0,
                    "b": 0, "w": 0, "dimming": 10}
         },
@@ -1377,7 +1407,7 @@ class Program():
         }
     }
 
-    def __init__(self, wizController: WizDeviceController, programID: str, duration: int, dimming: int | None = None, phase_shift: int = 0) -> None:
+    def __init__(self, wizController: WizDeviceController, programID: str, duration: int, dimming: int | None = None, phase_shift: int | str = 0, currentPilot: Pilot | None = None) -> None:
 
         if programID not in Program.PROGRAMS:
             raise ValueError(f"Invalid program ID: {programID}")
@@ -1398,6 +1428,12 @@ class Program():
 
         self.programID: int = programID
         self.dimming: int | None = dimming
+        if isinstance(phase_shift, str) and phase_shift.lower() == "auto":
+            device_count = len(wizController.ip_addresses)
+            phase_shift = duration // device_count if device_count > 1 else 0
+        elif isinstance(phase_shift, str):
+            phase_shift = int(phase_shift)
+
         self.phase_shift: int = phase_shift
         self.start_time: float = 0
         self.duration: int = duration
@@ -1406,63 +1442,16 @@ class Program():
             programID, {}).copy()
         max_time: int = max(max(self._current_program.keys()), 1)
         self._time_factor: float = max_time / duration
+        self._last_step: int = Program._BEGIN
 
-        self.controllers: list[WizDeviceController] = self._build_controllers(wizController)
+        self.wizController: WizDeviceController = wizController
         self._last_pilots: dict[int, Pilot] = {}
-
-    def _build_controllers(self, wizController: WizDeviceController) -> list[WizDeviceController]:
-
-        ip_addresses = list(wizController.ip_addresses)
-        if self.phase_shift > 0 and len(ip_addresses) > 1:
-            return [WizDeviceController(ip_addresses=[ip_address]) for ip_address in ip_addresses]
-
-        return [WizDeviceController(ip_addresses=ip_addresses)]
-
-    @property
-    def ip_addresses(self) -> list[str]:
-
-        addresses: list[str] = []
-        for controller in self.controllers:
-            for ip_address in controller.ip_addresses:
-                if ip_address not in addresses:
-                    addresses.append(ip_address)
-
-        return addresses
-
-    def has_ip_address(self, ip_address: str) -> bool:
-
-        return ip_address in self.ip_addresses
-
-    def add_ip_addresses(self, ip_addresses: list[str]) -> None:
-
-        if self.phase_shift > 0 and len(self.controllers) > 1:
-            for ip_address in ip_addresses:
-                if self.has_ip_address(ip_address):
-                    continue
-                self.controllers.append(WizDeviceController(ip_addresses=[ip_address]))
-            return
-
-        if not self.controllers:
-            self.controllers = [WizDeviceController(ip_addresses=[])]
-
-        for ip_address in ip_addresses:
-            if ip_address not in self.controllers[0].ip_addresses:
-                self.controllers[0].ip_addresses.append(ip_address)
-
-    def remove_ip_address(self, ip_address: str) -> None:
-
-        remaining_controllers: list[WizDeviceController] = []
-        for controller in self.controllers:
-            if ip_address in controller.ip_addresses:
-                controller.ip_addresses.remove(ip_address)
-            if controller.ip_addresses:
-                remaining_controllers.append(controller)
-
-        self.controllers = remaining_controllers
+        self._initial_pilot = currentPilot
 
     def reset(self) -> None:
 
-        self._time = Program._BEGINelapsed
+        self._time = Program._BEGIN
+        self._last_step: int = Program._BEGIN
 
     def get_pilot(self, time_: int, device_index: int = 0) -> Pilot:
 
@@ -1474,6 +1463,10 @@ class Program():
         if effective_time <= 0 or effective_time >= self.duration:
             return Pilot.from_json(self._current_program[current_step]) if current_step is not None else None
 
+        if current_step != self._last_step:
+            self._last_step = current_step
+            return Pilot.from_json(self._current_program[current_step]) 
+
         pilot = self.interpolate(effective_time, current_step, next_step)
 
         return pilot
@@ -1483,7 +1476,7 @@ class Program():
         duration_of_step = max(next_step, current_step + 1) - current_step
         progress_in_step = time_ - current_step / self._time_factor
 
-        interpolable_keys = ["r", "g", "b", "w", "dimming", "temp"]
+        interpolable_keys = ["r", "g", "b", "c", "w", "dimming", "temp"]
         interpolated_values = {}
 
         for key in interpolable_keys:
@@ -1496,8 +1489,7 @@ class Program():
             start_value = self._current_program[current_step].get(key, 0)
             end_value = self._current_program[next_step].get(
                 key, 0) if next_step is not None else start_value
-            interpolated_value = int(start_value + (end_value - start_value) * (
-                progress_in_step / duration_of_step) * self._time_factor)
+            interpolated_value = int(start_value + (end_value - start_value) * progress_in_step * self._time_factor / duration_of_step)
 
             if key == "dimming":
                 interpolated_value = int((interpolated_value + 5) // 10 * 10)
@@ -1551,36 +1543,60 @@ class Program():
 
     def performPilot(self, elapsed: int) -> None:
 
-        if not self.controllers:
+        if not self.wizController.ip_addresses:
             return
 
-        for device_index, controller in enumerate(self.controllers):
-            pilot = self.get_pilot(elapsed, device_index=device_index)
+        if self.phase_shift > 0 and len(self.wizController.ip_addresses) > 1:
+            LOGGER.debug(
+                f"Performing program '{self.programID}' with phase shift {self.phase_shift} sec for {len(self.wizController.ip_addresses)} devices")
+
+            for device_index, ip_address in enumerate(self.wizController.ip_addresses):
+                pilot = self.get_pilot(elapsed, device_index=device_index)
+                if pilot is None:
+                    continue
+
+                last_pilot = self._last_pilots.get(device_index)
+                if not pilot.equals(last_pilot):
+                    LOGGER.debug(
+                        f"Sending pilot for program duration {self.duration} sec at elapsed {elapsed} sec to {ip_address} (phase offset {self.phase_shift * device_index})")
+                    original_ip_addresses = list(self.wizController.ip_addresses)
+                    try:
+                        self.wizController.ip_addresses = [ip_address]
+                        self.wizController.resetCommands()
+                        self.wizController.setPilot(pilot.to_payload()).perform()
+                    finally:
+                        self.wizController.ip_addresses = original_ip_addresses
+
+                self._last_pilots[device_index] = pilot
+                
+        else:
+            pilot = self.get_pilot(elapsed)
             if pilot is None:
-                continue
+                return
 
-            last_pilot = self._last_pilots.get(device_index)
-            if not pilot.equals(last_pilot):
+            if not pilot.equals(self._last_pilots.get(0)):
                 LOGGER.debug(
-                    f"Sending pilot for program duration {self.duration} sec at elapsed {elapsed} sec to {controller.ip_addresses[0] if controller.ip_addresses else 'no target'}")
-                controller.resetCommands()
-                controller.setPilot(pilot.to_payload()).perform()
+                    f"Sending pilot for program duration {self.duration} sec at elapsed {elapsed} sec to {len(self.wizController.ip_addresses)} devices")
+                self.wizController.resetCommands()
+                self.wizController.setPilot(pilot.to_payload()).perform()
 
-            self._last_pilots[device_index] = pilot
+            self._last_pilots[0] = pilot
 
     def initialize(self, offset: int = 0) -> 'Program':
 
         if self.programID in Program.PROGRAMS_STARTING_FROM_CURRENT:
-            controller = self.controllers[0]
-            controller.resetCommands()
-            controller.getPilot().perform()
+            if self._initial_pilot:
+                current_pilot = self._initial_pilot.to_dict()
+            else:
+                self.wizController.resetCommands()
+                self.wizController.getPilot().perform()
 
-            if not controller.devices or not controller.devices[0].pilot:
-                raise WizDeviceException(
-                    f"Unable to get current pilot for program '{self.programID}'"
-                )
+                if not self.wizController.devices or not self.wizController.devices[0].pilot:
+                    raise WizDeviceException(
+                        f"Unable to get current pilot for program '{self.programID}'"
+                    )
 
-            current_pilot = controller.devices[0].pilot.to_dict()
+                current_pilot = self.wizController.devices[0].pilot.to_dict()
             for k in ["r", "g", "b", "w", "c", "dimming"]:
                 if k in current_pilot and k in self._current_program[Program._BEGIN]:
                     self._current_program[Program._BEGIN][k] = current_pilot[k]
@@ -1656,10 +1672,12 @@ class Program():
             if interrupted:
                 LOGGER.info(
                     f"Program interrupted after {elapsed} seconds; sending final program step")
-            else:
+                self.end()
+            
+            elif self.phase_shift > 0 and len(self.wizController.ip_addresses) > 1:
                 LOGGER.info(
-                    f"Program completed after {elapsed} seconds; sending final program step")
-            self.end()
+                    f"Program with phase shift completed after {elapsed} seconds; sending final program step")
+                self.end()
 
             try:
                 if original_sigint is not None:
@@ -1675,9 +1693,8 @@ class Program():
     def end(self) -> None:
 
         pilot = Pilot.from_json(self._current_program[-1])
-        for controller in self.controllers:
-            controller.resetCommands()
-            controller.setPilot(pilot.to_payload()).perform()
+        self.wizController.resetCommands()
+        self.wizController.setPilot(pilot.to_payload()).perform()
 
     @staticmethod
     def from_json(json_: dict) -> 'Program':
@@ -1700,11 +1717,11 @@ class Program():
             "phase_shift": self.phase_shift,
             "start_time": self.start_time,
             "duration": self.duration,
-            "ip_addresses": self.ip_addresses
+            "ip_addresses": self.wizController.ip_addresses
         }
 
     def __str__(self):
-        return f"Program(controllers={self.controllers}, programId={self.programID}, duration={self.duration}, dimming={self.dimming}, phase_shift={self.phase_shift}, start_time={self.start_time})"
+        return f"Program(controller={self.wizController}, programId={self.programID}, duration={self.duration}, dimming={self.dimming}, phase_shift={self.phase_shift}, start_time={self.start_time})"
 
 
 class WizDeviceCLI():
@@ -1744,6 +1761,12 @@ class WizDeviceCLI():
             )
 
         return minutes * 60
+
+    @staticmethod
+    def parse_program_phase_shift(arg: str) -> int | str:
+        """Parse a phase shift in seconds or calculate it automatically."""
+
+        return "auto" if arg.lower() == "auto" else int(arg)
 
     COMMANDS: dict[str, dict[str, object]] = {
         "aliases": {
@@ -1803,14 +1826,20 @@ class WizDeviceCLI():
             _ACTION: lambda controller, params: controller.withDimming(dimming=params[0]),
         },
         "color": {
-            _USAGE: "--color <red> <green> <blue> [<shite>]",
+            _USAGE: "--color <red> <green> <blue>",
             _DESCR: "set color, each value 0 - 255",
-            _REGEX: r"^%s %s %s( %s)?$" % (_REG_255, _REG_255, _REG_255, _REG_255),
-            _TYPES: [int, int, int, int],
+            _REGEX: r"^%s %s %s$" % (_REG_255, _REG_255, _REG_255),
+            _TYPES: [int, int, int],
             _ACTION: lambda controller, params: controller.withColor(
-                red=params[0], green=params[1], blue=params[2], white=params[3] if len(
-                    params) == 4 else 0
+                red=params[0], green=params[1], blue=params[2]
             ),
+        },
+        "white": {
+            _USAGE: "--white <cold> <warm>",
+            _DESCR: "set cold-white (c) and warm-white (w) levels, each value 0 - 255",
+            _REGEX: r"^%s %s$" % (_REG_255, _REG_255),
+            _TYPES: [int, int],
+            _ACTION: lambda controller, params: controller.withWhite(cold=params[0], warm=params[1]),
         },
         "scene": {
             _USAGE: "--scene <id/name>",
@@ -1835,9 +1864,9 @@ class WizDeviceCLI():
         },
         "program": {
             _USAGE: "--program <name> <duration> [<dimming>] [<phase_shift>]",
-            _DESCR: "run a built-in program for a duration in minutes or HH:MM (24:00 supported)\n- supported names: %s\n- phase shift: optional seconds between multiple devices, e.g. 30 means each next device starts 30 seconds ahead" % ", ".join(sorted(Program.PROGRAMS.keys())),
-            _REGEX: r"^(%s) ((?:[1-9][0-9]{0,3})|(?:[01]?\d:[0-5]\d)|(?:2[0-3]:[0-5]\d)|24:00)(?: ((?:[1-9][0-9]|100)))?(?: (-?\d+))?$" % "|".join([re.escape(name) for name in Program.PROGRAMS]),
-            _TYPES: [str, parse_program_duration, int, int],
+            _DESCR: "run a built-in program for a duration in minutes or HH:MM (24:00 supported)\n- supported names: %s\n- phase shift: optional seconds between multiple devices, or 'auto' to divide the runtime evenly" % ", ".join(sorted(Program.PROGRAMS.keys())),
+            _REGEX: r"^(%s) ((?:[1-9][0-9]{0,3})|(?:[01]?\d:[0-5]\d)|(?:2[0-3]:[0-5]\d)|24:00)(?: ((?:[1-9][0-9]|100)))?(?: (-?\d+|auto))?$" % "|".join([re.escape(name) for name in Program.PROGRAMS]),
+            _TYPES: [str, parse_program_duration, int, parse_program_phase_shift],
             _ACTION: lambda controller, params: Program(controller, params[0], duration=params[1], dimming=params[2] if len(params) > 2 else None, phase_shift=params[3] if len(params) > 3 else 0).initialize().start(),
         },
         "register": {
@@ -2054,6 +2083,7 @@ USAGE:   wiz.py <ip_1/alias_1> [<ip_2/alias_2>] ... --<command_1> [<param_1> <pa
         help += self._build_help(command="temp")
         help += self._build_help(command="dimming")
         help += self._build_help(command="color")
+        help += self._build_help(command="white")
 
         help += "\n\nSet scene:"
         help += self._build_help(command="scene")
@@ -2114,6 +2144,10 @@ USAGE:   wiz.py <ip_1/alias_1> [<ip_2/alias_2>] ... --<command_1> [<param_1> <pa
             elif device.pilot.r:
                 print(
                     f"    Color:               {device.pilot.color_str()}")
+
+            if device.pilot.w or device.pilot.c:
+                print(f"    Cold white (c):      {device.pilot.c}")
+                print(f"    Warm white (w):      {device.pilot.w}")
 
             if device.pilot.sceneId:
                 print(
