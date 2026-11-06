@@ -1,5 +1,8 @@
 # Changelog
 
+## v1.0.6 (2026-11-06)
+- Fixed settings updates for running programs by restoring IP-address target handling
+
 ## v1.0.5 (2026-10-07)
 - Improved the wakeup program with a staged color and brightness progression and a wakeup scene transition
 

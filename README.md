@@ -19,11 +19,13 @@ A Kodi addon for discovering and controlling WiZ smart lighting and socket devic
 
 ## Installation
 
-1. install addon by selecting the zip file, e.g. script.wiz.1.0.5.zip
+1. install addon by selecting the zip file, e.g. script.wiz.1.0.6.zip
 2. Enable the addon from Kodi's addon browser if needed.
 
 ## Version History
 
+- v1.0.6 (2026-11-06)
+  - Fixed settings updates for running programs by restoring IP-address target handling
 - v1.0.5 (2026-10-07)
   - Improved the wakeup program with a staged color and brightness progression and a wakeup scene transition
 - v1.0.4 (2026-09-29)
@@ -46,8 +48,8 @@ A Kodi addon for discovering and controlling WiZ smart lighting and socket devic
 
 This repository creates a GitHub release automatically whenever a tag matching `v*` is pushed.
 
-- Tag a release version locally, for example: `git tag v1.0.5`
-- Push the tag: `git push origin v1.0.5`
+- Tag a release version locally, for example: `git tag v1.0.6`
+- Push the tag: `git push origin v1.0.6`
 - GitHub Actions will build `script.wiz.<version>.zip` and attach it to the release.
 
 ## Usage

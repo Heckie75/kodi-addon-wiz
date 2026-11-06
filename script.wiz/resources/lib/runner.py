@@ -48,7 +48,7 @@ class WizRunner(xbmc.Monitor):
                         xbmc.log(
                             f"[script.wiz] halted program {halt_program} for IP {ip_address}", xbmc.LOGINFO)
 
-                    if not program.controllers:
+                    if not program.ip_addresses:
                         xbmc.log(
                             f"[script.wiz] no more target IPs for program {program}, stopping it", xbmc.LOGINFO)
                         self._programs.remove(program)
@@ -157,7 +157,7 @@ class WizRunner(xbmc.Monitor):
                         longest_running = max(
                             program.start_time + program.duration, longest_running)
 
-            if self.waitForAbort(max(.1, 1 - (time.time() - before_perform)) + (0 if self._programs else 4)):
+            if self.waitForAbort(max(.1, 1 - (time.time() - before_perform)) + (0 if self._programs else 2)):
                 break
 
         for program in self._programs:

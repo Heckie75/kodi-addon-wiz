@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="script.wiz" name="WiZ Control" version="1.0.5"
+<addon id="script.wiz" name="WiZ Control" version="1.0.6"
 	provider-name="Heckie">
 	<requires>
 		<import addon="xbmc.python" version="3.0.0" />
@@ -19,6 +19,8 @@
 		<email></email>
 		<source>https://github.com/heckie75/kodi-addon-wiz</source>
 		<news>
+			v1.0.6 (2026-11-06)
+			- Fixed settings updates for running programs by restoring IP-address target handling
 			v1.0.5 (2026-10-07)
 			- Improved the wakeup program with a staged color and brightness progression and a wakeup scene transition
 			v1.0.4 (2026-09-29)

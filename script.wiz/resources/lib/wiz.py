@@ -1448,6 +1448,26 @@ class Program():
         self._last_pilots: dict[int, Pilot] = {}
         self._initial_pilot = currentPilot
 
+    @property
+    def ip_addresses(self) -> list[str]:
+
+        return self.wizController.ip_addresses
+
+    def has_ip_address(self, ip_address: str) -> bool:
+
+        return ip_address in self.ip_addresses
+
+    def add_ip_addresses(self, ip_addresses: list[str]) -> None:
+
+        for ip_address in ip_addresses:
+            if not self.has_ip_address(ip_address):
+                self.ip_addresses.append(ip_address)
+
+    def remove_ip_address(self, ip_address: str) -> None:
+
+        if self.has_ip_address(ip_address):
+            self.ip_addresses.remove(ip_address)
+
     def reset(self) -> None:
 
         self._time = Program._BEGIN
