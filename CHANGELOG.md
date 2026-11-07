@@ -1,5 +1,8 @@
 # Changelog
 
+## v1.0.7 (2026-11-07)
+- Fixed phase shifts when devices join a running infinite program
+
 ## v1.0.6 (2026-11-06)
 - Fixed settings updates for running programs by restoring IP-address target handling
 

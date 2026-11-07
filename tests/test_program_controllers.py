@@ -16,12 +16,14 @@ class FakeController:
         self.reset_calls = 0
         self.perform_calls = 0
         self.payloads: list[dict] = []
+        self.payload_targets: list[list[str]] = []
 
     def resetCommands(self) -> None:
         self.reset_calls += 1
 
     def setPilot(self, payload: dict) -> "FakeController":
         self.payloads.append(payload)
+        self.payload_targets.append(list(self.ip_addresses))
         return self
 
     def perform(self) -> None:
@@ -127,6 +129,53 @@ def test_infinite_program_wraps_elapsed_time() -> None:
     pilot_at_25 = program.get_pilot(25)
 
     assert pilot_at_5.to_dict() == pilot_at_25.to_dict()
+
+
+def test_joining_infinite_program_restarts_with_even_phase_shift(monkeypatch) -> None:
+    controller = FakeController(["192.168.0.10"])
+    program = Program(controller, programID=Program.PROGRAM_INFINITE, duration=120)
+    program.start_time = 100
+    program.performPilot(elapsed=30)
+    monkeypatch.setattr("wiz.time.time", lambda: 200)
+
+    program.add_ip_addresses(["192.168.0.11"])
+
+    assert program.start_time == 200
+    assert program.phase_shift == 60
+    assert program._last_pilots == {}
+    program.performPilot(elapsed=0)
+    assert controller.payload_targets[-2:] == [["192.168.0.10"], ["192.168.0.11"]]
+    assert controller.payloads[-2] != controller.payloads[-1]
+
+
+def test_infinite_program_join_redistributes_and_ignores_duplicates(monkeypatch) -> None:
+    controller = FakeController(["192.168.0.10", "192.168.0.11"])
+    program = Program(controller, programID=Program.PROGRAM_INFINITE, duration=120, phase_shift=60)
+    program.start_time = 100
+    monkeypatch.setattr("wiz.time.time", lambda: 200)
+
+    program.add_ip_addresses(["192.168.0.11"])
+    assert program.start_time == 100
+    assert program.phase_shift == 60
+
+    program.add_ip_addresses(["192.168.0.11", "192.168.0.12"])
+    assert program.start_time == 200
+    assert program.phase_shift == 40
+    program.performPilot(elapsed=5)
+    assert controller.payload_targets == [["192.168.0.10"], ["192.168.0.11"], ["192.168.0.12"]]
+    assert len({(payload["r"], payload["g"], payload["b"]) for payload in controller.payloads}) == 3
+
+
+def test_infinite_phase_interpolation_is_independent_of_previous_device() -> None:
+    program = Program(FakeController(["192.168.0.10", "192.168.0.11"]),
+                      programID=Program.PROGRAM_INFINITE, duration=120, phase_shift=60)
+
+    second_first = program.get_pilot(5, device_index=1).to_payload()
+    program.get_pilot(5, device_index=0)
+    second_again = program.get_pilot(5, device_index=1).to_payload()
+
+    assert second_first == second_again
+    assert second_first == {"r": 255, "g": 191, "b": 0}
 
 
 def test_sunrise_program_dimming_increases_between_intervals() -> None:
